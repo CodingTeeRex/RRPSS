@@ -16,11 +16,9 @@ public class MainMenuUI extends UI {
         do {
             this.displayMenu(restaurantName);
             choice = getInput();
-            System.out.println("choice: " + choice);
 
             switch (choice) {
             case 1:
-                System.out.println("here");
                 orderMenu.run();
                 break;
             case 2:
