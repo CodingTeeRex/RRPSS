@@ -2,7 +2,7 @@ import Entity.Restaurant;
 
 public class app {
 	public static void main(String[] args) {
-		String RESTAURANT_NAME = "McDonalds";
+		String RESTAURANT_NAME = "McDonalds"; // TODO: think of a restaurant name
 		int totalEmployess = 20;
 		int totalTables = 15;
 
