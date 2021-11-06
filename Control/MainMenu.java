@@ -1,6 +1,7 @@
 package Control;
 
 import Boundary.*;
+import Entity.Restaurant;
 
 public class MainMenu {
 	private MainMenuUI mainMenuUI = new MainMenuUI();
@@ -10,14 +11,15 @@ public class MainMenu {
 	private ReservationUI reservationMenu = new ReservationUI();
 	private CustomerUI customerMenu = new CustomerUI();
 	private PaymentUI paymentMenu = new PaymentUI();
+	private TableUI tableMenu = new TableUI();
 
-	public void run(String restaurantName) {
+	public void run(Restaurant restaurant) {
 		int choice = -1;
 
 		// App loop
 		while (true) {
 
-			mainMenuUI.displayMenu(restaurantName);
+			mainMenuUI.displayMenu(restaurant.getName());
 			choice = mainMenuUI.getInput();
 
 			switch (choice) {
@@ -40,12 +42,13 @@ public class MainMenu {
 					customerMenu.run();
 					break;
 				case 7:
-					// TODO: Print sales report
+					tableMenu.run();
 					break;
 				default:
 					System.out.println("Sytem Shutting Down...");
 					break;
 			}
+
 			if (choice >= 8) break;
 		}
 	}

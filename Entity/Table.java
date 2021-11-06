@@ -1,49 +1,51 @@
-// public class Table {
+package Entity;
 
-// 	private int tableID;
-// 	private Boolean isBooked;
-// 	private HashMap<Integer, Table> tableList;
+public class Table {
+    private int id;
+    private int seats;
+    private Boolean booked;
 
-// 	public int getTableID() {
-// 		return this.tableID;
-// 	}
+    public Table(int id, int seats) {
+        this.id = id;
+        this.seats = seats;
+        this.booked = false;
+    }
 
-// 	/**
-// 	 * 
-// 	 * @param tableID
-// 	 */
-// 	public void setTableID(int tableID) {
-// 		this.tableID = tableID;
-// 	}
+    public int getId() {
+        return this.id;
+    }
 
-// 	public Boolean getIsBooked() {
-// 		return this.isBooked;
-// 	}
+    public int getSeats() {
+        return this.seats;
+    }
 
-// 	/**
-// 	 * 
-// 	 * @param isBooked
-// 	 */
-// 	public void setIsBooked(Boolean isBooked) {
-// 		this.isBooked = isBooked;
-// 	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-// 	/**
-// 	 * 
-// 	 * @param id
-// 	 */
-// 	public void newTable(int id) {
-// 		// TODO - implement Table.newTable
-// 		throw new UnsupportedOperationException();
-// 	}
+    public void setSeats(int seats) {
+        if (seats < 2 || seats > 11) {
+            throw new IllegalArgumentException("Number of seats must be minimum 2 and maximum 10");
+        } else {
+            this.seats = seats;
+        }
+    }
 
-// 	/**
-// 	 * 
-// 	 * @param id
-// 	 */
-// 	public void removeTable(int id) {
-// 		// TODO - implement Table.removeTable
-// 		throw new UnsupportedOperationException();
-// 	}
+    public Boolean isBooked() {
+        return this.booked;
+    }
 
-// }
+    public void bookTable() {
+        this.booked = true;
+        System.out.println(this.id + " booked successfully.");
+    }
+
+    public void removeBooking() {
+        if (this.booked) {
+            this.booked = !this.booked;
+            System.out.println(this.id + " removed booking.");
+        } else {
+            System.out.println("Table has not been booked. Cannot remove booking.");
+        }
+    }
+}
