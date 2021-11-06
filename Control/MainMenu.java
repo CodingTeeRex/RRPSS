@@ -11,10 +11,11 @@ public class MainMenu {
 	private CustomerUI customerMenu = new CustomerUI();
 	private PaymentUI paymentMenu = new PaymentUI();
 
-	public Boolean run(String restaurantName) {
+	public void run(String restaurantName) {
 		int choice = -1;
 
-		do {
+		// App loop
+		while (true) {
 
 			mainMenuUI.displayMenu(restaurantName);
 			choice = mainMenuUI.getInput();
@@ -43,10 +44,9 @@ public class MainMenu {
 					break;
 				default:
 					System.out.println("Sytem Shutting Down...");
-					return true;
+					break;
 			}
-			return false;
-
-		} while (choice < 8);
+			if (choice >= 8) break;
+		}
 	}
 }

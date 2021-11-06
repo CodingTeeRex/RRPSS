@@ -28,11 +28,7 @@ public class Restaurant {
 
 	public void run() {
 		MainMenu mainMenu = new MainMenu();
-		
-		while (true) {
-			Boolean quit = mainMenu.run(this.name);
-			if (quit) break;
-		}
+		mainMenu.run(this.name);
 	}
 
 	public String getName() {
