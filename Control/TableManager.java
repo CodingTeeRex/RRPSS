@@ -12,7 +12,6 @@ public class TableManager {
     }
 
     public void addTable(int tableID, int seats) {
-        System.out.println(seats);
         if (seats < 2 || seats > 11) {
             throw new IllegalArgumentException("Number of seats must be minimum 2 and maximum 10");
         } else if (tableDB.contains(tableID)) {
