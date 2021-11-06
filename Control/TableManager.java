@@ -53,7 +53,7 @@ public class TableManager {
     public void showTables(Boolean showBooked) {
         HashMap<Integer, Table> db = tableDB.getTableDB();
 
-        for (Table table: db.values()) {
+        for (Table table : db.values()) {
             if (showBooked) {
                 if (table.isBooked())
                     System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Booked: " + table.isBooked() + ".");
@@ -78,6 +78,7 @@ public class TableManager {
             }
         } else {
             System.out.println("Tables already initialized.");
+            System.out.println("Table Database must be cleared before re-initializing.");
         }
     }
 }

@@ -4,6 +4,7 @@ import Control.TableManager;
 
 public class TableUI extends UI {
     private TableManager tableManager = new TableManager();
+
     public void run() {
         int choice = -1;
         int tableID = -1, seats = -1;
@@ -16,7 +17,7 @@ public class TableUI extends UI {
             case 1:
                 System.out.println("Enter the Table ID to be created: ");
                 tableID = getInput();
-                
+
                 System.out.println("Enter number of seats (min. 2, max. 10): ");
                 seats = getInput();
                 try {
@@ -34,6 +35,7 @@ public class TableUI extends UI {
                 break;
             case 3:
                 System.out.println("Are you sure you want to delete all tables? Y/N");
+                System.out.println("You will lose all table information!");
                 String response = getString();
                 if (response == "Y")
                     tableManager.deleteAllTables();
