@@ -28,7 +28,11 @@ public class Restaurant {
 
 	public void run() {
 		MainMenu mainMenu = new MainMenu();
-		mainMenu.run(this.name);
+		
+		while (true) {
+			Boolean quit = mainMenu.run(this.name);
+			if (quit) break;
+		}
 	}
 
 	public String getName() {
@@ -43,7 +47,7 @@ public class Restaurant {
 		return this.totalTables;
 	}
 
-	/**
+	/** c
 	 * 
 	 * @param totalTables
 	 */
