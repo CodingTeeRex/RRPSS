@@ -1,31 +1,31 @@
 // import MenuItem;
 
-// package Control;
-// public class OrderManager {
+package Control;
+public class OrderManager {
 
-// 	public void run() {
-// 		// TODO - implement OrderManager.run
-// 		throw new UnsupportedOperationException();
-// 	}
+	// public void run() {
 
-// 	private void displayMenu() {
-// 		// TODO - implement OrderManager.displayMenu
-// 		throw new UnsupportedOperationException();
-// 	}
+	// }
 
-// 	private void createOrder() {
-// 		// TODO - implement OrderManager.createOrder
-// 		throw new UnsupportedOperationException();
-// 	}
+	public void displayMenu() {
+        System.out.println("################# FOOD MENU #################");
+        System.out.println("1. Appetizer.");
+        System.out.println("2. Main Course.");
+        System.out.println("3. Drinks.");
+        System.out.println("4. Dessert.");
+        System.out.println("5. Back.");
+	}
 
-// 	public void addOrder() {
-// 		// TODO - implement OrderManager.addOrder
-// 		throw new UnsupportedOperationException();
-// 	}
+	public void createOrder(int staffID , int tableNo) {
+        
+	}
 
-// 	private MenuItem[] getOrder() {
-// 		// TODO - implement OrderManager.getOrder
-// 		throw new UnsupportedOperationException();
-// 	}
+	// public void addOrder() {
 
-// }
+	// }
+
+	// private MenuItem[] getOrder() {
+
+	// }
+
+}
