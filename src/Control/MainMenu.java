@@ -1,7 +1,7 @@
 package Control;
 
-import Boundary.*;
-import Entity.Restaurant;
+import src.Boundary.*;
+import src.Entity.Restaurant;
 
 public class MainMenu {
 	private MainMenuUI mainMenuUI = new MainMenuUI();

@@ -1,7 +1,7 @@
-package Database;
+package src.Database;
 
 import java.util.HashMap;
-import Entity.Table;
+import src.Entity.Table;
 
 public class TableDatabase {
     private HashMap<Integer, Table> tableList;

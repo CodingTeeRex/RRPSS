@@ -1,4 +1,4 @@
-package Boundary;
+package src.Boundary;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

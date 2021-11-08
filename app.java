@@ -1,4 +1,4 @@
-import Entity.Restaurant;
+import src.Entity.Restaurant;
 
 public class app {
 	public static void main(String[] args) {

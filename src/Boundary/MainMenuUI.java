@@ -1,4 +1,4 @@
-package Boundary;
+package src.Boundary;
 
 public class MainMenuUI extends UI {
 

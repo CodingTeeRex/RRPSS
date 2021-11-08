@@ -1,4 +1,4 @@
-package Boundary;
+package src.Boundary;
 
 public class PaymentUI extends UI {
     public void run() {

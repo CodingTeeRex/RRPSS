@@ -1,4 +1,5 @@
-package Boundary;
+package src.Boundary;
+
 public class CustomerUI extends UI {
     public void run() {
         int choice = -1;

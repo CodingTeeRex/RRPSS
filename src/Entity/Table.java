@@ -1,4 +1,4 @@
-package Entity;
+package src.Entity;
 
 public class Table {
     private int id;

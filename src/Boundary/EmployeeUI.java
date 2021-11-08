@@ -1,4 +1,4 @@
-package Boundary;
+package src.Boundary;
 public class EmployeeUI extends UI {
 	public void run() {
 		int choice = -1;

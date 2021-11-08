@@ -1,6 +1,6 @@
-package Boundary;
+package src.Boundary;
 
-import Control.TableManager;
+import src.Control.TableManager;
 
 public class TableUI extends UI {
     private TableManager tableManager = new TableManager();
