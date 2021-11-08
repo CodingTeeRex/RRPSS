@@ -1,45 +1,57 @@
-// import Person.*;
+package src.Entity;
 
-// public class Employee implements setFirstName {
 
-// 	private int id;
-// 	private String title;
-// 	private HashMap<Integer, Employee> employeeList;
+public class Employee extends Person {
 
-// 	public int getId() {
-// 		return this.id;
-// 	}
+	private int id;
+	String title = "";
+	
+	public Employee(String firstName, String lastName, String gender, int contact, int id, String title)
+	{
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.contact = contact;
+		this.id = id;
+		this.title = title;
+		
+		
+	}
+	@Override
+	public String getName() {
+		return this.firstName + " " + this.lastName;
+	}
+	public String getFirstName()
+	{
+		return this.firstName;
+	}
+	public String getLastName()
+	{
+		return this.lastName;
+	}
 
-// 	/**
-// 	 * 
-// 	 * @param id
-// 	 */
-// 	public void setId(int id) {
-// 		this.id = id;
-// 	}
+	@Override
+	public String getGender() {
+		return this.gender;
+	}
 
-// 	public String getTitle() {
-// 		return this.title;
-// 	}
+	@Override
+	public int getContact() {
+		return this.contact;
+	}
+	public int getID()
+	{
+		return this.id;
+	}
+	public String getTitle()
+	{
+		return this.title;
+	}
+	@Override
+	public void print() {
+		System.out.println("Name: " + this.getName());
+		System.out.println("Gender: " + this.getGender() + " Contact: " + this.contact);
+		System.out.println("ID: " + this.getID() + " Title: " + this.title);
+	}
 
-// 	/**
-// 	 * 
-// 	 * @param title
-// 	 */
-// 	public void setTitle(String title) {
-// 		this.title = title;
-// 	}
-
-// 	public HashMap<Integer, Employee> getEmployeeList() {
-// 		return this.employeeList;
-// 	}
-
-// 	/**
-// 	 * 
-// 	 * @param employeeList
-// 	 */
-// 	public void setEmployeeList(HashMap<Integer, Employee> employeeList) {
-// 		this.employeeList = employeeList;
-// 	}
-
-// }
+}

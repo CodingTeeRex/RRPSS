@@ -1,7 +1,7 @@
 package src.Control;
 
-import src.Entity.Table;
 import src.Database.TableDatabase;
+import src.Entity.Table;
 import java.util.HashMap;
 
 public class TableManager {

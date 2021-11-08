@@ -1,5 +1,10 @@
 package src.Boundary;
+
+import src.Control.EmployeeManager;
+
 public class EmployeeUI extends UI {
+	EmployeeManager empMngr = new EmployeeManager();
+
 	public void run() {
 		int choice = -1;
 
@@ -13,10 +18,19 @@ public class EmployeeUI extends UI {
 				break;
 			case 3:
 				break;
+			case 4:
+				empMngr.showAllEmployees();
+				break;
+			case 5:
+				System.out.println("Enter employee's ID: ");
+				int id = getInput();
+				Boolean res = empMngr.getEmployeeByID(id);
+				if (!res)
+					System.out.println("No employee with this ID was found");
 			default:
 				break;
 			}
-		} while (choice < 4);
+		} while (choice < 6);
 	}
 
 	public void displayMenu() {
@@ -24,6 +38,8 @@ public class EmployeeUI extends UI {
 		System.out.println("1. Add Employee.");
 		System.out.println("2. Remove Employee.");
 		System.out.println("3. Edit Employee.");
-		System.out.println("4. Back.");
+		System.out.println("4. Show all Employees.");
+		System.out.println("5. Find employee by ID.");
+		System.out.println("6. Back.");
 	}
 }

@@ -1,23 +1,71 @@
-// public class Customer implements Person {
+package src.Entity;
+public class Customer extends Person {
+	
+	boolean member = false;
+	Membership membership;
+	
+	public Customer(String firstName, String lastName, String gender, int contact, String membership)
+	{
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.contact = contact;
+		if (!membership.equals("NA"))
+		{
+			this.member = true;
+		}
+		else
+		{
+			this.member = false;
+		}
+		this.membership = new Membership(membership);
+		
+	}
+	@Override
+	public String getName() {
+		return this.lastName + " " + this.firstName;
+	}
+	public String getFirstName()
+	{
+		return this.firstName;
+	}
+	public String getLastName()
+	{
+		return this.lastName;
+	}
 
-// 	private Boolean member;
+	@Override
+	public String getGender() {
+		return this.gender;
+	}
 
-// 	public Boolean isMember() {
-// 		// TODO - implement Customer.isMember
-// 		throw new UnsupportedOperationException();
-// 	}
+	@Override
+	public int getContact() {
+		return this.contact;
+	}
+	public boolean getMember()
+	{
+		return this.member;
+	}
+	public void setMemberShip(Membership m)
+	{
+		if (m == null)
+		{
+			this.member = false;
+			this.membership = null;
+		}
+		else
+		{
+			this.member = true;
+			this.membership = m;
+		}
+	}
+	@Override
+	public void print() {
+		System.out.println("Name: " + this.getName());
+		System.out.println("Gender: " + this.getGender() + " Contact: " + this.contact);
+		System.out.println("Member: " + this.getMember() + " Title: " + this.membership.getType());
+	}
 
-// 	/**
-// 	 * 
-// 	 * @param member
-// 	 */
-// 	public void setMember(Boolean member) {
-// 		this.member = member;
-// 	}
 
-// 	public Membership getMembership() {
-// 		// TODO - implement Customer.getMembership
-// 		throw new UnsupportedOperationException();
-// 	}
-
-// }
+}

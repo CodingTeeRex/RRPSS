@@ -1,0 +1,201 @@
+FirstName,LastName,Gender,ContactNumber,Title,Id,MemberType
+Declan,Chuah,Male,82785425,General Manager,0,NA
+Oscar,Choo,Male,98645888,Executive Chef,1,NA
+Titus,Chee,Male,92878658,NA,NA,Other Entities
+Raymond,Yu,Male,86408759,Barista,2,NA
+Michael,Patel,Male,88801932,NA,NA,NA
+Adrian,Yuen,Male,95112604,Drivethru Operator,3,NA
+Sonal,Rajan,Female,92092083,NA,NA,NA
+Nasuha,Abdul,Female,92859298,Food & Beverage Manager,4,NA
+Russell,Chiu,Male,81110466,NA,NA,NA
+Adelise,Goh,Female,86680599,Short Order Cook,5,NA
+Charlotte,Koh,Female,84511557,Fast Food Cook,6,NA
+Anran,Agarwal,Female,83110405,NA,NA,Restaurant
+Nish,Wan,Male,85041860,Food & Beverage Manager,7,NA
+Nur Syuhada,Zhou,Female,92435111,Busserbus Person,8,NA
+Ethan,Teoh,Male,96812916,NA,NA,Restaurant
+Chen,Patel,Male,90352988,Food & Beverage Manager,9,NA
+Zach Blur Blur,How,Male,83286239,NA,NA,NA
+Ian,Kuan,Male,81261305,NA,NA,NA
+Shalihin,Phang,Male,91095089,Food & Beverage Manager,10,NA
+Wright,Phua,Male,99795935,NA,NA,Other Entities
+Jithu,John,Male,81919175,NA,NA,NA
+Gen,Yin,Female,96925652,Assistant Manager,11,NA
+Alex,Mohamed,Male,85507592,Pastry Chef,12,NA
+Fang,Reddy,Female,81302880,NA,NA,Restaurant
+Lex,Lin,Male,95329919,Barista,13,NA
+Jiahui,Woo,Female,93681766,NA,NA,NA
+Javier,Chang,Male,98886776,Fast Food Cook,14,NA
+Jy,Xie,Female,96690645,NA,NA,Restaurant
+Mike,Ee,Male,99618114,Server,15,NA
+Nour,Lu,Female,91820931,Executive Chef,16,NA
+Pearly,Yang,Female,99646481,Pastry Chef,17,NA
+Andrew,Wah,Male,87629396,Barista,18,NA
+Cherie Kok,Zhou,Female,84662813,NA,NA,Restaurant
+Jad,Liao,Male,95804874,NA,NA,Restaurant
+Anish,Er,Female,80034079,NA,NA,Other Entities
+Ora,Yao,Female,86652019,NA,NA,Restaurant
+Kheng Song,Seah,Male,93667803,NA,NA,NA
+Muzzammil,Loh,Male,90984944,Runner,19,NA
+Zac,Jiang,Male,91411188,Bartender,20,NA
+Rin,Choong,Female,90752686,Barista,21,NA
+Junlong,Cheong,Male,86169069,NA,NA,Other Entities
+Claire,Lwin,Female,98693750,NA,NA,Other Entities
+Mitchie,Yang,Female,95063583,NA,NA,Restaurant
+Kelly,Sim,Female,86268583,Bartender,22,NA
+Peter,Wan,Male,87466151,NA,NA,Restaurant
+Elyn,Kwok,Female,85950668,Barista,23,NA
+Cy,Joseph,Male,92805376,Barista,24,NA
+Samuel,Mohan,Male,88701518,NA,NA,NA
+Wenceslaus,Kwok,Male,95852257,NA,NA,Restaurant
+Cheejun,Cheong,Male,87138909,Food & Beverage Manager,25,NA
+Heon,Choo,Male,90802080,Executive Chef,26,NA
+Benedict,Tee,Male,83512009,NA,NA,Restaurant
+Kexin,Ali,Female,97778459,Sous Chef,27,NA
+Kit,Kang,Female,98647588,Sous Chef,28,NA
+Bhumika,Foo,Female,98785361,NA,NA,Restaurant
+Giselle,Loo,Female,88067571,NA,NA,Restaurant
+Derrik,Zhong,Male,92921710,NA,NA,Other Entities
+Aldreena,Chen,Female,98519933,NA,NA,Restaurant
+Zong,Gupta,Male,85929270,Fast Food Cook,29,NA
+Ercnixus,Ooi,Male,95024559,NA,NA,Other Entities
+Cheejun,Boon,Male,83098203,NA,NA,Other Entities
+Aisyah,May,Female,89631295,NA,NA,Other Entities
+Natalie,Chng,Female,95291874,Cashier,30,NA
+Joseph,Wah,Male,80489917,NA,NA,Other Entities
+Shabri,Wan,Male,92335769,NA,NA,NA
+Adilah,Poon,Female,88203417,NA,NA,NA
+Siegfried,Bee,Male,87500497,Barback,31,NA
+Lynette,Seng,Female,85888569,NA,NA,Restaurant
+Haz,Fong,Female,98049422,NA,NA,Restaurant
+Samantha,John,Female,83251053,Cashier,32,NA
+Marquez,Yao,Male,83583786,Hosthostess,33,NA
+Star,Yao,Female,92867389,Cashier,34,NA
+Zach Blur Blur,Tok,Male,90354075,NA,NA,Other Entities
+Jie,Teoh,Male,82013046,Kitchen Manager,35,NA
+Benjamin,Yew,Male,82538247,Barback,36,NA
+Laych,How,Female,91654061,Pastry Chef,37,NA
+Darren,Pham,Male,90839060,NA,NA,Other Entities
+Aveek,Thia,Male,93590890,Barback,38,NA
+Ziying,Seet,Female,84150303,NA,NA,Other Entities
+Yee,Liao,Male,86310736,NA,NA,NA
+Kachimo,Leng,Male,81868395,Sommelier,39,NA
+Derrek,Lu,Male,85207973,NA,NA,Restaurant
+Russell,Fu,Male,81226398,NA,NA,Restaurant
+Justin,Yap,Male,83860808,Sous Chef,40,NA
+Pyro,Loke,Male,88998926,Barista,41,NA
+Kevin,Song,Male,81354023,NA,NA,Restaurant
+Yixin,Maung,Female,80604455,Busserbus Person,42,NA
+Chloe,Choo,Female,81298498,Prep Cook,43,NA
+Gracia,Ching,Female,80820615,Fast Food Cook,44,NA
+Charmaine,Seet,Female,85222752,NA,NA,Restaurant
+Bhumika,Goh,Female,99229918,NA,NA,Restaurant
+Andre,Fong,Male,96699927,NA,NA,Restaurant
+Dorcas,Reyes,Female,96479310,Drivethru Operator,45,NA
+Nina,Kumar,Female,96925048,Food & Beverage Manager,46,NA
+Robin,Poh,Male,85029298,Prep Cook,47,NA
+Asyraf,Chiu,Male,87245898,Cashier,48,NA
+Lyana,Nair,Female,85916117,Sommelier,49,NA
+Jeff,Shi,Male,87236303,Server,50,NA
+Beth,Zhang,Female,80017449,Dishwasher,51,NA
+Jithu,Long,Male,81185581,Barback,52,NA
+Ayden,Ng,Male,86742374,NA,NA,Restaurant
+Felicia,Fung,Female,97396476,NA,NA,Restaurant
+Dominic,Hoe,Male,81519025,NA,NA,NA
+Hafiy,Yee,Male,97054068,Runner,53,NA
+Erfi,Ali,Male,98484580,NA,NA,NA
+Dean,Hoo,Male,99134212,Bartender,54,NA
+Ke Wei,Ahmad,Male,89914292,Cashier,55,NA
+Marianne,Neo,Female,85812720,Barback,56,NA
+Kahyean,Lee,Female,84583732,Sous Chef,57,NA
+Haerin,Ngo,Female,86953797,NA,NA,Other Entities
+Don,Leung,Male,84929067,NA,NA,NA
+Jase,Lau,Male,93650731,NA,NA,Other Entities
+Malcolm,May,Male,81384989,Server,58,NA
+Nur Syuhada,Mak,Female,89568690,NA,NA,NA
+Ryan,Ma,Male,87113755,NA,NA,Other Entities
+Wright,Hoo,Male,98369047,Fast Food Cook,59,NA
+Zach Blur Blur,Pan,Male,89644682,NA,NA,NA
+Raymond,Das,Male,84716023,NA,NA,NA
+Natalie,Leow,Female,97097730,Line Cook,60,NA
+Victor,Lam,Male,81553979,NA,NA,NA
+Huilin,Krishnan,Female,94001088,NA,NA,Other Entities
+Mike,Toh,Male,92369735,Pastry Chef,61,NA
+Mike,Maung,Male,86347820,NA,NA,NA
+Rachael,Fan,Female,89280563,NA,NA,Restaurant
+En Song,Ting,Female,98047898,NA,NA,Restaurant
+Zack,Lum,Male,86202847,NA,NA,Other Entities
+Jung,Zhao,Female,85621243,NA,NA,Restaurant
+Franklin,Shi,Male,98753031,Runner,62,NA
+Kristen,Thomas,Female,88267754,Food & Beverage Manager,63,NA
+Nature,Foo,Female,91347793,NA,NA,NA
+Douglas,Le,Male,93456118,Line Cook,64,NA
+Ranje,Choi,Female,99672509,NA,NA,Restaurant
+Amelia,Teo,Female,97935143,NA,NA,Other Entities
+Qi En,Hu,Male,97321518,Assistant Manager,65,NA
+Rodney,Sun,Male,88762792,NA,NA,NA
+Lance,Leong,Male,97424929,NA,NA,Other Entities
+Herman,Mohammed,Male,88402235,NA,NA,Restaurant
+Almanda,Wong,Female,82308020,NA,NA,Other Entities
+Maria,Chow,Female,87906792,NA,NA,Restaurant
+Keefe,Yap,Male,82182699,NA,NA,NA
+Melissa,John,Female,89493756,NA,NA,Restaurant
+Mia,Sulaiman,Female,99169182,NA,NA,Restaurant
+Zach Blur Blur,Yuan,Male,85632820,NA,NA,Restaurant
+Romano,Teoh,Female,83231721,NA,NA,Restaurant
+David,Zheng,Male,82892878,NA,NA,NA
+Muhammad Hafaz,Chu,Male,88695666,NA,NA,Restaurant
+Annabelle,Yin,Female,88532994,NA,NA,Other Entities
+Kirito,Sulaiman,Male,88239405,NA,NA,Restaurant
+Kris,Das,Male,91433777,NA,NA,Restaurant
+Relz,Wang,Female,97069569,NA,NA,Other Entities
+Nila,Yan,Female,96083751,NA,NA,Other Entities
+Umdel,Kam,Male,89330073,NA,NA,NA
+Vishva,Cruz,Male,94756225,NA,NA,NA
+Fidrina,Cai,Female,87326046,NA,NA,NA
+Clemon,Tan,Male,86398588,NA,NA,Other Entities
+Jas,Jin,Male,84948724,NA,NA,Restaurant
+Andrina,Yan,Female,96959606,NA,NA,Restaurant
+Syamil Koh,Cheung,Male,94034385,NA,NA,NA
+Wilson,Yuen,Male,86707101,NA,NA,Restaurant
+Muzzammil,Chua,Male,96506318,NA,NA,Restaurant
+Claire,Chong,Female,81276413,NA,NA,NA
+Fuzz,Ko,Male,83155031,NA,NA,Restaurant
+Chun Hwee,Yee,Male,97649240,NA,NA,Other Entities
+Mark Jedidiah,Boo,Male,94990468,NA,NA,Restaurant
+Joseph,Lam,Male,94846047,NA,NA,Restaurant
+Jareth,Win,Male,97191066,NA,NA,Other Entities
+Zeth,Rao,Female,99699676,NA,NA,Other Entities
+Mark,Zhong,Male,82414865,NA,NA,Other Entities
+Taufiq,Siew,Male,88450960,NA,NA,Other Entities
+Huilin,May,Female,98859304,NA,NA,Other Entities
+Louise,Myint,Female,82287166,NA,NA,Other Entities
+Xin,Wong,Male,93910418,NA,NA,NA
+Leanna,Wu,Female,91423786,NA,NA,Restaurant
+Adrian,Shah,Male,81312253,NA,NA,Other Entities
+Franklin,Soon,Male,81310382,NA,NA,NA
+Haerin,Chng,Female,88569908,NA,NA,Other Entities
+Lance,Wang,Male,92161196,NA,NA,Other Entities
+Jave,Woon,Male,84437218,NA,NA,NA
+Robin,Loo,Male,89390869,NA,NA,NA
+Syawal,Xie,Male,92210953,NA,NA,Other Entities
+Chloe,Sia,Female,99417259,NA,NA,Restaurant
+Wan Er,Shah,Female,93917268,NA,NA,Restaurant
+Siegfried,Peh,Male,85897058,NA,NA,NA
+Marquez,Chu,Male,92031680,NA,NA,Other Entities
+Xiang,Leng,Female,86865418,NA,NA,NA
+Rin,Ali,Female,89697250,NA,NA,Restaurant
+Min,Raj,Female,94178158,NA,NA,NA
+Nandika,Er,Female,82768394,NA,NA,Restaurant
+Alfie,Cho,Male,88992552,NA,NA,Restaurant
+Cherie,Thong,Female,85325398,NA,NA,Other Entities
+Syamim,Hock,Male,86812272,NA,NA,NA
+Sairah,Ibrahim,Female,83542729,NA,NA,NA
+Junlong,Toh,Male,95735787,NA,NA,Other Entities
+Benz,Sharma,Male,84735017,NA,NA,NA
+Thea,Kam,Female,91078016,NA,NA,Restaurant
+Xavier,Gupta,Male,83989817,NA,NA,Other Entities
+Wenceslaus,Wah,Male,83037302,NA,NA,NA
+Charlene,Xie,Female,82467706,NA,NA,Restaurant
+Tuti,Babu,Female,92468991,NA,NA,NA
+Ronnie,Siow,Male,84004822,NA,NA,Other Entities

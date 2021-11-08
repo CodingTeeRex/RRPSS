@@ -1,4 +1,5 @@
 package src.Boundary;
+
 public class FoodMenuUI extends UI {
     
     public void run() {

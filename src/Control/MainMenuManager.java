@@ -3,7 +3,7 @@ package src.Control;
 import src.Boundary.*;
 import src.Entity.Restaurant;
 
-public class MainMenu {
+public class MainMenuManager {
 	private MainMenuUI mainMenuUI = new MainMenuUI();
 	private FoodMenuUI foodMenu = new FoodMenuUI();
 	private OrderUI orderMenu = new OrderUI();

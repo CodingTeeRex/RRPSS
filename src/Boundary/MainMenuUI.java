@@ -1,5 +1,7 @@
 package src.Boundary;
 
+//import Control.*;
+
 public class MainMenuUI extends UI {
 
     public void displayMenu(String restaurantName) {
@@ -12,8 +14,7 @@ public class MainMenuUI extends UI {
         System.out.println("4. Menu Settings.");
         System.out.println("5. Employee Settings.");
         System.out.println("6. Customer Settings.");
-        System.out.println("7. Restaurant Settings.");
-        System.out.println("8. Print Sales Revenue Report.");
-        System.out.println("9. Exit.");
+        System.out.println("7. Print Sales Revenue Report.");
+        System.out.println("8. Exit.");
     }
 }
