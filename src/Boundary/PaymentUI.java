@@ -1,5 +1,6 @@
-package Boundary;
-public class CustomerUI extends UI {
+package src.Boundary;
+
+public class PaymentUI extends UI {
     public void run() {
         int choice = -1;
 
@@ -15,13 +16,13 @@ public class CustomerUI extends UI {
             default:
                 break;
             }
-        } while (choice < 3);
+        } while (choice < 2);
     }
-    
+
     public void displayMenu() {
-        System.out.println("\n################# CUSTOMER MENU #################");
-        System.out.println("1. New Membership.");
-        System.out.println("2. Check Membership.");
-        System.out.println("3. Back.");
+        System.out.println("################# PAYMENT MENU #################");
+        System.out.println("Please select an option below.");
+        System.out.println("1. Make Payment.");
+        System.out.println("2. Exit.");
     }
 }

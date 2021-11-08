@@ -1,5 +1,6 @@
-package Boundary;
-public class ReservationUI extends UI {
+package src.Boundary;
+
+public class OrderUI extends UI {
     public void run() {
         int choice = -1;
 
@@ -21,10 +22,10 @@ public class ReservationUI extends UI {
     }
 
     public void displayMenu() {
-        System.out.println("\n################# RESERVATION MENU #################");
-        System.out.println("1. Make Reservation.");
-        System.out.println("2. Remove Reservation.");
-        System.out.println("3. Edit Reservation.");
+        System.out.println("\n################# ORDER MENU #################");
+        System.out.println("1. Create Order.");
+        System.out.println("2. Get Order.");
+        System.out.println("3. Print Invoice.");
         System.out.println("4. Back.");
     }
 }
