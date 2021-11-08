@@ -1,3 +1,4 @@
+package src;
 
 public class MenuItem {
 	
@@ -23,7 +24,7 @@ public class MenuItem {
 	}
 	
 	
-	public MenuItem(String name,String description,String type)
+	public MenuItem(String name,String description,String type, float price)
 	{
 		this.name = name;
 		this.description = description;
