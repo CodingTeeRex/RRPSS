@@ -1,4 +1,4 @@
-package Control;
+package src.Control;
 
 import src.Boundary.*;
 import src.Entity.Restaurant;

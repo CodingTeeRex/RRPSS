@@ -3,7 +3,7 @@ package src.Entity;
 // import java.util.ArrayList;
 // import java.util.HashMap;
 
-import Control.MainMenu;
+import src.Control.MainMenu;
 
 public class Restaurant {
 

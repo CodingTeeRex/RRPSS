@@ -73,7 +73,7 @@ public class TableManager {
 
         if (db.isEmpty()) { 
             for (int i = 0; i < numTables; i++) {
-                this.addTable(i+1, (int)(Math.random() * 10) + 2);
+                this.addTable(i+1, (int)(Math.random() * 9) + 2);
             }
         } else {
             System.out.println("Tables already initialized.");
