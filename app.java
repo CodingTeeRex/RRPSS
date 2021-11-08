@@ -14,5 +14,6 @@ public class app {
 
 	private static void initDB() {
 		Database.parseCSV("src/Database/csv");
+		Database.printDatabase();
 	}
 }
