@@ -1,8 +1,8 @@
 package Boundary;
 
-import Control.OrderManager;
+import Control.OrderManager1;
 
-public class OrderUI extends UI {
+public class OrderUI1 extends UI {
     
     public void run() {
 
@@ -13,7 +13,7 @@ public class OrderUI extends UI {
         do {
             this.displayMenu();
             choice = getInput();
-            OrderManager ordermgt = new OrderManager();
+            OrderManager1 ordermgt = new OrderManager1();
 
             switch (choice) {
             case 1:
