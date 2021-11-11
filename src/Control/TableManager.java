@@ -35,30 +35,30 @@ public class TableManager {
     }
 
     public void showTableByID(int tableID) {
-        HashMap<Integer, Table> db = tableDB.getTableDB();
+        HashMap<Integer, Table> db = TableDatabase.getTableDB();
 
         Table table = db.get(tableID);
-        System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Booked: " + table.isBooked() + ".");
+        System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Taken: " + table.isTaken() + ".");
     }
 
     public void showAllTables() {
-        HashMap<Integer, Table> db = tableDB.getTableDB();
+        HashMap<Integer, Table> db = TableDatabase.getTableDB();
 
         for (Table table : db.values()) {
-            System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Booked: " + table.isBooked() + ".");
+            System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Taken: " + table.isTaken() + ".");
         }
     }
 
-    public void showTables(Boolean showBooked) {
-        HashMap<Integer, Table> db = tableDB.getTableDB();
+    public void showTables(Boolean showTaken) {
+        HashMap<Integer, Table> db = TableDatabase.getTableDB();
 
         for (Table table : db.values()) {
-            if (showBooked) {
-                if (table.isBooked())
-                    System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Booked: " + table.isBooked() + ".");
+            if (showTaken) {
+                if (table.isTaken())
+                    System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Taken: " + table.isTaken() + ".");
             } else {
-                if (!table.isBooked())
-                    System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Booked: " + table.isBooked() + ".");
+                if (!table.isTaken())
+                    System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Taken: " + table.isTaken() + ".");
             }
             
         }
@@ -69,7 +69,7 @@ public class TableManager {
     }
 
     public void initTables(int numTables) {
-        HashMap<Integer, Table> db = tableDB.getTableDB();
+        HashMap<Integer, Table> db = TableDatabase.getTableDB();
 
         if (db.isEmpty()) { 
             for (int i = 0; i < numTables; i++) {

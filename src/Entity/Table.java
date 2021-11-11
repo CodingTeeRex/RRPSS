@@ -1,14 +1,13 @@
 package src.Entity;
-
 public class Table {
     private int id;
     private int seats;
-    private Boolean booked;
+    private Boolean taken;
 
     public Table(int id, int seats) {
         this.id = id;
         this.seats = seats;
-        this.booked = false;
+        this.taken = false;
     }
 
     public int getId() {
@@ -31,21 +30,37 @@ public class Table {
         }
     }
 
-    public Boolean isBooked() {
-        return this.booked;
+    public Boolean isTaken() {
+        return this.taken;
     }
 
-    public void bookTable() {
-        this.booked = true;
-        System.out.println(this.id + " booked successfully.");
+    public void setTakenStatus() {
+        this.taken = !this.taken;
     }
 
-    public void removeBooking() {
-        if (this.booked) {
-            this.booked = !this.booked;
-            System.out.println(this.id + " removed booking.");
-        } else {
-            System.out.println("Table has not been booked. Cannot remove booking.");
-        }
-    }
+    // public void setBookingDate(Date bookingDate) {
+    //     this.bookingDate = bookingDate;
+    // }
+
+    // public Date getBookingDate() {
+    //     return this.bookingDate;
+    // }
+
+    // public Boolean isBooked() {
+    //     return this.booked;
+    // }
+
+    // public void bookTable() {
+    //     this.booked = true;
+    //     System.out.println(this.id + " booked successfully.");
+    // }
+
+    // public void removeBooking() {
+    //     if (this.booked) {
+    //         this.booked = !this.booked;
+    //         System.out.println(this.id + " removed booking.");
+    //     } else {
+    //         System.out.println("Table has not been booked. Cannot remove booking.");
+    //     }
+    // }
 }
