@@ -1,28 +1,44 @@
-// package Control;
-// import java.util.*;
+package src.Control;
 
-// import Order;
+import java.util.*;
+import src.Database.OrderDatabase;
 
-// public class PaymentManager {
+import src.Entity.Order;
 
-// 	Collection<Order> orders;
-// 	private double gst;
+public class PaymentManager {
 
-// 	public void getInvoice() {
-// 		// TODO - implement PaymentManager.getInvoice
-// 		throw new UnsupportedOperationException();
-// 	}
+    public static List<Order> Orders = OrderDatabase.OrderDB;
 
-// 	public double getGst() {
-// 		return this.gst;
-// 	}
 
-// 	/**
-// 	 * 
-// 	 * @param gst
-// 	 */
-// 	public void setGst(double gst) {
-// 		this.gst = gst;
-// 	}
+    public void getInovice(int orderID) {
+        System.out.println("============================ INVOICE ====================================");
+        for(Order o : Orders){
+            if (o.getOrderID() == orderID) {
+                o.printAll();
+                return;
+            }
+            
+        }
+        System.out.println("ERROR Order ID " + orderID + ": Cant be found!");
+	}
 
-// }
+    public void getReceipt(int orderID, Boolean member ) {
+        // System.out.println("============================ Receipt ====================================");
+        for(Order o : Orders){
+            if (o.getOrderID() == orderID) {
+                o.printBill(o.getOrderID(),o.getStaffID(),o.getTableID(),member);
+                return;
+            }
+            
+        }
+        System.out.println("ERROR Order ID " + orderID + ": Cant be found!");
+	}
+
+    public void getAllOrders(){
+        System.out.println("============================ All Orders ====================================");
+        for(Order o : Orders){
+            System.out.printf("Order ID: %d, Staff ID: %d, Table Num: %d\n", o.getOrderID(),o.getStaffID(),o.getTableID());
+        }
+    }
+
+}
