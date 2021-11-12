@@ -98,7 +98,7 @@ public class FoodMenuManager{
 
         Scanner sc = new Scanner(System.in);
         do {
-            System.out.println("------FOOD MENU MANAGER-----------");
+            System.out.println("-----------------------------------FOOD MENU MANAGER-------------------------------");
             System.out.println("(1). Add a food item to the menu");
             System.out.println("(2). Delete a food item from the menu");
             System.out.println("(3). Update a food item in the menu");
