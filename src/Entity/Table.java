@@ -1,13 +1,14 @@
 package src.Entity;
 public class Table {
+
     private int id;
     private int seats;
-    private static Boolean taken;
+    private Boolean taken;
 
     public Table(int id, int seats) {
         this.id = id;
         this.seats = seats;
-        taken = false;
+        this.taken = false;
     }
 
     public int getId() {
