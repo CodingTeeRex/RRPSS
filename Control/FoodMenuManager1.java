@@ -4,7 +4,7 @@ import java.util.Scanner;
 import Entity.MenuItem;
 import Entity.Promotion;
 
-public class FoodMenuManager{
+public class FoodMenuManager1{
      public static ArrayList<MenuItem> menuItems=new ArrayList<MenuItem>();
     public static ArrayList<Promotion> promoSet= new ArrayList<Promotion>();
     public static  ArrayList<MenuItem> promoMenuItems = new ArrayList<MenuItem>();

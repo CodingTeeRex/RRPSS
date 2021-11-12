@@ -1,30 +1,30 @@
 
 package Entity;
 import java.io.Serializable;
-public class MenuItem implements Serializable {
+public class MenuItem1 implements Serializable {
     private String name;
     private String description;
-    private FoodCategory type;
+    private FoodCategory1 type;
     private double price;
-    public MenuItem(String Name, String Description, String Type, double Price) {
+    public MenuItem1(String Name, String Description, String Type, double Price) {
         this.name = Name;
         this.description = Description;
         this.price = Price;
         if(new String("Appetiser").equals(Type))
         {
-            this.type = FoodCategory.APPETISER;
+            this.type = FoodCategory1.APPETISER;
         }
         if(new String("Main_Course").equals(Type))
         {
-            this.type = FoodCategory.MAIN_COURSE;
+            this.type = FoodCategory1.MAIN_COURSE;
         }
         if(new String("Drinks").equals(Type))
         {
-            this.type = FoodCategory.DRINKS;
+            this.type = FoodCategory1.DRINKS;
         }
         if(new String("Dessert").equals(Type))
         {
-            this.type = FoodCategory.DESSERT;
+            this.type = FoodCategory1.DESSERT;
         }
 
     }
@@ -48,22 +48,22 @@ public class MenuItem implements Serializable {
     {
         if(new String("Appetiser").equals(type))
         {
-            this.type = FoodCategory.APPETISER;
+            this.type = FoodCategory1.APPETISER;
         }
         if(new String("Main_Course").equals(type))
         {
-            this.type = FoodCategory.MAIN_COURSE;
+            this.type = FoodCategory1.MAIN_COURSE;
         }
         if(new String("Drinks").equals(type))
         {
-            this.type = FoodCategory.DRINKS;
+            this.type = FoodCategory1.DRINKS;
         }
         if(new String("Dessert").equals(type))
         {
-            this.type = FoodCategory.DESSERT;
+            this.type = FoodCategory1.DESSERT;
         }
     }
-    public FoodCategory getType()
+    public FoodCategory1 getType()
     {
         return this.type;
     }

@@ -5,8 +5,8 @@ public class Promotion implements Serializable {
     private String name;
     private String description;
     private double price;
-    private ArrayList <MenuItem> set = new ArrayList<MenuItem>();
-    public Promotion(String Name, double Price, ArrayList<MenuItem> Set, String Description) {
+    private ArrayList <MenuItem1> set = new ArrayList<MenuItem1>();
+    public Promotion(String Name, double Price, ArrayList<MenuItem1> Set, String Description) {
         this.name = Name;
         this.description = Description;
         this.price = Price;
@@ -35,10 +35,10 @@ public class Promotion implements Serializable {
     {
         this.price = price;
     }
-    public ArrayList<MenuItem> getSet() {
+    public ArrayList<MenuItem1> getSet() {
         return this.set;
     }
-    public void setSet(ArrayList<MenuItem> set) {
+    public void setSet(ArrayList<MenuItem1> set) {
         this.set = set;
     }
     public void print(){
@@ -46,7 +46,7 @@ public class Promotion implements Serializable {
         System.out.println("Description: " + this.getDescription());
         System.out.println("Price:" + this.getPrice());
         System.out.println("Set:");
-        for(MenuItem m: set)
+        for(MenuItem1 m: set)
         {
             System.out.println("Name: " + m.getName());
             System.out.println(" Type: " + m.getType());
