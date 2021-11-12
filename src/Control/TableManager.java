@@ -2,7 +2,6 @@ package src.Control;
 
 import src.Database.TableDatabase;
 import src.Entity.Table;
-import java.util.HashMap;
 
 public class TableManager {
 
@@ -37,6 +36,7 @@ public class TableManager {
 
     public void deleteAllTables() {
         TableDatabase.tableList.clear();
+        System.out.println("Tables deleted.");
     }
 
     public void showTableByID(int tableID) {
@@ -46,7 +46,6 @@ public class TableManager {
     }
 
     public void showAllTables() {
-        System.out.println(TableDatabase.tableList.size());
         for (Table table : TableDatabase.tableList.values()) {
             System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Taken: " + table.isTaken() + ".");
         }
