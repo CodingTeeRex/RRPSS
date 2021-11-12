@@ -56,6 +56,7 @@ public class MenuItem {
 		} else {
 			this.type = FoodCategory.DESSERT;
 		}
+		this.price = price;
 	}
 
 	public int getID() {
