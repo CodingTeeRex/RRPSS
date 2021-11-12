@@ -2,12 +2,12 @@ package src.Entity;
 public class Table {
     private int id;
     private int seats;
-    private Boolean taken;
+    private static Boolean taken;
 
     public Table(int id, int seats) {
         this.id = id;
         this.seats = seats;
-        this.taken = false;
+        taken = false;
     }
 
     public int getId() {
@@ -31,11 +31,11 @@ public class Table {
     }
 
     public Boolean isTaken() {
-        return this.taken;
+        return taken;
     }
 
     public void setTakenStatus() {
-        this.taken = !this.taken;
+        taken = !taken;
     }
 
     // public void setBookingDate(Date bookingDate) {

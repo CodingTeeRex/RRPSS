@@ -36,9 +36,11 @@ public class TableUI extends UI {
             case 3:
                 System.out.println("Are you sure you want to delete all tables? Y/N");
                 System.out.println("You will lose all table information!");
-                String response = getString();
-                if (response == "Y")
+                String response = getString().toUpperCase();
+                if (response.charAt(0) == 'Y') {
+                    System.out.println("Deleting...");
                     tableManager.deleteAllTables();
+                }
                 else
                     break;
                 break;
@@ -51,10 +53,10 @@ public class TableUI extends UI {
                 tableManager.showAllTables();
                 break;
             case 6:
-                tableManager.showTables(true); // set arg to true to show booked tables
+                tableManager.showTables(true); // set arg to true to show unoccupied tables
                 break;
             case 7:
-                tableManager.showTables(false); // set arg to false to show unbooked tables
+                tableManager.showTables(false); // set arg to false to show unoccupied tables
                 break;
             case 8:
                 System.out.println("How many tables do you want to initialize?");
@@ -74,8 +76,8 @@ public class TableUI extends UI {
         System.out.println("3. Remove all tables.");
         System.out.println("4. Show table by ID.");
         System.out.println("5. Show all tables.");
-        System.out.println("6. Show booked tables.");
-        System.out.println("7. Remove unbooked tables.");
+        System.out.println("6. Show occupied tables.");
+        System.out.println("7. Show unoccupied tables.");
         System.out.println("8. Initialize tables.");
         System.out.println("9. Back.");
     }
