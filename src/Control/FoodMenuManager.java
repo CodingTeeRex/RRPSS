@@ -29,8 +29,8 @@ public class FoodMenuManager{
                 System.out.println(name + " removed successfully");
                 return;
             }
-            System.out.println(name + " cannot be found!");
         }
+        System.out.println(name + " cannot be found!");
     }
 
     public static void editFoodItem(String name, String description, double price, String type,String newName) {
@@ -205,30 +205,32 @@ public class FoodMenuManager{
                     editPromotion(n, p, promoMenuItems, d,n2);
                     break;
                 case 7 :
-                    System.out.println("---------FOOD MENU------------");
-                    System.out.println("------------ ALA CARTE--------------------");
+                    System.out.println("-----------------------------FOOD MENU----------------------------------------------------------");
+                    System.out.println("--------------------------------------- ALA CARTE-----------------------------------------------");
                     for(MenuItem m:menuItems)
                     { System.out.println("Name: " + m.getName() );
                     System.out.println(" Type: " + m.getType());
                     System.out.println("Description: " + m.getDescription());
                     System.out.println("Price:" + m.getPrice());
-                    System.out.println("-----------------------------------------------------------------");}
-                    System.out.println("------------------PROMOTIONAL PACKAGES-----------------------");
+                    System.out.println("----------------------------------------------------------------------------------------------------");}
+                    System.out.println("-------------------------------------PROMOTIONAL PACKAGES-------------------------------------------");
                     for(Promotion i:promoSet)
                     {
                         System.out.println("Name: " + i.getName() );
                         System.out.println("Description: " + i.getDescription());
                         System.out.println("Price:" + i.getPrice());
                         System.out.println("Set: ");
+                        int j=1;
                         for(MenuItem m: promoMenuItems)
                         {
-                            System.out.println("Name: " + m.getName() );
+                            System.out.println(j++);
+                            System.out.println(" Name: " + m.getName() );
                             System.out.println(" Type: " + m.getType());
-                            System.out.println("Description: " + m.getDescription());
-                            System.out.println("Price:" + m.getPrice());
-                            System.out.println("-----------------------------------------------------------------");
+                            System.out.println(" Description: " + m.getDescription());
+                            System.out.println(" Price:" + m.getPrice());
+                            System.out.println("   ");
                         }
-                        System.out.println("*****************************************************");
+                         System.out.println("*******************************************************************************");
                     }
                     break;
                 case 8 :
