@@ -1,5 +1,6 @@
 package src.Entity;
 public class Table {
+
     private int id;
     private int seats;
     private Boolean taken;
@@ -31,11 +32,11 @@ public class Table {
     }
 
     public Boolean isTaken() {
-        return this.taken;
+        return taken;
     }
 
     public void setTakenStatus() {
-        this.taken = !this.taken;
+        taken = !taken;
     }
 
     // public void setBookingDate(Date bookingDate) {

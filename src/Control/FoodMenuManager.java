@@ -98,7 +98,7 @@ public class FoodMenuManager{
 
         Scanner sc = new Scanner(System.in);
         do {
-            System.out.println("------FOOD MENU MANAGER-----------");
+            System.out.println("-----------------------------------FOOD MENU MANAGER-------------------------------");
             System.out.println("(1). Add a food item to the menu");
             System.out.println("(2). Delete a food item from the menu");
             System.out.println("(3). Update a food item in the menu");
@@ -222,15 +222,19 @@ public class FoodMenuManager{
                         System.out.println("Set: ");
                         int j=1;
                         for(MenuItem m: promoMenuItems)
+
                         {
                             System.out.println(j++);
+
                             System.out.println(" Name: " + m.getName() );
                             System.out.println(" Type: " + m.getType());
                             System.out.println(" Description: " + m.getDescription());
                             System.out.println(" Price:" + m.getPrice());
+
                             System.out.println("   ");
                         }
                          System.out.println("*******************************************************************************");
+
                     }
                     break;
                 case 8 :

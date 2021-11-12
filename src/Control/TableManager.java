@@ -2,28 +2,32 @@ package src.Control;
 
 import src.Database.TableDatabase;
 import src.Entity.Table;
-import java.util.HashMap;
 
 public class TableManager {
-    private TableDatabase tableDB;
 
     public TableManager() {
-        this.tableDB = new TableDatabase();
+        new TableDatabase();
+        this.initTables(10);
     }
 
     public void addTable(int tableID, int seats) {
         if (seats < 2 || seats > 11) {
             throw new IllegalArgumentException("Number of seats must be minimum 2 and maximum 10");
-        } else if (tableDB.contains(tableID)) {
-            throw new IllegalArgumentException("Table with " + tableID + " already exists");
-        } else {
-            tableDB.addTable(tableID, seats);
-            System.out.println("Table " + tableID + " successfully added");
         }
+
+        if (TableDatabase.tableList != null) {
+            if (TableDatabase.tableList.containsKey(tableID))
+                throw new IllegalArgumentException("Table with " + tableID + " already exists");
+        }
+        
+        Table newTable = new Table(tableID, seats);
+        TableDatabase.tableList.put(tableID, newTable);
+        System.out.println("Table " + tableID + " successfully added");
+        
     }
 
     public void removeTable(int tableID) {
-        Table t = tableDB.removeTable(tableID);
+        Table t = TableDatabase.tableList.remove(tableID);
         if (t == null)
             System.out.println("Table does not exist.");
         else
@@ -31,28 +35,25 @@ public class TableManager {
     }
 
     public void deleteAllTables() {
-        tableDB.deleteAll();
+        TableDatabase.tableList.clear();
+        System.out.println("Tables deleted.");
     }
 
     public void showTableByID(int tableID) {
-        HashMap<Integer, Table> db = TableDatabase.getTableDB();
 
-        Table table = db.get(tableID);
+        Table table = TableDatabase.tableList.get(tableID);
         System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Taken: " + table.isTaken() + ".");
     }
 
     public void showAllTables() {
-        HashMap<Integer, Table> db = TableDatabase.getTableDB();
-
-        for (Table table : db.values()) {
+        for (Table table : TableDatabase.tableList.values()) {
             System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Taken: " + table.isTaken() + ".");
         }
     }
 
     public void showTables(Boolean showTaken) {
-        HashMap<Integer, Table> db = TableDatabase.getTableDB();
 
-        for (Table table : db.values()) {
+        for (Table table : TableDatabase.tableList.values()) {
             if (showTaken) {
                 if (table.isTaken())
                     System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Taken: " + table.isTaken() + ".");
@@ -65,13 +66,11 @@ public class TableManager {
     }
 
     public int getNumTables() {
-        return tableDB.getNumTables();
+        return TableDatabase.tableList.size();
     }
 
     public void initTables(int numTables) {
-        HashMap<Integer, Table> db = TableDatabase.getTableDB();
-
-        if (db.isEmpty()) { 
+        if (TableDatabase.tableList.isEmpty()) { 
             for (int i = 0; i < numTables; i++) {
                 this.addTable(i+1, (int)(Math.random() * 9) + 2);
             }
