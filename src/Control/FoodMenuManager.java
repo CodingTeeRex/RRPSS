@@ -222,14 +222,19 @@ public class FoodMenuManager{
                         System.out.println("Set: ");
                         int j=1;
                         for(MenuItem m: promoMenuItems)
-                        {   System.out.println(j++);
+
+                        {
+                            System.out.println(j++);
+
                             System.out.println(" Name: " + m.getName() );
                             System.out.println(" Type: " + m.getType());
                             System.out.println(" Description: " + m.getDescription());
                             System.out.println(" Price:" + m.getPrice());
-                            System.out.println("   ");                      
+
+                            System.out.println("   ");
                         }
-                        System.out.println("*******************************************************************************");
+                         System.out.println("*******************************************************************************");
+
                     }
                     break;
                 case 8 :
