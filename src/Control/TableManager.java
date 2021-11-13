@@ -11,13 +11,15 @@ public class TableManager {
     }
 
     public void addTable(int tableID, int seats) {
-        if (seats < 2 || seats > 11) {
-            throw new IllegalArgumentException("Number of seats must be minimum 2 and maximum 10");
+        if (seats < 2 || seats > 10 || seats % 2 != 0) {
+            throw new IllegalArgumentException("Number of seats must be an even number. Minimum 2 and maximum 10");
         }
 
         if (TableDatabase.tableList != null) {
-            if (TableDatabase.tableList.containsKey(tableID))
-                throw new IllegalArgumentException("Table with " + tableID + " already exists");
+            if (TableDatabase.tableList.containsKey(tableID)) {
+                System.out.println("Table with " + tableID + " already exists");
+                return;
+            }
         }
         
         Table newTable = new Table(tableID, seats);
@@ -40,7 +42,6 @@ public class TableManager {
     }
 
     public void showTableByID(int tableID) {
-
         Table table = TableDatabase.tableList.get(tableID);
         System.out.println("Table: " + table.getId() + ", Seats: " + table.getSeats() + ", Taken: " + table.isTaken() + ".");
     }
@@ -69,14 +70,21 @@ public class TableManager {
         return TableDatabase.tableList.size();
     }
 
-    public void initTables(int numTables) {
+    public Boolean initTables(int numTables) {
         if (TableDatabase.tableList.isEmpty()) { 
             for (int i = 0; i < numTables; i++) {
-                this.addTable(i+1, (int)(Math.random() * 9) + 2);
+                int num = -1;
+                do {
+                    num = (int)(Math.random() * 9) + 2;
+                } while (num % 2 != 0);
+
+                this.addTable(i+1, num);
             }
         } else {
             System.out.println("Tables already initialized.");
             System.out.println("Table Database must be cleared before re-initializing.");
+            return false;
         }
+        return true;
     }
 }

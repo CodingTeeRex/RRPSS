@@ -1,4 +1,5 @@
 FirstName,LastName,Gender,ContactNumber,Title,Id,MemberType
+
 Trishia,Song,Female,86567836,Server,0,NA
 Teh,Printerflush,Female,87167161,Cashier,1,NA
 Clemens,Ramasamy,Male,88583677,NA,NA,Restaurant
@@ -14,3 +15,10 @@ Adrian,Person Attributes,Male,95010644,NA,NA,Restaurant
 Cyn,Yeoh,Female,89797679,NA,NA,Other Entities
 Yuki Yeap,Obtaining The Respective Attributes Using The Desiredattribute For Accuracy,Female,94021065,NA,NA,Other Entities
 Miyuki,String Name Rowdesiredattributeitemnamegetindex,Female,99386114,NA,NA,Other Entities
+Tsukotomo,Au,Female,99607083,Server,5,NA
+Tricia,Soon,Female,99607084,Server,6,NA
+Erika,Foo,Female,99607085,Server,7,NA
+Benji,Tan,Male,99607086,Server,8,NA
+
+
+
