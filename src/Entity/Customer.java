@@ -61,6 +61,11 @@ public class Customer extends Person {
 	{
 		return this.member;
 	}
+	//Obtaining the membership of the customer
+	public Membership getMembership()
+	{
+		return this.membership;
+	}
 	//Updating the membership status of the customer
 	public void setMemberShip(String membershipType)
 	{

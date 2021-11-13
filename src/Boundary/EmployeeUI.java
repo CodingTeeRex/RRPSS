@@ -86,7 +86,7 @@ public class EmployeeUI extends UI {
 							Employee.getTitleList(true).toArray(new String[Employee.getTitleList(false).size()]));
 				}
 				// Updating the Employee information using the manager
-				EmployeeManager.EditEmployee(uid, uContact, uTitle);
+				EmployeeManager.editEmployee(uid, uContact, uTitle);
 				break;
 			case 4:
 				EmployeeManager.showAllEmployees();
