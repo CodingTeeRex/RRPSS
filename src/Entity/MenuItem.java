@@ -83,7 +83,7 @@ public class MenuItem implements Serializable {
     }
 
 	public String getType() {
-		return this.type.getName();
+		return this.type;
 	}
 
 	public void setType(String type)
