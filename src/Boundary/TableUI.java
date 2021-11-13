@@ -1,10 +1,15 @@
 package src.Boundary;
 
 import src.Control.TableManager;
-
+/**
+ * UI for instantiating/deleting tables
+ */
 public class TableUI extends UI {
     private TableManager tableManager = new TableManager();
 
+    /**
+     * Driver method for running the UI
+     */
     public void run() {
         int choice = -1;
         int tableID = -1, seats = -1;
@@ -47,10 +52,10 @@ public class TableUI extends UI {
             case 4:
                 System.out.println("Enter the ID of the table to view details.");
                 tableID = getInput();
-                tableManager.showTableByID(tableID);
+                tableManager.showTables(tableID);
                 break;
             case 5:
-                tableManager.showAllTables();
+                tableManager.showTables();
                 break;
             case 6:
                 tableManager.showTables(true); // set arg to true to show unoccupied tables
@@ -79,6 +84,9 @@ public class TableUI extends UI {
         } while (choice < 9);
     }
 
+    /**
+     * Displays the UI menu
+     */
     public void displayMenu() {
         System.out.println("\n################# TABLE MENU #################");
         System.out.println("1. Add a new table.");
