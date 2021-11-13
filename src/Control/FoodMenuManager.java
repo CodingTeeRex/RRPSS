@@ -134,6 +134,8 @@ public class FoodMenuManager{
                     System.out.println(" Please enter the name of the food item to be updated:");
                     sc.nextLine();
                     n = sc.nextLine();
+                    for (MenuItem m1 : menuItems) {
+                        if (m1.getName().equals(n)) {
                     System.out.println(" Please enter the new name:");
                     n2 = sc.nextLine();
                     System.out.println(" Please enter the new description:");
@@ -144,6 +146,10 @@ public class FoodMenuManager{
                     sc.nextLine();
                     t = sc.nextLine();
                     editFoodItem(n, d, p, t,n2);
+                        }
+                        else
+                            System.out.println("Food item not found");
+                    }
                     break;
                 case 4 :
                     System.out.println(" Please enter the name:");
@@ -180,7 +186,9 @@ public class FoodMenuManager{
                 case 6 :
                     System.out.println(" Please enter the name of the promotional package to be updated:");
                     sc.nextLine();
-                    n = sc.next();
+                    n = sc.nextLine();
+                    for (Promotion z : promoSet) {
+                        if (z.getName().equals(n)) {
                     System.out.println(" Please enter the new name:");
                     n2 = sc.nextLine();
                     System.out.println(" Please enter the new description:");
@@ -204,6 +212,10 @@ public class FoodMenuManager{
                         addFoodItemPromo(n1, d1, p1, t1);
                     }
                     editPromotion(n, p, promoMenuItems, d,n2);
+                        }
+                        else
+                             System.out.println("Promotion not found!");
+                    }
                     break;
                 case 7 :
                     System.out.println("-----------------------------FOOD MENU----------------------------------------------------------");
