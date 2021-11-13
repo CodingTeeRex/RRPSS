@@ -8,6 +8,7 @@ public class TableUI extends UI {
     public void run() {
         int choice = -1;
         int tableID = -1, seats = -1;
+        String response = "";
 
         do {
             this.displayMenu();
@@ -18,14 +19,13 @@ public class TableUI extends UI {
                 System.out.println("Enter the Table ID to be created: ");
                 tableID = getInput();
 
-                System.out.println("Enter number of seats (min. 2, max. 10): ");
+                System.out.println("Enter number of seats (EVEN number between 2 and 10): ");
                 seats = getInput();
                 try {
                     tableManager.addTable(tableID, seats);
                 } catch (IllegalArgumentException e) {
-                    System.out.println("ERROR!");
-                    System.out.println("Table with ID: " + tableID + " already exists.");
-                    System.out.println("Or number of seats not allowed.");
+                    System.out.println("[ERROR]");
+                    System.out.println("Number of seats must be an EVEN number between 2 and 10!");
                 }
                 break;
             case 2:
@@ -36,7 +36,7 @@ public class TableUI extends UI {
             case 3:
                 System.out.println("Are you sure you want to delete all tables? Y/N");
                 System.out.println("You will lose all table information!");
-                String response = getString().toUpperCase();
+                response = getString().toUpperCase();
                 if (response.charAt(0) == 'Y') {
                     System.out.println("Deleting...");
                     tableManager.deleteAllTables();
@@ -61,7 +61,17 @@ public class TableUI extends UI {
             case 8:
                 System.out.println("How many tables do you want to initialize?");
                 int numTables = getInput();
-                tableManager.initTables(numTables);
+                Boolean res = tableManager.initTables(numTables);
+
+                if (!res) {
+                    System.out.println("Do you want to clear Table Database? Y/N");
+                    response = getString().toUpperCase();
+                    if (response.charAt(0) == 'Y') {
+                        System.out.println("Deleting...");
+                        tableManager.deleteAllTables();
+                        tableManager.initTables(numTables);
+                    }
+                }
                 break;
             default:
                 break;

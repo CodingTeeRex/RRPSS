@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
+import java.util.TimerTask;
+import java.time.LocalDateTime;
 
 import src.Entity.Table;
 import src.Database.TableDatabase;
@@ -104,6 +106,8 @@ public class ReservationManager {
 	}
 
 	public void displayDates() {
+		this.availableDates.clear();
+
 		ReservationDatabase.reservationList.forEach((k, v) -> {
 			this.availableDates.add(k);
 		});
@@ -130,6 +134,8 @@ public class ReservationManager {
 	}
 
 	public void getTableChoice(int tableChoice) {
+		if (!this.availableTables.containsKey(tableChoice))
+			throw new NullPointerException("Table number not available");
 		this.tableChoice = tableChoice;
 	}
 
@@ -210,31 +216,33 @@ public class ReservationManager {
 		this.proxyTime = time;
 	}
 
-	// public void simulateAutoRemove() throws ParseException {
-	// 	SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-	// 	SimpleDateFormat toFormat = new SimpleDateFormat("MM-dd-yyyy, EEEE");
-	// 	System.out.println(this.proxyDate);
-	// 	Date d = dateFormat.parse(this.proxyDate);
-	// 	String sd = toFormat.format(d);
-	// 	System.out.println("toFormat" + sd);
+	public void simulateAutoRemove() throws ParseException {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+		SimpleDateFormat formatDateTo = new SimpleDateFormat("MM-dd-yyyy, EEEE");
+		Date d = dateFormat.parse(this.proxyDate);
+		String sd = formatDateTo.format(d)
+		
+		ArrayList<Reservation> reservations = ReservationDatabase.reservationList.get(sd).get(this.proxyTime);
+		if (!reservations.isEmpty()) {
+			int[] contactNumArray = new int[reservations.size()];
 
-	// 	try {
-	// 		ReservationDatabase.reservationList.get(sd).get(this.proxyTime).forEach((res) -> {
-	// 			System.out.println(res.getName());
-	// 		});
-	// 	} catch (NullPointerException e) {
-	// 		System.out.println("ERROR! No entry found to simulate.");
-	// 		return;
-	// 	}
-
-	// 	ReservationDatabase.reservationList.forEach((k, v) -> {
-	// 		System.out.println(k);
-	// 		if (k == sd) {
-	// 			for (int i = 0; i < ReservationDatabase.reservationList.get(k).get(this.proxyTime).size(); i++) {
-	// 				System.out.println(ReservationDatabase.reservationList.get(k).get(this.proxyTime).get(i).getName());
-	// 				Timer timer = new Timer();
-	// 			}
-	// 		}
-	// 	});
-	// }
+			for (int i = 0; i < reservations.size(); i++) {
+				contactNumArray[i] = reservations.get(i).getContact();
+			}
+			String time = this.proxyTime;
+			TimerTask tt = new TimerTask() {
+				@Override
+				public void run() {
+					reservations.clear();
+					System.out.println("===============<SYSTEM MESSAGE>===============\n");
+					System.out.println("Reservations cleared for " + sd + " " + time);
+					System.out.println("\n===============<SYSTEM MESSAGE>===============");
+				}
+			};
+			Timer t = new Timer();
+			t.schedule(tt, 5000);
+		} else {
+			System.out.println("No reservations at this time.");
+		}
+	}
 }
