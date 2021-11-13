@@ -1,7 +1,9 @@
 package src.Boundary;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import src.Entity.Employee;
@@ -106,8 +108,10 @@ public abstract class UI {
 		String userInput = "";
 		// Condition for obtaining a valid input
 		boolean handled = false;
+
+		List <String> checker = new ArrayList<String>();
 		for(String s : stringToCheck){
-			s.toUpperCase();
+			checker.add(s.toUpperCase());
 		}
 		// Continue to prompt the user if input entered is not a String and the String
 		// entered does not exist in the string array
@@ -116,7 +120,7 @@ public abstract class UI {
 				userInput = sc.nextLine();
 				//System.out.println("Input: " + userInput);
 				// Input entered is a string and exist in the string array provided
-				if (Arrays.asList(stringToCheck).contains(userInput.toUpperCase())) {
+				if (checker.contains(userInput.toUpperCase())) {
 					handled = true;
 				}
 				// Input entered is a string but does not exist in the string array provided
