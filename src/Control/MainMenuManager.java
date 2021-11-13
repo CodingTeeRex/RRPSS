@@ -62,7 +62,7 @@ public class MainMenuManager {
 				case 8:
 					revenueMenu.run();
 				default:
-					System.out.println("Sytem Shutting Down...");
+					System.out.println("System Shutting Down...");
 					break;
 			}
 
