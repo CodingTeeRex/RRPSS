@@ -1,24 +1,31 @@
 FirstName,LastName,Gender,ContactNumber,Title,Id,MemberType
-
-Trishia,Song,Female,86567836,Server,0,NA
-Teh,Printerflush,Female,87167161,Cashier,1,NA
-Clemens,Ramasamy,Male,88583677,NA,NA,Restaurant
-Mian,Obtaining The Respective Attributes Using The Desiredattribute For Accuracy,Male,97300765,Executive Chef,2,NA
-Lee,Lam,Male,83343198,Line Cook,3,NA
-Jiji,Raj,Female,83031063,Bartender,4,NA
-Syahida,Itemname Itemname,Female,93993844,NA,NA,Other Entities
-Jessie,Construct The Employee,Female,85604496,NA,NA,Restaurant
-Zafirah,John,Female,85582963,NA,NA,Other Entities
-Alvin,Employeegettitlelistfalseaddlinereplaceallazaz Trim,Male,81180132,NA,NA,Restaurant
-Jave,Kwok,Male,84428218,NA,NA,Other Entities
-Adrian,Person Attributes,Male,95010644,NA,NA,Restaurant
-Cyn,Yeoh,Female,89797679,NA,NA,Other Entities
-Yuki Yeap,Obtaining The Respective Attributes Using The Desiredattribute For Accuracy,Female,94021065,NA,NA,Other Entities
-Miyuki,String Name Rowdesiredattributeitemnamegetindex,Female,99386114,NA,NA,Other Entities
-Tsukotomo,Au,Female,99607083,Server,5,NA
-Tricia,Soon,Female,99607084,Server,6,NA
-Erika,Foo,Female,99607085,Server,7,NA
-Benji,Tan,Male,99607086,Server,8,NA
-
-
-
+Foo Shu Ting,Cai,Female,83786945,Assistant Manager,0,NA
+Calven,Ling,Male,90409305,Kitchen Manager,1,NA
+Haidil,Lay,Male,97775834,Kitchen Manager,2,NA
+Benedict,Er,Male,93269701,NA,NA,Other Entities
+Alphonsus,Rajan,Male,98509534,Busserbus Person,3,NA
+Vishva,Mohammed,Male,91829785,Barista,4,NA
+Kang Yong,Tun,Male,94565241,Short Order Cook,5,NA
+Tyris,Seet,Male,96849408,NA,NA,Restaurant
+Christy,Chuah,Female,88852749,Barback,6,NA
+Lin Jie,Guan,Female,94384783,Prep Cook,7,NA
+Helmi,Lim,Male,96933519,Cashier,8,NA
+Cheng,Chan,Male,91216192,Barista,9,NA
+Weida,Hong,Male,97121299,NA,NA,Other Entities
+Amos,Ho,Male,99601865,Hosthostess,10,NA
+Phil,Mohan,Male,94442763,NA,NA,Other Entities
+Weikiat,Narayanan,Male,87986096,Prep Cook,11,NA
+Zhou,Chin,Female,88778089,NA,NA,Restaurant
+Zen,See,Male,80356152,Prep Cook,12,NA
+Lee,Prasad,Female,96974684,NA,NA,Other Entities
+Nasuha,Kan,Female,92068036,NA,NA,Restaurant
+Cheng,Leng,Male,97336886,NA,NA,Other Entities
+Natasha,Hoo,Female,81170850,Server,13,NA
+Germaine,Chiu,Female,82721722,Server,14,NA
+Cat,Agarwal,Female,93859283,NA,NA,Restaurant
+James,Nair,Male,81770358,Server,15,NA
+Jithu,Das,Male,86357677,Server,17,NA
+Aqmal,Eng,Male,97563797,Server,18,NA
+Chong Yeow,Reyes,Male,88735224,Server,19,NA
+Jeremy,Aw,Male,88202023,NA,NA,Restaurant
+Yuliee,Hui,Female,81485817,NA,NA,Other Entities
