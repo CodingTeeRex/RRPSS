@@ -188,6 +188,7 @@ public class FoodMenuManager{
                     p = sc.nextDouble();
                     System.out.println(" Please enter the new no.of food items:");
                     c = sc.nextInt();
+                    promoMenuItems.clear();
                     for (int i = 0; i < c; i++) {
                         System.out.println(" Please enter the name:");
                         sc.nextLine();
@@ -198,7 +199,6 @@ public class FoodMenuManager{
                         p1 = sc.nextDouble();
                         sc.nextLine();
                         System.out.println(" Please enter the type:");
-                        sc.nextLine();
                         t1 = sc.nextLine();
                         addFoodItemPromo(n1, d1, p1, t1);
                     }
@@ -242,6 +242,6 @@ public class FoodMenuManager{
             }
 
         } while (choice != 8);
-
+         sc.close();
     }
 }
