@@ -220,7 +220,7 @@ public class ReservationManager {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 		SimpleDateFormat formatDateTo = new SimpleDateFormat("MM-dd-yyyy, EEEE");
 		Date d = dateFormat.parse(this.proxyDate);
-		String sd = formatDateTo.format(d)
+		String sd = formatDateTo.format(d);
 		
 		ArrayList<Reservation> reservations = ReservationDatabase.reservationList.get(sd).get(this.proxyTime);
 		if (!reservations.isEmpty()) {
