@@ -41,6 +41,7 @@ public class Membership {
 		}
 		System.out.println("================================================================================");
 	}
+	//Set the discount percent according to the membership type
 	public float setDiscountPercent(String type)
 	{
 		if (type.equals("Restaurant"))

@@ -11,7 +11,7 @@ import src.Entity.Person;
 import src.Control.EmployeeManager;
 import src.Database.Database;
 
-public abstract class UI {
+public class UI {
 	private Scanner sc = new Scanner(System.in);
 
 	// Variations of the word with the meaning of Yes/No:
