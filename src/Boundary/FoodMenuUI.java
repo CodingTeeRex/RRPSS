@@ -1,31 +1,35 @@
 package src.Boundary;
 
+import src.Control.FoodMenuManager;
+
 public class FoodMenuUI extends UI {
     
     public void run() {
-        int choice = -1;
 
-        do {
-            this.displayMenu();
-            choice = getInput();
+        FoodMenuManager.run();
+        // int choice = -1;
 
-            switch (choice) {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-            default:
-                break;
-            }
-        } while (choice < 7);
+        // do {
+        //     this.displayMenu();
+        //     choice = getInput();
+
+        //     switch (choice) {
+        //     case 1:
+        //         break;
+        //     case 2:
+        //         break;
+        //     case 3:
+        //         break;
+        //     case 4:
+        //         break;
+        //     case 5:
+        //         break;
+        //     case 6:
+        //         break;
+        //     default:
+        //         break;
+        //     }
+        // } while (choice < 7);
     }
 
     public void displayMenu() {
