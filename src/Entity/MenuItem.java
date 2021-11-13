@@ -82,7 +82,7 @@ public class MenuItem implements Serializable {
         this.description = description;
     }
 
-	public String getType() {
+	public FoodCategory getType() {
 		return this.type;
 	}
 
