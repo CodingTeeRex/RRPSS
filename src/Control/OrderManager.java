@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import src.Database.OrderDatabase;
 import src.Database.Database;
+import src.Database.TableDatabase;
+import src.Entity.Table;
 import src.Entity.Order;
 import src.Entity.MenuItem;
 
@@ -14,7 +16,7 @@ public class OrderManager {
     public static List<Order> Orders = OrderDatabase.OrderDB;
     public static List<MenuItem> menuItems = Database.menuItemsDB;
     public static List<MenuItem> itemList = new ArrayList<MenuItem>();
-    private static int orderID = 0;
+    private static int orderID = 1;
     Scanner sc = new Scanner(System.in);
 	// public void run() {
 
@@ -43,7 +45,7 @@ public class OrderManager {
                 for (MenuItem n : itemList) {
                     n.printsimple();
                 }
-                // System.out.println("\nEnter \"end\" to go back.");
+                System.out.println("\nEnter \"#\" to go back.");
             return;
         }
         if (choice == 2){
@@ -58,7 +60,7 @@ public class OrderManager {
                 for (MenuItem n : itemList) {
                     n.printsimple();
                 }
-                // System.out.println("\nEnter \"end\" to go back.");
+                System.out.println("\nEnter \"#\" to go back.");
             return;
         }
         if (choice == 3){
@@ -73,7 +75,7 @@ public class OrderManager {
                 for (MenuItem n : itemList) {
                     n.printsimple();
                 }
-                // System.out.println("\nEnter \"end\" to go back.");
+                System.out.println("\nEnter \"#\" to go back.");
             return;
         }
         if (choice == 4){
@@ -88,24 +90,28 @@ public class OrderManager {
                 for (MenuItem n : itemList) {
                     n.printsimple();
                 }
-                // System.out.println("\nEnter \"end\" to go back.");
+                System.out.println("\nEnter \"#\" to go back.");
             return;
         }
 
 	}
 
-	public void createOrder(int staffID , int tableNo) {
+	public void createOrder(int staffID , int tableNo, String staffName) {
 
-        Order order = new Order(orderID, tableNo, staffID);
-        orderID ++;
-        Orders.add(order);
+        Table table = TableDatabase.tableList.get(tableNo);
+        if (table.isTaken() == false ){
+            table.setTakenStatus();
+            Order order = new Order(orderID, tableNo, staffID, staffName);
+            orderID ++;
+            Orders.add(order);
+    
+            System.out.println("Order Successfully Created");
+            order.print(); 
 
-        System.out.println("Order Successfully Created");
-        order.print(); 
-        // getAllOrders();
-
-        // System.out.println("Redirect to add order");
-        // addOrder(tableNo);
+        }
+        else{
+            System.out.println("Table is Currently Taken");
+        }
 	}
 
     public void getOrder(int orderID) {
@@ -167,6 +173,13 @@ public class OrderManager {
     public void deleteOrder(int orderID) {
         for (Order o : Orders) {
 			if (o.getOrderID() == orderID) {
+                Table table = TableDatabase.tableList.get(o.getTableID());
+                if (table.isTaken() == false ){
+                    System.out.println("ERROR !!!!");
+                }
+                else{
+                    table.setTakenStatus();
+                }
 				Orders.remove(o);
 				System.out.println("Order " + orderID + " is removed");
 				return;
@@ -184,17 +197,19 @@ public class OrderManager {
 
     public void additems(int orderID){
         String input, input1;
-        double price = 12.50;
+        // double price = 12.50;
 
 
-        System.out.println("\nEnter the item number: ");
+        System.out.println("Enter the item number: ");
         input = sc.next();
+        if (input.equals("#")){
+            return;
+        }
         System.out.println("\nEnter how many servings: ");
         input1 = sc.next();
-
-        // if (input == "end" || input1 == "end"){
-        //     return;
-        // }
+        if (input1.equals("#")){
+            return;
+        }
 
         for (Order o : Orders) {
 			if (o.getOrderID() == orderID) {
@@ -202,17 +217,13 @@ public class OrderManager {
                     if(n.getID() == Integer.parseInt(input)){
                         // o.additems(Integer.parseInt(input1), n.getName(), n.getType(), n.getPrice());
 
-                        o.additems(Integer.parseInt(input1), n.getName(), n.getType(), price);
+                        o.additems(Integer.parseInt(input1), n.getName(), n.getType(), n.getPrice());
                     }
                 }
                 
 			}
 		}
     }
-
-	// private MenuItem[] getOrder() {
-
-	// }
 
     
     }

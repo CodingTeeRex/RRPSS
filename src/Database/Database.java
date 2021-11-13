@@ -24,6 +24,8 @@ public class Database {
 	// from a given .csv file
 	public static List<MenuItem> menuItemsDB = new ArrayList<MenuItem>();
 
+	public static String restaurantName;
+
 	// Enum for easy access to the valid index for respective attributes from the
 	// csv
 	static enum DesiredAttribute {

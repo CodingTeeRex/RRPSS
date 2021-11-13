@@ -1,12 +1,16 @@
 package src.Boundary;
 
 import src.Control.OrderManager;
+import src.Database.Database;
+import src.Entity.Person;
+
 public class OrderUI extends UI {
     
     public void run() {
 
         int choice = -1;
         int staffID,tableNo,orderID;
+        String staffName = "Andy";
 
 
         do {
@@ -16,12 +20,16 @@ public class OrderUI extends UI {
 
             switch (choice) {
             case 1:
-                System.out.println("Enter Staff ID: ");
-                staffID = getInput();
                 System.out.println("Enter Table Number: ");
                 tableNo = getInput();
+                System.out.println("Enter Staff ID: ");
+                staffID = getInput();
+                
+
+                Person staff =  Database.employeesDB.get(staffID);
+                System.out.printf("NAME: %s", staff.getName());
     
-                ordermgt.createOrder(staffID,tableNo);
+                ordermgt.createOrder(staffID,tableNo,staffName);
                 break;
             case 2:
                 System.out.println("Enter Order: ");

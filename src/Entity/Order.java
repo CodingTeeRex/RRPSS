@@ -2,19 +2,25 @@ package src.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import src.Database.Database;
+
+
 
 public class Order {
 
 	private int orderID;
 	private int tableID;
 	private int staffID;
+    private String staffName;
 	public List<OrderItem> itemList;
 
-    public Order(int orderID, int tableID, int staffID){
+    public Order(int orderID, int tableID, int staffID, String staffName){
         this.orderID = orderID;
         this.tableID = tableID;
         this.staffID = staffID;
+        this.staffName = staffName;
         this.itemList = new ArrayList<OrderItem>();
+
     }
 
 	public int getOrderID() {
@@ -24,7 +30,9 @@ public class Order {
 	public int getStaffID() {
 		return this.staffID;
 	}
-
+    public String getStaffName() {
+		return this.staffName;
+	}
 	public int getTableID() {
 		return this.tableID;
 	}
@@ -56,9 +64,9 @@ public class Order {
 		// System.out.println("Table Number: " + this.getTableID());
 
         System.out.printf("Order ID: %d, Staff ID: %d, Table Number: %d\n", this.getOrderID(),this.getStaffID(),this.getTableID());
-        System.out.println("Pax--Dish Name----------------------------------Price");
+        System.out.println(" Pax    Dish Name                                   Price");
         for(OrderItem o : itemList){
-            System.out.printf(" %d   %s                           $%f\n", o.getPax(),o.getName(),(o.getPax()*o.getPrice()));
+            System.out.printf(" %-4d   %-35s         $%.2f\n", o.getPax(),o.getName(),(o.getPax()*o.getPrice()));
         }
 
 	}
@@ -71,12 +79,12 @@ public class Order {
 
         //HEADER
         System.out.printf("----------------------------------------------------------------------------------------------------------------\n\n");
-        System.out.printf("                                                %s\n", "RESTRAUNT NAME");
-        System.out.printf("                                                %s\n", "LOCATION");
-        System.out.printf("                                                %s%d\n", "TEL: " , 98765432);
-        System.out.printf("                                                %s%d\n\n", "Check #: ", orderID );
-        System.out.printf("     Server : %15s                                                                    Date: 18/11/2021  \n", "SERVER NAME");
-        System.out.printf("     Table #: %15d                                                                    Time: 1720  \n", 2);
+        System.out.printf("                                           %s\n", Database.restaurantName);
+        System.out.printf("                                           %s\n", "10 Ang Mo Kio Street 12, Singapore 567740");
+        System.out.printf("                                           %s%d\n", "TEL: " , 98765432);
+        System.out.printf("                                           %s%d\n\n", "Check #: ", orderID );
+        System.out.printf("     Server : %-15s                                                                    Date: 18/11/2021  \n", "SERVER NAME");
+        System.out.printf("     Table #: %-15d                                                                    Time: 1720  \n", 2);
         System.out.printf("                                                Client: %d\n", 6);
         System.out.printf("----------------------------------------------------------------------------------------------------------------\n\n");
 
@@ -105,7 +113,7 @@ public class Order {
 
         //FOOTER
         System.out.printf("****************************************************************************************************************\n");
-        System.out.printf("                                                THANKS FOR DINNING WITH US ! \n");
+        System.out.printf("                                           THANKS FOR DINNING WITH US ! \n");
         System.out.printf("****************************************************************************************************************\n");
 
 
