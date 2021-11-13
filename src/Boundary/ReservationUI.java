@@ -4,9 +4,19 @@ import java.text.ParseException;
 
 import src.Control.ReservationManager;
 
+/**
+ * UI for the reservation interface.
+ * 
+ * @author Ivan Pua
+ * @version 1.0
+ * @since 13/11/2021
+ */
 public class ReservationUI extends UI {
     private ReservationManager reservationManager = new ReservationManager();
 
+    /**
+     * Driver method. Handles all the UI display and user inputs
+     */
     public void run() {
         int choice = -1;
         String custName;
@@ -31,7 +41,6 @@ public class ReservationUI extends UI {
                     System.out.println("Please try again.");
                     break;
                 }
-                
 
                 System.out.println("\nSelect timeslot of reservation: ");
                 reservationManager.displayTimes();
@@ -72,6 +81,7 @@ public class ReservationUI extends UI {
 
                     try {
                         reservationManager.makeReservation(custName, contactNum, numPax);
+                        System.out.println("Reservation added successfully!");
                     } catch (IllegalArgumentException e) {
                         System.out.println("# Pax is more than available seats for the table");
                         break;
@@ -86,6 +96,10 @@ public class ReservationUI extends UI {
                 reservationManager.showAllReservations();
                 break;
             case 4:
+                System.out.println("Enter contact number: ");
+                reservationManager.showAllReservations(getInput());
+                break;
+            case 5:
                 System.out.println("\n============================================================");
                 System.out.println("This option simulates the auto removal of a reservation");
                 System.out.println("5 seconds after the reservation booking time has reached.");
@@ -93,7 +107,7 @@ public class ReservationUI extends UI {
                 System.out.println("Set Date");
                 System.out.println("Enter Date (MM-DD-YYYY):");
                 String date = getString();
-                
+
                 System.out.println("Set Time");
                 System.out.println("Enter Time (HH:MM) 24 Hour format: ");
                 String time = getString();
@@ -108,15 +122,19 @@ public class ReservationUI extends UI {
             default:
                 break;
             }
-        } while (choice > 0 && choice < 5);
+        } while (choice > 0 && choice < 6);
     }
 
+    /**
+     * Displays the reservation menu.
+     */
     public void displayMenu() {
         System.out.println("\n################# RESERVATION MENU #################");
         System.out.println("1. Make Reservation.");
         System.out.println("2. Remove Reservation.");
         System.out.println("3. Check Reservation.");
-        System.out.println("4. Simulate Reservation Auto Remove");
-        System.out.println("5. Back.");
+        System.out.println("4. Check Reservation by Contact Number.");
+        System.out.println("5. Simulate Reservation Auto Remove");
+        System.out.println("6. Back.");
     }
 }

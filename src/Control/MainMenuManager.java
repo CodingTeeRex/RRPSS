@@ -3,6 +3,13 @@ package src.Control;
 import src.Boundary.*;
 import src.Entity.Restaurant;
 
+/**
+ * The main UI that connects to the other Menus
+ * 
+ * @author Ivan Pua
+ * @version 1.0
+ * @since 24/10/2021
+ */
 public class MainMenuManager {
 	private MainMenuUI mainMenuUI = new MainMenuUI();
 	private FoodMenuUI foodMenu = new FoodMenuUI();
@@ -13,6 +20,11 @@ public class MainMenuManager {
 	private PaymentUI paymentMenu = new PaymentUI();
 	private TableUI tableMenu = new TableUI();
 
+	/**
+	 * Driver method for the entire system
+	 * Infinite while loop allows the program to continue execution until user decides to exit
+	 * @param restaurant The instance of the restarant
+	 */
 	public void run(Restaurant restaurant) {
 		int choice = -1;
 

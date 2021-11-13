@@ -9,7 +9,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.time.LocalDateTime;
 
 import src.Entity.Table;
 import src.Database.TableDatabase;
@@ -17,20 +16,11 @@ import src.Database.ReservationDatabase;
 import src.Entity.Reservation;
 
 /**
- * ReservationManager acts as the control between the customer and the tables.
- * Reservations cannot be made on the day itself. (must be made in advance)
- * After a set amount of time, the reservation will be removed after the actual
- * booking time.
+ * Handles the control for the ReservationUI
  * 
- * @param dateList        contains a list of 30 dates not including the current
- *                        (today's) date.
- *                        <p>
- *                        dateList is used to display the available dates for
- *                        reservation
- * @param reservationList is a HashMap mapping a date formatted to a String to
- *                        an ArrayList of HashMaps where the inner HashMap's key
- *                        value pairs are the customer's name and the table
- *                        object respectively
+ * @author Ivan Pua
+ * @version 1.0
+ * @since 13/11/2021
  */
 
 public class ReservationManager {
@@ -45,13 +35,19 @@ public class ReservationManager {
 	private String proxyDate;
 	private String proxyTime;
 
+	/**
+	 * ReservationManager constructor
+	 * Instantiates ReservationDatabase
+	 */
 	public ReservationManager() {
 		new ReservationDatabase();
 		this.initReservationList();
-
 		this.availableDates = new ArrayList<String>();
 	}
 
+	/**
+	 * Initialises reservationList
+	 */
 	private void initReservationList() {
 		Date date = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy, EEEE");
@@ -66,6 +62,10 @@ public class ReservationManager {
 		}
 	}
 
+	/**
+	 * Initialises the inner TreeMap to insert into reservationList
+	 * @return Returns the initialised inner TreeMap
+	 */
 	private TreeMap<String, ArrayList<Reservation>> initInnerHashMap() {
 		TreeMap<String, ArrayList<Reservation>> r = new TreeMap<String, ArrayList<Reservation>>();
 
@@ -76,6 +76,9 @@ public class ReservationManager {
 		return r;
 	}
 
+	/**
+	 * Shows all existing reservations
+	 */
 	public void showAllReservations() {
 		Object[] dateKeys = ReservationDatabase.reservationList.keySet().toArray();
 		for (int i = 0; i < dateKeys.length; i++) {
@@ -98,6 +101,34 @@ public class ReservationManager {
 		}
 	}
 
+	/**
+	 * Shows all reservations for a particular contact number
+	 * @param contactNum The customer's contact number
+	 */
+	public void showAllReservations(int contactNum) {
+		Object[] dateKeys = ReservationDatabase.reservationList.keySet().toArray();
+		for (int i = 0; i < dateKeys.length; i++) {
+			Object dateKey = dateKeys[i];
+			ReservationDatabase.reservationList.get(dateKeys[i]).forEach((k, v) -> {
+				for (int j = 0; j < v.size(); j++) {
+					if (v.get(j).getContact() == contactNum) {
+						System.out.println();
+						System.out.println(dateKey);
+						System.out.println("#################################################");
+						System.out.println("\nTimeslot: " + k);
+						System.out.println("==============================================");
+						System.out.printf("Table#: %d\t Name: %s\t Contact: %d\n", v.get(j).getTable().getId(),
+								v.get(j).getName(), v.get(j).getContact());
+					}
+				}
+			});
+		}
+	}
+
+	/**
+	 * Shows all existing reservation by date
+	 * @deprecated not in use
+	 */
 	public void showReservationByDate() {
 		Object[] dateKeys = ReservationDatabase.reservationList.keySet().toArray();
 		for (int i = 0; i < dateKeys.length; i++) {
@@ -105,6 +136,9 @@ public class ReservationManager {
 		}
 	}
 
+	/**
+	 * Displays the available dates for reservation
+	 */
 	public void displayDates() {
 		this.availableDates.clear();
 
@@ -117,28 +151,44 @@ public class ReservationManager {
 		}
 	}
 
+	/**
+	 * Gets the date choice from user
+	 */
 	public void getDateChoice(int dateChoice) {
 		this.dateChoice = dateChoice;
 		System.out.printf("\n%s selected.\n", this.availableDates.get(dateChoice - 1));
 	}
 
+	/**
+	 * Displays the available timeslots for reservation
+	 */
 	public void displayTimes() {
 		for (int i = 0; i < times.length; i++) {
 			System.out.printf("%d. %s\n", i + 1, times[i]);
 		}
 	}
 
+	/**
+	 * Gets the time choice from user
+	 */
 	public void getTimeChoice(int timeChoice) {
 		this.timeChoice = timeChoice;
 		System.out.printf("\n%s selected.\n", times[timeChoice - 1]);
 	}
-
+	
+	/**
+	 * Get table choice from user
+	 */
 	public void getTableChoice(int tableChoice) {
 		if (!this.availableTables.containsKey(tableChoice))
 			throw new NullPointerException("Table number not available");
 		this.tableChoice = tableChoice;
 	}
 
+	/**
+	 * Check current availability of tables and display them
+	 * @return A boolean value representing if the selected date & time is available for reservation
+	 */
 	public Boolean checkAvailability() {
 		String date = this.availableDates.get(this.dateChoice - 1);
 		String time = this.times[this.timeChoice - 1];
@@ -161,7 +211,7 @@ public class ReservationManager {
 			full = true;
 		}
 
-		// show tables availabe for selected date & time
+		// show tables available for selected date & time
 		if (!full) {
 			System.out.printf("Available tables for %s, %s:\n", this.availableDates.get(this.dateChoice - 1),
 					times[this.timeChoice - 1]);
@@ -181,6 +231,12 @@ public class ReservationManager {
 		return true;
 	}
 
+	/**
+	 * Inserts a reservation into reservationList
+	 * @param custName The customer's name
+	 * @param contactNum The customer's contact number
+	 * @param numPax Party size
+	 */
 	public void makeReservation(String custName, int contactNum, int numPax) {
 		Table t = this.availableTables.get(this.tableChoice);
 
@@ -196,6 +252,10 @@ public class ReservationManager {
 		this.availableDates.clear();
 	}
 
+	/**
+	 * Removes a reservation of a specified customer by contact number
+	 * @param contactNum The customer's contact number
+	 */
 	public void removeReservation(int contactNum) {
 		ReservationDatabase.reservationList.forEach((k, v) -> {
 			v.forEach((time, res) -> {
@@ -211,24 +271,29 @@ public class ReservationManager {
 		});
 	}
 
+	/**
+	 * Sets a proxy date to simulate the auto removal of reservation upon reservation date
+	 * @param date The date to be simulated
+	 * @param time The time to be simulated
+	 */
 	public void setProxyDateTime(String date, String time) {
 		this.proxyDate = date;
 		this.proxyTime = time;
 	}
 
+	/**
+	 * Simulates the removal of reservation upon reservation date & time after XX amount of time
+	 * @throws ParseException Exception occurs when the date & time input by user cannot be parsed
+	 */
 	public void simulateAutoRemove() throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 		SimpleDateFormat formatDateTo = new SimpleDateFormat("MM-dd-yyyy, EEEE");
 		Date d = dateFormat.parse(this.proxyDate);
 		String sd = formatDateTo.format(d);
-		
+
 		ArrayList<Reservation> reservations = ReservationDatabase.reservationList.get(sd).get(this.proxyTime);
 		if (!reservations.isEmpty()) {
-			int[] contactNumArray = new int[reservations.size()];
 
-			for (int i = 0; i < reservations.size(); i++) {
-				contactNumArray[i] = reservations.get(i).getContact();
-			}
 			String time = this.proxyTime;
 			TimerTask tt = new TimerTask() {
 				@Override
