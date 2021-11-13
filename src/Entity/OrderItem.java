@@ -31,8 +31,8 @@ public class OrderItem {
 	public String getName() {
 		return this.name;
 	}
-	public String getType() {
-		return this.type.getName();
+	public FoodCategory getType() {
+		return this.type;
 	}
 	
 	public double getPrice(){
