@@ -91,7 +91,7 @@ public class FoodMenuManager{
             System.out.println(name + " cannot be found!");
         }
     }
-    public static void main(String[] args) {
+    public static void run() {
         int choice,c;
         String n,d,t,n1,d1,t1,n2;
         double p,p1;
@@ -238,7 +238,6 @@ public class FoodMenuManager{
                     }
                     break;
                 case 8 :
-                    System.out.println(" Exiting....");
                     break;
             }
 
