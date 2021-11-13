@@ -172,8 +172,9 @@ public class FoodMenuManager{
                     addPromotion(n, p, promoMenuItems, d);
                     break;
                 case 5 :
-                    System.out.println(" Please enter the name:");
-                    n = sc.next();
+                    System.out.print(" Please enter the name:");
+                    sc.nextLine();
+                    n = sc.nextLine();
                     removePromotion(n);
                     break;
                 case 6 :
@@ -181,9 +182,9 @@ public class FoodMenuManager{
                     sc.nextLine();
                     n = sc.next();
                     System.out.println(" Please enter the new name:");
-                    n2 = sc.next();
+                    n2 = sc.nextLine();
                     System.out.println(" Please enter the new description:");
-                    d = sc.next();
+                    d = sc.nextLine();
                     System.out.println(" Please enter the new price:");
                     p = sc.nextDouble();
                     System.out.println(" Please enter the new no.of food items:");
