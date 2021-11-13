@@ -27,7 +27,7 @@ public class OrderUI extends UI {
                 
 
                 Person staff =  Database.employeesDB.get(staffID);
-                System.out.printf("NAME: %s", staff.getLastName());
+                System.out.printf("NAME: %s", staff.getName());
     
                 ordermgt.createOrder(staffID,tableNo,staffName);
                 break;
