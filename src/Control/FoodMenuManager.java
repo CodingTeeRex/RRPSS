@@ -172,18 +172,19 @@ public class FoodMenuManager{
                     addPromotion(n, p, promoMenuItems, d);
                     break;
                 case 5 :
-                    System.out.println(" Please enter the name:");
-                    n = sc.next();
+                    System.out.print(" Please enter the name:");
+                    sc.nextLine();
+                    n = sc.nextLine();
                     removePromotion(n);
                     break;
                 case 6 :
                     System.out.println(" Please enter the name of the promotional package to be updated:");
                     sc.nextLine();
-                    n = sc.next();
+                    n = sc.nextLine();
                     System.out.println(" Please enter the new name:");
-                    n2 = sc.next();
+                    n2 = sc.nextLine();
                     System.out.println(" Please enter the new description:");
-                    d = sc.next();
+                    d = sc.nextLine();
                     System.out.println(" Please enter the new price:");
                     p = sc.nextDouble();
                     System.out.println(" Please enter the new no.of food items:");
@@ -198,7 +199,6 @@ public class FoodMenuManager{
                         p1 = sc.nextDouble();
                         sc.nextLine();
                         System.out.println(" Please enter the type:");
-                        sc.nextLine();
                         t1 = sc.nextLine();
                         addFoodItemPromo(n1, d1, p1, t1);
                     }
@@ -242,6 +242,6 @@ public class FoodMenuManager{
             }
 
         } while (choice != 8);
-
+sc.close();
     }
 }
