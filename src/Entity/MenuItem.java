@@ -82,8 +82,8 @@ public class MenuItem implements Serializable {
         this.description = description;
     }
 
-	public String getType() {
-		return this.type.getName();
+	public FoodCategory getType() {
+		return this.type;
 	}
 
 	public void setType(String type)
