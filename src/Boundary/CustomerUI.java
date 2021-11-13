@@ -17,18 +17,29 @@ public class CustomerUI extends UI {
             switch (choice) {
 
             case 1:
-                displayCustomerDB();
-                // Initialised the required attributes to create a membership for the customer
-                int contact = -1;
-                String membershipType = "";
-                // Obtaining a valid customer Contact Number
-                System.out.println("Please Enter the Customer's Contact Number (8xxxxxxx - 9xxxxxxx): ");
-                contact = super.getValidContactNumber(false);
-                // Obtaining a valid membership type
-                System.out.println("Please Enter the Customer's Membership Type: ");
-                membershipType = super.getInputString(Membership.getAvailableMembership());
-                // Applying membership for the Customer via the contact number
-                CustomerManager.newMembership(contact, membershipType);
+                // Initialised the required attributes to create an (Member) Customer Object
+				String firstName = "";
+				String lastName = "";
+				String gender = "";
+				int contact = -1;
+				String membership = "";
+				// Obtaining a valid employee First Name
+				System.out.println("Please Enter the Customer's First Name: ");
+				firstName = super.getInputString();
+				// Obtaining a valid employee Last Name
+				System.out.println("Please Enter the Customer's Last Name: ");
+				lastName = super.getInputString();
+				// Obtaining a valid employee Gender
+				System.out.println("Please Enter the Customer's Gender (Male/Female): ");
+				gender = super.getInputString(Person.returnGenderSynonym());
+				// Obtaining a valid employee Contact Number
+				System.out.println("Please Enter the Customer's Contact Number (8xxxxxxx - 9xxxxxxx): ");
+				contact = super.getValidContactNumber(true);
+				// Obtaining a valid employee Title
+				System.out.println("Please Enter the Customer's Membership Type: ");
+				membership = super.getInputString(Membership.getAvailableMembership());
+				// Adding the Employee to the employee list using the manager
+				CustomerManager.newMembership(firstName, lastName, gender, contact, membership);
                 break;
             case 2:
                 displayCustomerDB();
@@ -69,7 +80,8 @@ public class CustomerUI extends UI {
                 "============================CUSTOMER INFORMATION AVAILABLE====================================");
         for (Person p : CustomerManager.customers) {
             Customer c = (Customer) p;
-            c.printMinimal();
+            if (c.getMember())
+                c.printMinimal();
         }
         System.out.println("================================================================================");
         System.out.println();

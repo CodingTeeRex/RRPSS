@@ -13,7 +13,7 @@ public class OrderItem {
         this.pax=pax;
         this.name=name;
         this.price=price;
-		this.tempID = 0;
+		    this.tempID = 0;
         if (type.contains("App")) {
 			this.type = FoodCategory.APPETISER;
 		} else if (type.contains("Main")) {
@@ -28,7 +28,6 @@ public class OrderItem {
 	public int getPax() {
 		return this.pax;
 	}
-
 	public String getName() {
 		return this.name;
 	}
@@ -39,7 +38,14 @@ public class OrderItem {
 	public double getPrice(){
 		return this.price;
 	}
-
+	public void setPax(int pax)
+	{
+		this.pax = pax;
+	}
+	public void setPrice(double price)
+	{
+		this.price = price;
+	}
 	public int getTemp() {
 		return this.tempID;
 	}
@@ -48,5 +54,4 @@ public class OrderItem {
 		this.tempID = temp;
 	}
 	
-
 }

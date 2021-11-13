@@ -11,26 +11,12 @@ public class CustomerManager {
 	public static List<Person> customers = Database.customersDB;
 	
 	//Apply a membership to the respective Customer using Contact number
-	public static void newMembership(int contact, String membershipType)
+	public static void newMembership(String firstName, String lastName, String gender, int contact, String membership)
 	{
-		for (Person p : customers)
-		{
-			//Customer can be found using the contact number and does not currently hold a membership (ACCEPTED)
-			if(((Customer)p).getContact() == contact && !((Customer)p).getMember())
-			{
-				((Customer)p).setMemberShip(membershipType);
-				System.out.println("[ACCEPTED] The Customer with contact number: " + contact + " now holds " + membershipType + " membership");
-				return;
-			}
-			//Customer can be found using the contact number and currently hold a membership (REJECTED)
-			else if (((Customer)p).getContact() == contact && ((Customer)p).getMember())
-			{
-				System.out.println("[REJECTED]The Customer with contact number: " + contact + " currently holds a membership");
-				return;
-			}
-		}
-		//Unable to find the customer with the contact number provided
-		System.out.println("[REJECTED] Unable to find the Customer with contact number: " + contact );
+		Person customer = new Customer(firstName, lastName, gender, contact, membership);
+		customers.add(customer);
+		System.out.println("[ACCEPTED] Employee Successfully Added!");
+		customer.print();
 	}
 	//Obtaining the membership held by a Customer using Contact number
 	public static void checkMembership(int contact)
