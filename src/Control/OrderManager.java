@@ -99,7 +99,7 @@ public class OrderManager {
 	public void createOrder(int staffID , int tableNo, String staffName) {
 
         Table table = TableDatabase.tableList.get(tableNo);
-        if (table.isTaken() == false ){
+
             table.setTakenStatus();
             Order order = new Order(orderID, tableNo, staffID, staffName);
             orderID ++;
@@ -108,10 +108,6 @@ public class OrderManager {
             System.out.println("Order Successfully Created");
             order.print(); 
 
-        }
-        else{
-            System.out.println("Table is Currently Taken");
-        }
 	}
 
     public void getOrder(int orderID) {
@@ -191,7 +187,7 @@ public class OrderManager {
     public void getAllOrders(){
         System.out.println("============================ All Orders ====================================");
         for(Order o : Orders){
-            System.out.printf("Order ID: %d, Staff ID: %d, Table Num: %d\n", o.getOrderID(),o.getStaffID(),o.getTableID());
+            o.print();
         }
     }
 
@@ -205,9 +201,17 @@ public class OrderManager {
         if (input.equals("#")){
             return;
         }
-        System.out.println("\nEnter how many servings: ");
+        else if(Integer.parseInt(input) >= itemList.size() || Integer.parseInt(input) < 1){
+            System.out.println("Kindly input items within the range");
+            return;
+        }
+        System.out.println("\nEnter how many servings (max=10): ");
         input1 = sc.next();
         if (input1.equals("#")){
+            return;
+        }
+        else if(Integer.parseInt(input1) > 10 || Integer.parseInt(input1) < 1){
+            System.out.println("Kindly input items within the range");
             return;
         }
 
@@ -224,6 +228,35 @@ public class OrderManager {
 			}
 		}
     }
+    public void deleteItem(int orderID){
+        System.out.println("============================ DELETE ITEMS ====================================");
+        for(Order o : Orders){
+            if (o.getOrderID() == orderID) {
+                int choice;
+
+                System.out.printf("Order ID: %d, Service Staff: %s, Table Num: %d\n", o.getOrderID(),o.getStaffID(),o.getTableID());
+                o.printItems();
+
+                do{
+                    System.out.println("Enter the item number to remove: ");
+                    choice = sc.nextInt();
+
+                    if(choice > o.itemList.size() || choice < 1){
+                        System.out.println("Kindly input items within the range");
+                        continue;
+                    }
+
+                }while(choice > o.itemList.size() || choice < 1);
+
+                o.deleteitems(choice);
+                System.out.println("Item successfully removed.");
+                return;
+            }
+            
+        }
+        System.out.println("ERROR Order ID " + orderID + ": Cant be found!");
+
+    }
 
     
-    }
+}

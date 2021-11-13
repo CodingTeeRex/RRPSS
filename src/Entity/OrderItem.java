@@ -3,7 +3,7 @@ package src.Entity;
 import src.Entity.MenuItem.FoodCategory;
 
 public class OrderItem {
-    
+    int tempID;
     int pax;
 	String name = "";
     FoodCategory type;
@@ -13,6 +13,7 @@ public class OrderItem {
         this.pax=pax;
         this.name=name;
         this.price=price;
+		this.tempID = 0;
         if (type.contains("App")) {
 			this.type = FoodCategory.APPETISER;
 		} else if (type.contains("Main")) {
@@ -38,4 +39,14 @@ public class OrderItem {
 	public double getPrice(){
 		return this.price;
 	}
+
+	public int getTemp() {
+		return this.tempID;
+	}
+	
+	public void setTemp(int temp) {
+		this.tempID = temp;
+	}
+	
+
 }
