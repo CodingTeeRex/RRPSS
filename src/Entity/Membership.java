@@ -1,5 +1,8 @@
 package src.Entity;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Membership {
 	
 	//Type of membership

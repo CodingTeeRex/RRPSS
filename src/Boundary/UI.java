@@ -85,7 +85,7 @@ public abstract class UI {
 		do {
 			try {
 				userInput = sc.nextLine();
-				System.out.println("Input: " + userInput);
+				//System.out.println("Input: " + userInput);
 				// Input entered is a string and exist in the string array provided
 				if (Arrays.asList(stringToCheck).contains(userInput)) {
 					handled = true;

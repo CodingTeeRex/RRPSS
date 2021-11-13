@@ -27,7 +27,6 @@ public class OrderItem {
 	public int getPax() {
 		return this.pax;
 	}
-
 	public String getName() {
 		return this.name;
 	}
@@ -37,5 +36,13 @@ public class OrderItem {
 	
 	public double getPrice(){
 		return this.price;
+	}
+	public void setPax(int pax)
+	{
+		this.pax = pax;
+	}
+	public void setPrice(double price)
+	{
+		this.price = price;
 	}
 }
