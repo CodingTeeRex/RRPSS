@@ -26,7 +26,7 @@ public class PaymentManager {
         // System.out.println("============================ Receipt ====================================");
         for(Order o : Orders){
             if (o.getOrderID() == orderID) {
-                o.printBill(o.getOrderID(),o.getStaffID(),o.getTableID(),member);
+                o.printBill(o.getOrderID(),o.getStaffID(),o.getTableID(),member,o.getStaffName());
                 return;
             }
             

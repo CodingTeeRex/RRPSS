@@ -5,12 +5,15 @@ Syamim,Sulaiman,Male,89926289,NA,NA,Other Entities
 Jason,Hong,Male,90931888,NA,NA,Other Entities
 Loraine,Siow,Female,85107860,NA,NA,Restaurant
 Dray,Er,Male,99979185,NA,NA,Other Entities
-Tsukotomo,Au,Female,99607083,Kitchen Manager,1,NA
-Chloe,Foong,Female,95837670,Bartender,2,NA
-Kirito,Raja,Male,96088898,Line Cook,3,NA
+Tsukotomo,Au,Female,99607083,Server,1,NA
+Tricia,Soon,Female,99607084,Server,2,NA
+Erika,Foo,Female,99607085,Server,3,NA
+Benji,Tan,Male,99607086,Server,4,NA
+Chloe,Foong,Female,95837670,Bartender,5,NA
+Kirito,Raja,Male,96088898,Line Cook,6,NA
 Sagnwook,See,Male,92738395,NA,NA,NA
 Wilson,Wen,Male,89991608,NA,NA,NA
 Samuel,Liu,Male,82851314,NA,NA,Other Entities
-Ho,Yong,Male,85193755,Cashier,4,NA
+Ho,Yong,Male,85193755,Cashier,7,NA
 Jeffrey,Thong,Male,82832342,NA,NA,Restaurant
 Mabel Lim,Teo,Female,94334275,NA,NA,Other Entities
