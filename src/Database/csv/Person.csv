@@ -1,7 +1,7 @@
 FirstName,LastName,Gender,ContactNumber,Title,Id,MemberType
 Foo Shu Ting,Cai,Female,83786945,Assistant Manager,0,NA
-Calven,Ling,Male,90409305,Kitchen Manager,1,NA
-Haidil,Lay,Male,97775834,Kitchen Manager,2,NA
+Calven,Ling,Male,90409305,Server,1,NA
+Haidil,Lay,Male,97775834,Server,2,NA
 Benedict,Er,Male,93269701,NA,NA,Other Entities
 Alphonsus,Rajan,Male,98509534,Busserbus Person,3,NA
 Vishva,Mohammed,Male,91829785,Barista,4,NA
@@ -24,8 +24,8 @@ Natasha,Hoo,Female,81170850,Server,13,NA
 Germaine,Chiu,Female,82721722,Server,14,NA
 Cat,Agarwal,Female,93859283,NA,NA,Restaurant
 James,Nair,Male,81770358,Server,15,NA
-Jithu,Das,Male,86357677,Server,17,NA
-Aqmal,Eng,Male,97563797,Server,18,NA
+Jithu,Das,Male,86357677,Kitchen Manager,17,NA
+Aqmal,Eng,Male,97563797,Kitchen Manager,18,NA
 Chong Yeow,Reyes,Male,88735224,Server,19,NA
 Jeremy,Aw,Male,88202023,NA,NA,Restaurant
 Yuliee,Hui,Female,81485817,NA,NA,Other Entities

@@ -2,12 +2,15 @@ package src.Control;
 
 import java.util.ArrayList;
 import java.util.List;
+import src.Control.FoodMenuManager;
 import src.Database.OrderDatabase;
 import src.Database.Database;
 import src.Database.TableDatabase;
 import src.Entity.Table;
 import src.Entity.Order;
 import src.Entity.MenuItem;
+import src.Entity.FoodCategory;
+import src.Entity.Promotion;
 
 import java.util.Scanner;
 
@@ -16,6 +19,7 @@ public class OrderManager {
     public static List<Order> Orders = OrderDatabase.OrderDB;
     public static List<MenuItem> menuItems = Database.menuItemsDB;
     public static List<MenuItem> itemList = new ArrayList<MenuItem>();
+    public static ArrayList<Promotion> promoList= new ArrayList<Promotion>();
     private static int orderID = 1;
     Scanner sc = new Scanner(System.in);
 	// public void run() {
@@ -28,7 +32,8 @@ public class OrderManager {
         System.out.println("2. Main Course.");
         System.out.println("3. Drinks.");
         System.out.println("4. Dessert.");
-        System.out.println("5. Back.");
+        System.out.println("5. Promotional Set.");
+        System.out.println("6. Back.");
 	}
 
     public void displaysubMenu(int choice) {
@@ -36,7 +41,7 @@ public class OrderManager {
         if (choice == 1){
                 System.out.println("################# Appetiser MENU #################");
                 for (MenuItem m : menuItems) {
-                    if(m.getType() == "Appetiser" ){
+                    if(m.getType().equals(FoodCategory.APPETISER)){
                         MenuItem item = new MenuItem(counter, m.getName(),m.getType(),m.getPrice());
                         itemList.add(item);
                         counter++;
@@ -51,8 +56,8 @@ public class OrderManager {
         if (choice == 2){
                 System.out.println("################# Main Course MENU #################");
                 for (MenuItem m : menuItems) {
-                    if(m.getType() == "Main_Course" ){
-                        MenuItem item = new MenuItem(counter, m.getName(),m.getType(),m.getPrice());
+                    if(m.getType().equals(FoodCategory.MAIN_COURSE) ){
+                        MenuItem item = new MenuItem(counter, m.getName(),m.getType(),m.getPrice());                        
                         itemList.add(item);
                         counter++;
                     }
@@ -66,7 +71,7 @@ public class OrderManager {
         if (choice == 3){
                 System.out.println("################# Drinks MENU #################");
                 for (MenuItem m : menuItems) {
-                    if(m.getType() == "Drinks" ){
+                    if(m.getType().equals(FoodCategory.DRINKS)){
                         MenuItem item = new MenuItem(counter, m.getName(),m.getType(),m.getPrice());
                         itemList.add(item);
                         counter++;
@@ -81,7 +86,7 @@ public class OrderManager {
         if (choice == 4){
                 System.out.println("################# Dessert MENU #################");
                 for (MenuItem m : menuItems) {
-                    if(m.getType() == "Dessert" ){
+                    if(m.getType() == FoodCategory.DESSERT ){
                         MenuItem item = new MenuItem(counter, m.getName(),m.getType(),m.getPrice());
                         itemList.add(item);
                         counter++;
@@ -93,6 +98,19 @@ public class OrderManager {
                 System.out.println("\nEnter \"#\" to go back.");
             return;
         }
+        if (choice == 5){
+            System.out.println("################# Promotional MENU #################");
+            for (Promotion m : FoodMenuManager.promoSet) {
+                    Promotion item = new Promotion(counter, m.getName(),m.getPrice(),m.getSet());
+                    promoList.add(item);
+                    counter++;
+            }
+            for (Promotion n : promoList) {
+                n.printsimple();
+            }
+            System.out.println("\nEnter \"#\" to go back.");
+        return;
+    }
 
 	}
 
@@ -155,10 +173,15 @@ public class OrderManager {
                             additems(orderID);
                             itemList.clear();
                             break;
+                        case 5:
+                            displaysubMenu(5);
+                            additemspromo(orderID);
+                            itemList.clear();
+                            break;
                         default:
                             break;
                         }
-                } while (choice < 5);
+                } while (choice < 6);
                 return;
 			}
 		}
@@ -201,7 +224,7 @@ public class OrderManager {
         if (input.equals("#")){
             return;
         }
-        else if(Integer.parseInt(input) >= itemList.size() || Integer.parseInt(input) < 1){
+        else if(Integer.parseInt(input) > itemList.size() || Integer.parseInt(input) < 1){
             System.out.println("Kindly input items within the range");
             return;
         }
@@ -222,6 +245,41 @@ public class OrderManager {
                         // o.additems(Integer.parseInt(input1), n.getName(), n.getType(), n.getPrice());
 
                         o.additems(Integer.parseInt(input1), n.getName(), n.getType(), n.getPrice());
+                    }
+                }
+                
+			}
+		}
+    }
+
+    public void additemspromo(int orderID){
+        String input, input1;
+
+        System.out.println("Enter the item number: ");
+        input = sc.next();
+        if (input.equals("#")){
+            return;
+        }
+        else if(Integer.parseInt(input) > promoList.size() || Integer.parseInt(input) < 1){
+            System.out.println("Kindly input items within the range");
+            return;
+        }
+        System.out.println("\nEnter how many servings (max=10): ");
+        input1 = sc.next();
+        if (input1.equals("#")){
+            return;
+        }
+        else if(Integer.parseInt(input1) > 10 || Integer.parseInt(input1) < 1){
+            System.out.println("Kindly input items within the range");
+            return;
+        }
+
+        for (Order o : Orders) {
+			if (o.getOrderID() == orderID) {
+                for (Promotion n : promoList) {
+                    if(n.getID() == Integer.parseInt(input)){
+                        // o.additems(Integer.parseInt(input1), n.getName(), n.getType(), n.getPrice());
+                        o.additemspromo(Integer.parseInt(input1), n.getName(),n.getPrice(),n.getSet());
                     }
                 }
                 

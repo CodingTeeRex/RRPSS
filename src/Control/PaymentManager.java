@@ -1,9 +1,19 @@
 package src.Control;
 
 import java.util.*;
-import src.Database.OrderDatabase;
 
+import src.Database.OrderDatabase;
+import src.Database.TableDatabase;
+import src.Database.Database;
+import src.Entity.Table;
+import src.Control.CustomerManager;
+import src.Entity.Customer;
+import src.Entity.Membership;
+import src.Entity.Person;
 import src.Entity.Order;
+import src.Entity.OrderItem;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class PaymentManager {
 
@@ -34,10 +44,41 @@ public class PaymentManager {
         System.out.println("ERROR Order ID " + orderID + ": Cant be found!");
 	}
 
+    public void checkout(int orderID){
+        for(Order o : Orders){
+            if (o.getOrderID() == orderID) {
+                Table table = TableDatabase.tableList.get(o.getTableID());
+                table.setTakenStatus();
+                Orders.remove(o);
+                return;
+            }
+        }
+
+    }
+
     public void getAllOrders(){
         System.out.println("============================ All Orders ====================================");
         for(Order o : Orders){
             System.out.printf("Order ID: %d, Staff ID: %d, Table Num: %d\n", o.getOrderID(),o.getStaffID(),o.getTableID());
+        }
+    }
+
+    public void storeOrders(int orderID){
+
+        SimpleDateFormat formatter1 = new SimpleDateFormat("dd");
+        SimpleDateFormat formatter2 = new SimpleDateFormat("MM");
+        Date date = new Date();
+        for(Order o : Orders){
+            for(OrderItem oi : o.itemList){
+                Database.updateRevenue("src/Database/csv/Orders.csv", orderID, oi.getName(), oi.getPrice(), oi.getPax(), Integer.parseInt(formatter1.format(date)) , Integer.parseInt(formatter2.format(date)));
+            }
+        }
+        
+    }
+
+    public void getDiscount(int contact){
+        for(Person c : CustomerManager.customers){
+            
         }
     }
 

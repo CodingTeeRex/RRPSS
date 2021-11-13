@@ -336,6 +336,7 @@ public class Database {
 			}
 		}
 	}
+	
 	public static double computeRevenue(String path, int day, int month)
 	{
 		//File path
@@ -392,7 +393,7 @@ public class Database {
 						
 						if (ordItem == null)
 						{						
-							ordItem = new OrderItem(quantity, name , "NA", price);	
+							ordItem = new OrderItem(quantity, name , null , price);	
 							orders.add(ordItem);				
 						}
 						else

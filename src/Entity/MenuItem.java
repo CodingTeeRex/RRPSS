@@ -2,46 +2,52 @@ package src.Entity;
 
 import java.io.Serializable;
 
+
 public class MenuItem implements Serializable {
+
+
+	public static String[] types = {"APPETISER", "MAIN COURSE" , "DRINKS", "DESSERT"};
 
 	int ID;
 	String name = "";
-	FoodCategory type;
+	public FoodCategory type;
 	String description = "";
 	double price = 0.0;
 
-	static enum FoodCategory {
-		APPETISER("Appetiser"), MAIN_COURSE("Main_Course"), DRINKS("Drinks"), DESSERT("Dessert");
+	// static enum FoodCategory {
+	// 	// APPETISER("Appetiser"), MAIN_COURSE("Main_Course"), DRINKS("Drinks"), DESSERT("Dessert");
+		
 
-		private String name;
+	// 	private String name;
 
-		public String getName() {
-			return this.name;
-		}
+	// 	public String getName() {
+	// 		return this.name;
+	// 	}
 
-		FoodCategory(String name) {
-			this.name = name;
-		}
-	}
+	// 	FoodCategory(String name) {
+	// 		this.name = name;
+	// 	}
+	// }
 
 	// public MenuItem(int ID,String name) {
 	// 	this.name = name;
 	// 	this.ID = ID;
 	// }
 
-	public MenuItem(int ID,String name,String type,double price) {
+	public MenuItem(int ID,String name,FoodCategory type,double price) {
 		this.ID = ID;
 		this.name = name;
-		if (type.contains("App")) {
-			this.type = FoodCategory.APPETISER;
-		} else if (type.contains("Main")) {
-			this.type = FoodCategory.MAIN_COURSE;
-		} else if (type.contains("Drink")) {
-			this.type = FoodCategory.DRINKS;
-		} else {
-			this.type = FoodCategory.DESSERT;
-		}
+		// if (type.contains("App")) {
+		// 	this.type = FoodCategory.APPETISER;
+		// } else if (type.contains("Main")) {
+		// 	this.type = FoodCategory.MAIN_COURSE;
+		// } else if (type.contains("Drink")) {
+		// 	this.type = FoodCategory.DRINKS;
+		// } else {
+		// 	this.type = FoodCategory.DESSERT;
+		// }
 		this.price = price;
+		this.type = type;
 
 	}
 
@@ -49,11 +55,11 @@ public class MenuItem implements Serializable {
 		this.name = name;
 		this.description = description;
 		this.price = price;
-		if (type.contains("App")) {
+		if (type.toLowerCase().contains("app")) {
 			this.type = FoodCategory.APPETISER;
-		} else if (type.contains("Main")) {
+		} else if (type.toLowerCase().contains("main")) {
 			this.type = FoodCategory.MAIN_COURSE;
-		} else if (type.contains("Drink")) {
+		} else if (type.toLowerCase().contains("drink")) {
 			this.type = FoodCategory.DRINKS;
 		} else {
 			this.type = FoodCategory.DESSERT;
@@ -127,16 +133,16 @@ public class MenuItem implements Serializable {
 
 	public void print() {
         System.out.println("Name: " + this.getName() );
-        System.out.println("\nType: " + this.getType());
+        System.out.println("\nType: " + this.getType().getName());
         System.out.println("\nDescription: " + this.getDescription());
         System.out.println("\nPrice:" + this.getPrice());
         System.out.println("-----------------------------------------------------------------");
     }
 
-	public void print1() {
-		System.out.println("Name: " + this.getName() + " Type: " + type.getName());
-		System.out.println("Description: " + this.getDescription());
-	}
+	// public void print1() {
+	// 	System.out.println("Name: " + this.getName() + " Type: " + type.getName());
+	// 	System.out.println("Description: " + this.getDescription());
+	// }
 
 	public void printsimple() {
 		System.out.printf("(%d) %s\n", this.getID() , this.getName());
