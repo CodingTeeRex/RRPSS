@@ -226,10 +226,10 @@ public class FoodMenuManager{
                         {
                             System.out.println(j++);
 
-                            System.out.println(" Name: " + m.getName() );
-                            System.out.println(" Type: " + m.getType());
-                            System.out.println(" Description: " + m.getDescription());
-                            System.out.println(" Price:" + m.getPrice());
+                            System.out.print(" Name: " + m.getName() );
+                            System.out.print(" Type: " + m.getType());
+                            System.out.print(" Description: " + m.getDescription());
+                            System.out.print(" Price:" + m.getPrice());
 
                             System.out.println("   ");
                         }
