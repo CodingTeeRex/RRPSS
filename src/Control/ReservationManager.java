@@ -153,6 +153,7 @@ public class ReservationManager {
 
 	/**
 	 * Gets the date choice from user
+	 * @param dateChoice The choice of date from the user
 	 */
 	public void getDateChoice(int dateChoice) {
 		this.dateChoice = dateChoice;
@@ -170,6 +171,7 @@ public class ReservationManager {
 
 	/**
 	 * Gets the time choice from user
+	 * @param timeChoice The choice of reservation time from the user
 	 */
 	public void getTimeChoice(int timeChoice) {
 		this.timeChoice = timeChoice;
@@ -178,6 +180,7 @@ public class ReservationManager {
 	
 	/**
 	 * Get table choice from user
+	 * @param tableChoice The table selected to be reserved by the user
 	 */
 	public void getTableChoice(int tableChoice) {
 		if (!this.availableTables.containsKey(tableChoice))
