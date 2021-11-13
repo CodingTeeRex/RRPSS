@@ -2,7 +2,7 @@ package src.Entity;
 
 
 public enum FoodCategory {
-    APPETISER("Appetiser"), MAIN_COURSE("Main_Course"), DRINKS("Drinks"), DESSERT("Dessert");
+    APPETISER("Appetiser"), MAIN_COURSE("Main Course"), DRINKS("Drinks"), DESSERT("Dessert");
 
     private String name;
 

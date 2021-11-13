@@ -47,7 +47,7 @@ public class Order {
 		return this.tableID;
 	}
 
-    public void additems(int pax,String name,String type, double price) {
+    public void additems(int pax,String name,FoodCategory type, double price) {
         for (OrderItem i : itemList){
             if(i.getName() == name){
                 i.pax += pax;
@@ -56,6 +56,18 @@ public class Order {
         }
         
         OrderItem item = new OrderItem(pax, name, type, price);
+        itemList.add(item);
+	}
+
+    public void additemspromo(int pax,String name, double price , ArrayList<MenuItem> set ) {
+        for (OrderItem i : itemList){
+            if(i.getName() == name){
+                i.pax += pax;
+                return;
+            }
+        }
+        
+        OrderItem item = new OrderItem(pax, name, price, set);
         itemList.add(item);
 	}
 

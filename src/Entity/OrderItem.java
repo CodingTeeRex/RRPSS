@@ -1,6 +1,7 @@
 package src.Entity;
 
-import src.Entity.MenuItem.FoodCategory;
+import src.Entity.FoodCategory;
+import java.util.ArrayList;
 
 public class OrderItem {
     int tempID;
@@ -8,21 +9,24 @@ public class OrderItem {
 	String name = "";
     FoodCategory type;
 	double price;
+	private ArrayList <MenuItem> set = new ArrayList<MenuItem>();
 
-    public OrderItem(int pax,String name,String type, double price){
+    public OrderItem(int pax,String name,FoodCategory type, double price){
         this.pax=pax;
         this.name=name;
         this.price=price;
-		    this.tempID = 0;
-        if (type.contains("App")) {
-			this.type = FoodCategory.APPETISER;
-		} else if (type.contains("Main")) {
-			this.type = FoodCategory.MAIN_COURSE;
-		} else if (type.contains("Drink")) {
-			this.type = FoodCategory.DRINKS;
-		} else {
-			this.type = FoodCategory.DESSERT;
-		}
+		this.tempID = 0;
+		this.type = type;
+
+    }
+
+	public OrderItem(int pax,String name, double price,ArrayList<MenuItem> Set){
+        this.pax=pax;
+        this.name=name;
+        this.price=price;
+		this.tempID = 0;
+		this.set = Set;
+
     }
 
 	public int getPax() {
@@ -53,5 +57,11 @@ public class OrderItem {
 	public void setTemp(int temp) {
 		this.tempID = temp;
 	}
+	public ArrayList<MenuItem> getSet() {
+        return this.set;
+    }
+    public void setSet(ArrayList<MenuItem> set) {
+        this.set = set;
+    }
 	
 }

@@ -3,6 +3,7 @@ package src.Boundary;
 import src.Control.PaymentManager;
 import src.Control.OrderManager;
 
+
 public class PaymentUI extends UI {
     public void run() {
         int choice = -1;
@@ -37,9 +38,18 @@ public class PaymentUI extends UI {
                 String response = getString();                
                 if (response.equals("Y"))
                     mem = true;
+                // int Contact = -1;
+                // // Obtaining a valid customer Contact Number
+                // System.out.println("Please Enter the Customer's Contact Number (8xxxxxxx - 9xxxxxxx): ");
+                // Contact = super.getValidContactNumber(false);
+                // paymentmgt.getDiscount(Contact);
+
+
                 // paymentmgt.getInovice(orderID);
                 // System.out.println("Proceed to the counter to make payment.");
                 paymentmgt.getReceipt(orderID,mem);
+                paymentmgt.storeOrders(orderID);
+                paymentmgt.checkout(orderID);
 
                 break;
             case 2:

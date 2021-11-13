@@ -44,6 +44,32 @@ public abstract class UI {
 		return userInput;
 	}
 
+	// Obtain input as only double
+	public double getDouble() {
+
+		// Initialise a variable to store the input
+		double userInput = -1;
+		// Condition for obtaining a valid input
+		boolean handled = false;
+		// Continue to prompt the user if input entered is not an Integer
+		do {
+			// Test if input entered is integer
+			try {
+				userInput = sc.nextDouble();
+				sc.nextLine();
+				// Input entered is integer
+				handled = true;
+			} catch (InputMismatchException e) {
+				// Input entered is not integer
+				System.out.println("Error! Option must be an double! Please try again.");
+				sc.next();
+			}
+		} while (!handled);
+
+		// Return the valid input from user
+		return userInput;
+	}
+
 	// Obtain input as string will only letters
 	public String getInputString() {
 
@@ -57,7 +83,7 @@ public abstract class UI {
 			try {
 				userInput = sc.nextLine();
 				// Input entered is a string and contains only letters
-				if (userInput.length() == userInput.replaceAll("[^a-zA-Z]", "").length())
+				if (userInput.length() == userInput.replaceAll("[^a-zA-Z ]", "").length())
 					handled = true;
 				// Input entered is a string but does not contain only letters
 				else
@@ -80,6 +106,9 @@ public abstract class UI {
 		String userInput = "";
 		// Condition for obtaining a valid input
 		boolean handled = false;
+		for(String s : stringToCheck){
+			s.toUpperCase();
+		}
 		// Continue to prompt the user if input entered is not a String and the String
 		// entered does not exist in the string array
 		do {
@@ -87,7 +116,7 @@ public abstract class UI {
 				userInput = sc.nextLine();
 				//System.out.println("Input: " + userInput);
 				// Input entered is a string and exist in the string array provided
-				if (Arrays.asList(stringToCheck).contains(userInput)) {
+				if (Arrays.asList(stringToCheck).contains(userInput.toUpperCase())) {
 					handled = true;
 				}
 				// Input entered is a string but does not exist in the string array provided
