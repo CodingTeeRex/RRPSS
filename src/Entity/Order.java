@@ -25,28 +25,59 @@ public class Order {
 
     }
 
-	public int getOrderID() {
+	
+    /** 
+     * @return int
+     */
+    public int getOrderID() {
 		return this.orderID;
 	}
 
-	public int getStaffID() {
+	
+    /** 
+     * @return int
+     */
+    public int getStaffID() {
 		return this.staffID;
 	}
+    
+    /** 
+     * @return String
+     */
     public String getStaffName() {
 		return this.staffName;
 	}
-	public int getTableID() {
+	
+    /** 
+     * @return int
+     */
+    public int getTableID() {
 		return this.tableID;
 	}
 
+    
+    /** 
+     * @param tableID
+     */
     public void setTableID(int tableID) {
 		this.tableID = tableID;
 	}
 
+    
+    /** 
+     * @return int
+     */
     public int getitems() {
 		return this.tableID;
 	}
 
+    
+    /** 
+     * @param pax
+     * @param name
+     * @param type
+     * @param price
+     */
     public void additems(int pax,String name,FoodCategory type, double price) {
         for (OrderItem i : itemList){
             if(i.getName() == name){
@@ -59,6 +90,13 @@ public class Order {
         itemList.add(item);
 	}
 
+    
+    /** 
+     * @param pax
+     * @param name
+     * @param price
+     * @param set
+     */
     public void additemspromo(int pax,String name, double price , ArrayList<MenuItem> set ) {
         for (OrderItem i : itemList){
             if(i.getName() == name){
@@ -71,6 +109,10 @@ public class Order {
         itemList.add(item);
 	}
 
+    
+    /** 
+     * @param choice
+     */
     public void deleteitems(int choice) {
         itemList.remove(choice-1);
 	}
@@ -109,6 +151,15 @@ public class Order {
 	}
 
 
+    
+    /** 
+     * @param orderID
+     * @param staffID
+     * @param tableID
+     * @param member
+     * @param staffName
+     * @param discount
+     */
     public void printBill(int orderID, int staffID, int tableID, Boolean member , String staffName, float discount) {
 
         double total = 0;

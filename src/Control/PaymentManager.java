@@ -7,17 +7,21 @@ import src.Database.TableDatabase;
 import src.Database.Database;
 import src.Entity.Table;
 import src.Entity.Person;
+import src.Entity.Customer;
 import src.Entity.Order;
 import src.Entity.OrderItem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.ThreadPoolExecutor.DiscardOldestPolicy;
 
 public class PaymentManager {
 
     public static List<Order> Orders = OrderDatabase.OrderDB;
 
 
+    
+    /** 
+     * @param orderID
+     */
     public void getInovice(int orderID) {
         System.out.println("============================ INVOICE ====================================");
         for(Order o : Orders){
@@ -30,6 +34,12 @@ public class PaymentManager {
         System.out.println("ERROR Order ID " + orderID + ": Cant be found!");
 	}
 
+    
+    /** 
+     * @param orderID
+     * @param member
+     * @param discount
+     */
     public void getReceipt(int orderID, boolean member, Float discount ) {
         // System.out.println("============================ Receipt ====================================");
         for(Order o : Orders){
@@ -42,6 +52,10 @@ public class PaymentManager {
         System.out.println("ERROR Order ID " + orderID + ": Cant be found!");
 	}
 
+    
+    /** 
+     * @param orderID
+     */
     public void checkout(int orderID){
         for(Order o : Orders){
             if (o.getOrderID() == orderID) {
@@ -61,6 +75,10 @@ public class PaymentManager {
         }
     }
 
+    
+    /** 
+     * @param orderID
+     */
     public void storeOrders(int orderID){
 
         SimpleDateFormat formatter1 = new SimpleDateFormat("dd");
@@ -74,6 +92,11 @@ public class PaymentManager {
         
     }
 
+    
+    /** 
+     * @param contact
+     * @return float
+     */
     public float getDiscount(int contact){
         float dis = 0.0f;
 

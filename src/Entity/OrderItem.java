@@ -28,38 +28,78 @@ public class OrderItem {
 
     }
 
+	
+	/** 
+	 * @return int
+	 */
 	public int getPax() {
 		return this.pax;
 	}
+	
+	/** 
+	 * @return String
+	 */
 	public String getName() {
 		return this.name;
 	}
+	
+	/** 
+	 * @return FoodCategory
+	 */
 	public FoodCategory getType() {
 		return this.type;
 	}
 	
+	
+	/** 
+	 * @return double
+	 */
 	public double getPrice(){
 		return this.price;
 	}
+	
+	/** 
+	 * @param pax
+	 */
 	public void setPax(int pax)
 	{
 		this.pax = pax;
 	}
+	
+	/** 
+	 * @param price
+	 */
 	public void setPrice(double price)
 	{
 		this.price = price;
 	}
+	
+	/** 
+	 * @return int
+	 */
 	public int getTemp() {
 		return this.tempID;
 	}
 	
+	
+	/** 
+	 * @param temp
+	 */
 	public void setTemp(int temp) {
 		this.tempID = temp;
 	}
+	
+	/** 
+	 * @return ArrayList<MenuItem>
+	 */
 	public ArrayList<MenuItem> getSet() {
         return this.set;
     }
-    public void setSet(ArrayList<MenuItem> set) {
+    
+	/** 
+	 * @param set
+	 */
+	public void setSet(ArrayList<MenuItem> set) {
         this.set = set;
     }
 	

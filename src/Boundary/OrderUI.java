@@ -7,8 +7,19 @@ import src.Entity.Employee;
 import src.Database.TableDatabase;
 import src.Entity.Table;
 
+/**
+This is the Order UI
+@author Reeves Chiu
+@version 1.0
+@since 2021-11-13
+ */
+
 public class OrderUI extends UI {
-    
+
+
+    /**
+     * This is the checker and redirect to perform different functions
+     */
     public void run() {
 
         int choice = -1;
@@ -98,6 +109,10 @@ public class OrderUI extends UI {
         } while (choice < 7);
     }
 
+
+    /**
+     * This is the display menu so that the staff can navigate to what they need.
+     */
     public void displayMenu() {
         System.out.println("\n################# ORDER MENU #################");
         System.out.println("1. Create Order.");

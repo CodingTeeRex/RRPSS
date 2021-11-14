@@ -4,8 +4,19 @@ import src.Control.PaymentManager;
 import src.Control.OrderManager;
 import src.Entity.Order;
 
+/**
+This is the Payment UI
+@author Reeves Chiu
+@version 1.0
+@since 2021-11-13
+ */
+
 
 public class PaymentUI extends UI {
+
+    /**
+     * This is the checker and redirect to perform different functions
+     */
     public void run() {
         int choice = -1;
         int orderID = 0;
@@ -76,6 +87,9 @@ public class PaymentUI extends UI {
         } while (choice < 2);
     }
 
+    /**
+     * This is the display menu so that the staff can navigate to what they need.
+     */
     public void displayMenu() {
         System.out.println("################# PAYMENT MENU #################");
         System.out.println("Please select an option below.");

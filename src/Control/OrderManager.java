@@ -13,8 +13,20 @@ import src.Entity.Promotion;
 
 import java.util.Scanner;
 
+
+/**
+This is the Order Manager
+@author Reeves Chiu
+@version 1.0
+@since 2021-11-13
+ */
+
 public class OrderManager {
 
+    /**
+     * initialize an array from DB 
+     * initialize an array to store orders
+     */
     public static List<Order> Orders = OrderDatabase.OrderDB;
     public static List<MenuItem> menuItems = Database.menuItemsDB;
     public static List<MenuItem> itemList = new ArrayList<MenuItem>();
@@ -24,6 +36,10 @@ public class OrderManager {
 	// public void run() {
 
 	// }
+
+    /**
+     * This is the display menu so that the staff can navigate to what they need.
+     */
 
 	public void displayMenu() {
         System.out.println("################# FOOD MENU #################");
@@ -35,6 +51,13 @@ public class OrderManager {
         System.out.println("6. Back.");
 	}
 
+    
+    /** 
+     * 
+     * This is the display menu so that the staff can navigate to what they need.
+     *
+     * @param choice
+     */
     public void displaysubMenu(int choice) {
         int counter = 1;
         if (choice == 1){
@@ -113,7 +136,14 @@ public class OrderManager {
 
 	}
 
-	public void createOrder(int staffID , int tableNo, String staffName) {
+	
+    /** 
+     * Create a new order and set table as taken & will be stored in Orders 
+     * @param staffID
+     * @param tableNo
+     * @param staffName
+     */
+    public void createOrder(int staffID , int tableNo, String staffName) {
 
         Table table = TableDatabase.tableList.get(tableNo);
 
@@ -127,6 +157,11 @@ public class OrderManager {
 
 	}
 
+    
+    /** 
+     * to get an existing order from Orders
+     * @param orderID
+     */
     public void getOrder(int orderID) {
         System.out.println("============================ ORDER ====================================");
         for(Order o : Orders){
@@ -140,7 +175,12 @@ public class OrderManager {
         System.out.println("ERROR Order ID " + orderID + ": Cant be found!");
 	}
 
-	public void addOrder(int orderID) {
+	
+    /** 
+     * to add items to order
+     * @param orderID
+     */
+    public void addOrder(int orderID) {
 
         for (Order o : Orders) {
 			if (o.getOrderID() == orderID) {
@@ -188,6 +228,11 @@ public class OrderManager {
 
 	}
 
+    
+    /** 
+     * delete order in Orders
+     * @param orderID
+     */
     public void deleteOrder(int orderID) {
         for (Order o : Orders) {
 			if (o.getOrderID() == orderID) {
@@ -213,6 +258,11 @@ public class OrderManager {
         }
     }
 
+    
+    /** 
+     * Add menu items in order base on order ID
+     * @param orderID
+     */
     public void additems(int orderID){
         String input, input1;
         // double price = 12.50;
@@ -251,6 +301,11 @@ public class OrderManager {
 		}
     }
 
+    
+    /** 
+     * Add menu items in order base on order ID
+     * @param orderID
+     */
     public void additemspromo(int orderID){
         String input, input1;
 
@@ -285,6 +340,10 @@ public class OrderManager {
 			}
 		}
     }
+    
+    /** 
+     * @param orderID
+     */
     public void deleteItem(int orderID){
         System.out.println("============================ DELETE ITEMS ====================================");
         for(Order o : Orders){
