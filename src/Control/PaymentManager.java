@@ -14,6 +14,7 @@ import src.Entity.Order;
 import src.Entity.OrderItem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.ThreadPoolExecutor.DiscardOldestPolicy;
 
 public class PaymentManager {
 
@@ -32,11 +33,11 @@ public class PaymentManager {
         System.out.println("ERROR Order ID " + orderID + ": Cant be found!");
 	}
 
-    public void getReceipt(int orderID, Boolean member ) {
+    public void getReceipt(int orderID, boolean member, Float discount ) {
         // System.out.println("============================ Receipt ====================================");
         for(Order o : Orders){
             if (o.getOrderID() == orderID) {
-                o.printBill(o.getOrderID(),o.getStaffID(),o.getTableID(),member,o.getStaffName());
+                o.printBill(o.getOrderID(),o.getStaffID(),o.getTableID(),member,o.getStaffName(),discount);
                 return;
             }
             
@@ -76,10 +77,18 @@ public class PaymentManager {
         
     }
 
-    public void getDiscount(int contact){
+    public float getDiscount(int contact){
+        float dis = 0.0f;
+
         for(Person c : CustomerManager.customers){
-            
+            if(((Customer)c).getContact() == contact){
+				// System.out.println(((Customer)c).getMembership().getType()); 
+                // System.out.println(((Customer)c).getMembership().getDiscountPercent());  
+                dis = ((Customer)c).getMembership().getDiscountPercent(); 
+                return dis; 
+			}
         }
+        return dis;
     }
 
 }

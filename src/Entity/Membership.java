@@ -57,4 +57,8 @@ public class Membership {
 			return 0.0f;
 		}
 	}
+	public float getDiscountPercent()
+	{
+		return this.discountPercent;
+	}
 }

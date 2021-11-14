@@ -2,6 +2,7 @@ package src.Boundary;
 
 import src.Control.PaymentManager;
 import src.Control.OrderManager;
+import src.Entity.Order;
 
 
 public class PaymentUI extends UI {
@@ -18,7 +19,10 @@ public class PaymentUI extends UI {
             switch (choice) {
             case 1:
                 String temp;
+                float discount = 0.0f;
+                boolean check = true;
                 do{
+                    paymentmgt.getAllOrders();
                     System.out.println("Enter Order ID: ");
                     temp = getString();
 
@@ -28,7 +32,15 @@ public class PaymentUI extends UI {
                     
                     orderID = Integer.parseInt(temp);
 
-                }while(orderID < 1 || orderID > OrderManager.Orders.size());
+                    for(Order o : OrderManager.Orders){
+                        if (o.getOrderID() == orderID) {
+                            check = false;
+                            break;
+                        }
+                        
+                    }
+
+                }while(check);
 
                 if(temp.equals("#")){
                     break;
@@ -36,18 +48,21 @@ public class PaymentUI extends UI {
 
                 System.out.println("Is the customer a member? (Y/N): ");
                 String response = getString();                
-                if (response.equals("Y"))
+                if (response.equals("Y")){
                     mem = true;
-                // int Contact = -1;
-                // // Obtaining a valid customer Contact Number
-                // System.out.println("Please Enter the Customer's Contact Number (8xxxxxxx - 9xxxxxxx): ");
-                // Contact = super.getValidContactNumber(false);
-                // paymentmgt.getDiscount(Contact);
+                    int Contact = -1;
+                    // Obtaining a valid customer Contact Number
+                    System.out.println("Please Enter the Customer's Contact Number (8xxxxxxx - 9xxxxxxx): ");
+                    Contact = super.getValidContactNumber(false);
+                    discount = paymentmgt.getDiscount(Contact);
+                }
+                    
+                
 
 
                 // paymentmgt.getInovice(orderID);
                 // System.out.println("Proceed to the counter to make payment.");
-                paymentmgt.getReceipt(orderID,mem);
+                paymentmgt.getReceipt(orderID,mem,discount);
                 paymentmgt.storeOrders(orderID);
                 paymentmgt.checkout(orderID);
 

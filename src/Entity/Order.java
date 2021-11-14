@@ -109,7 +109,7 @@ public class Order {
 	}
 
 
-    public void printBill(int orderID, int staffID, int tableID, Boolean member , String staffName) {
+    public void printBill(int orderID, int staffID, int tableID, Boolean member , String staffName, float discount) {
 
         double total = 0;
         double temp;
@@ -147,10 +147,10 @@ public class Order {
             System.out.printf("                                                                                                    TOTAL: $%.2f  \n", total*1.17);
         }
         else{
-            temp = (total*1.17)*0.1;
-            System.out.printf("                                                                                           Discount (10%s): $%.2f  \n",str,temp);
+            temp = (total*1.17)*discount;
+            System.out.printf("                                                                                           Discount (%d%s): $%.2f  \n",(int)(discount*100) ,str,temp);
             System.out.printf("----------------------------------------------------------------------------------------------------------------\n");
-            temp = (total*1.17)*0.9;
+            temp = (total*1.17)*(1-discount);
             System.out.printf("                                                                                                    TOTAL: $%.2f  \n", temp);
         }
         System.out.printf("================================================================================================================\n\n");
