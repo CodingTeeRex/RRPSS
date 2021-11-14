@@ -1,7 +1,7 @@
 package src.Entity;
 
 /**
- * Reperesents the menu items in the restaurant
+ * Reperesents the foodcategory types in the restaurant
  * 
  * @author Shreejaa Saravanan
  * @version 1.0
