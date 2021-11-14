@@ -148,7 +148,7 @@ public class Promotion implements Serializable {
         this.set = set;
     }
 	
-	**
+	/**
 	 * It prints the name, description, price and set of this Promotion
 	 */
 		
