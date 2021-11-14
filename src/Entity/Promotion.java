@@ -141,7 +141,7 @@ public class Promotion implements Serializable {
     }
 	/**
 	 * Sets the set of this Promotion
-	 * @param set The set of MenuItems to be given for this Promotion
+	 * @param set The set of MenuItems to be given for Promotion
 	 */
 	
     public void setSet(ArrayList<MenuItem> set) {
