@@ -3,7 +3,6 @@ package src.Entity;
 import java.io.Serializable;
 /**
  * Reperesents the menu items in the restaurant
- * 
  * @author Shreejaa Saravanan
  * @version 1.0
  * @since 13-11-2021
@@ -72,7 +71,6 @@ public class MenuItem implements Serializable {
 
 	/**
 	 * Creates a new MenuItem with the given id, name , price and type
-	 * 
 	 * @param ID    This MenuItem's ID
 	 * @param name  This MenuItem's name
 	 * @param type  This MenuItem's type
@@ -98,7 +96,6 @@ public class MenuItem implements Serializable {
 	
 	/**
 	 * Creates a new MenuItem with the given name , description, price and type
-	 * 
 	 * @param name        This MenuItem's name
 	 * @param type        This MenuItem's type
 	 * @param price       This MenuItem's price
@@ -123,8 +120,7 @@ public class MenuItem implements Serializable {
 	}
 
 	/**
-	 * Gets the id of this MenuItem
-	 * 
+	 * Gets the id of this MenuItem 
 	 * @return this MenuItem's ID
 	 */
 
@@ -135,7 +131,6 @@ public class MenuItem implements Serializable {
 
 	/**
 	 * Gets the name of this MenuItem
-	 * 
 	 * @return this MenuItem's name
 	 */
 	
@@ -145,7 +140,6 @@ public class MenuItem implements Serializable {
 
 	/**
 	 * Sets the name of this MenuItem
-	 * 
 	 * @param name The name to be given for this MenuItem
 	 */
 	
@@ -156,7 +150,6 @@ public class MenuItem implements Serializable {
 
 	/**
 	 * Gets the description of this MenuItem
-	 * 
 	 * @return this MenuItem's description
 	 */
 
@@ -167,7 +160,6 @@ public class MenuItem implements Serializable {
 
 	/**
 	 * Sets the description of this MenuItem
-	 * 
 	 * @param description The description to be given for this MenuItem
 	 */
 
@@ -178,7 +170,6 @@ public class MenuItem implements Serializable {
 
 	/**
 	 * Gets the type of this MenuItem
-	 * 
 	 * @return this MenuItem's type
 	 */
 	
@@ -188,7 +179,6 @@ public class MenuItem implements Serializable {
 
 	/**
 	 * Sets the type of this MenuItem
-	 * 
 	 * @param type The type to be given for this MenuItem
 	 */
 	
@@ -224,7 +214,6 @@ public class MenuItem implements Serializable {
 	
 	/**
 	 * Gets the price of this MenuItem
-	 * 
 	 * @return this MenuItem's price
 	 */
 	
@@ -234,7 +223,6 @@ public class MenuItem implements Serializable {
 
 	/**
 	 * Sets the price of this MenuItem
-	 * 
 	 * @param price The price to be given for this MenuItem
 	 */
 
@@ -269,9 +257,7 @@ public class MenuItem implements Serializable {
 	}
 
 	/**
-	 * This function ensures that there are no duplictae MenuItems being created by
-	 * the user
-	 * 
+	 * This function ensures that there are no duplictae MenuItems being created by the user
 	 * @param m The details of the MenuItem
 	 * @return the result is true or false
 	 */
