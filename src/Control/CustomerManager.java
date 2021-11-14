@@ -27,7 +27,7 @@ public class CustomerManager {
 	{
 		Person customer = new Customer(firstName, lastName, gender, contact, membership);
 		customers.add(customer);
-		System.out.println("[ACCEPTED] Employee Successfully Added!");
+		System.out.println("[ACCEPTED] Member Successfully Added!");
 		customer.print();
 	}
 
