@@ -2,7 +2,18 @@ package src.Entity;
 
 import java.util.ArrayList;
 
+/**
+This is the Order Manager
+@author Reeves Chiu
+@version 1.0
+@since 2021-11-13
+ */
+
 public class OrderItem {
+
+	/**
+	 * this are all the attributes needed to make an order item
+	 */
     int tempID;
     int pax;
 	String name = "";
@@ -10,14 +21,29 @@ public class OrderItem {
 	double price;
 	private ArrayList <MenuItem> set = new ArrayList<MenuItem>();
 
+	/**
+	 * contructor for ala cart order item
+	 * @param pax
+	 * @param name
+	 * @param type
+	 * @param price
+	 */
+
     public OrderItem(int pax,String name,FoodCategory type, double price){
         this.pax=pax;
         this.name=name;
         this.price=price;
 		this.tempID = 0;
 		this.type = type;
-
     }
+
+	/**
+	 * contructor for Promo set order
+	 * @param pax
+	 * @param name
+	 * @param price
+	 * @param Set
+	 */
 
 	public OrderItem(int pax,String name, double price,ArrayList<MenuItem> Set){
         this.pax=pax;

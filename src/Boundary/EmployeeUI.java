@@ -6,7 +6,21 @@ import src.Control.EmployeeManager;
 import src.Entity.Employee;
 import src.Entity.Person;
 
+
+/**
+ * UI for the Employee interface.
+ * 
+ * @author Fabian Wong
+ * @version 1.0
+ * @since 13/11/2021
+ */
+
 public class EmployeeUI extends UI {
+
+	/**
+	 * read in user input and execute
+	 * the Logic behinde the menu
+	 */
 
 	public void run() {
 		int choice = -1;
@@ -103,7 +117,9 @@ public class EmployeeUI extends UI {
 		} while (choice < 6 && choice > 0);
 	}
 
-	// Displaying the UI menu for Altering Employees
+	/**
+	 *  Displaying the UI menu for Altering Employees
+	 */ 
 	public void displayMenu() {
 		System.out.println("\n################# EMPLOYEE MENU #################");
 		System.out.println("1. Add Employee.");

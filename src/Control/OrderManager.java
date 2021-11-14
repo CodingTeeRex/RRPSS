@@ -342,6 +342,7 @@ public class OrderManager {
     }
     
     /** 
+     * Delete selected items in specific order
      * @param orderID
      */
     public void deleteItem(int orderID){

@@ -8,14 +8,33 @@ import java.util.Date;
 
 
 
+/**
+This is the Order Manager
+@author Reeves Chiu
+@version 1.0
+@since 2021-11-13
+ */
+
 public class Order {
 
+
+    /**
+     * this are all the attributes needed to make an order
+     */
 	private int orderID;
 	private int tableID;
 	private int staffID;
     private String staffName;
 	public List<OrderItem> itemList;
 
+
+    /**
+     * contructor single order
+     * @param orderID
+     * @param tableID
+     * @param staffID
+     * @param staffName
+     */
     public Order(int orderID, int tableID, int staffID, String staffName){
         this.orderID = orderID;
         this.tableID = tableID;
@@ -73,6 +92,7 @@ public class Order {
 
     
     /** 
+     * add item in menu item into orders itemlist
      * @param pax
      * @param name
      * @param type
@@ -92,6 +112,8 @@ public class Order {
 
     
     /** 
+     * 
+     * add promo item in menu item into orders itemlist
      * @param pax
      * @param name
      * @param price
@@ -111,18 +133,24 @@ public class Order {
 
     
     /** 
+     * Delete single item from the order itemlist
      * @param choice
      */
     public void deleteitems(int choice) {
         itemList.remove(choice-1);
 	}
 
-
+    /**
+     * print of order ID , Staff and table number
+     */
     public void print() {
 		System.out.printf("Order ID: %d, Service Staff: %s, Table Number: %d\n", this.getOrderID(),this.getStaffName(),this.getTableID());
 
 	}
 
+    /**
+     * print of order ID , Staff and table number & itemlist in the order
+     */
     public void printItems() {
 		// System.out.println("OrderID: " + this.getOrderID());
 		// System.out.println("Service Staff: " + this.getStaffID());
@@ -141,6 +169,9 @@ public class Order {
 
 	}
 
+    /**
+     * print itemlist in the order
+     */
     public void printAll() {
         System.out.println(" Pax    Dish Name                                   Price");
         System.out.printf("-------------------------------------------------------------\n");
@@ -153,6 +184,7 @@ public class Order {
 
     
     /** 
+     * After payment is made the bill will be printed so display what the customer ordered
      * @param orderID
      * @param staffID
      * @param tableID

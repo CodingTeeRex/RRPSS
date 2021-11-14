@@ -5,11 +5,29 @@ import src.Database.Database;
 import src.Entity.Person;
 import src.Entity.Customer;
 
+/**
+ * Control class Customer Manager.
+ * 
+ * @author Fabian Wong
+ * @version 1.0
+ * @since 13/11/2021
+ */
+
 public class CustomerManager {
 	
 	//Static list for storing the customers that visited the restaurant from the Database
 	public static List<Person> customers = Database.customersDB;
 	
+	
+	/** 
+	 * Apply a membership to the respective Customer using Contact number
+	 * Creating new membership and initializing the data
+	 * @param firstName
+	 * @param lastName
+	 * @param gender
+	 * @param contact
+	 * @param membership
+	 */
 	//Apply a membership to the respective Customer using Contact number
 	public static void newMembership(String firstName, String lastName, String gender, int contact, String membership)
 	{
@@ -18,6 +36,12 @@ public class CustomerManager {
 		System.out.println("[ACCEPTED] Employee Successfully Added!");
 		customer.print();
 	}
+	
+	/** 
+	 * Obtaining the membership held by a Customer using Contact number
+	 * Checking the membership of the client as there are 2 different types
+	 * @param contact
+	 */
 	//Obtaining the membership held by a Customer using Contact number
 	public static void checkMembership(int contact)
 	{
@@ -34,6 +58,11 @@ public class CustomerManager {
 		//Unable to find the customer with the contact number provided
 		System.out.println("[REJECTED] Unable to find the Customer with contact number: " + contact );
 	}
+	
+	/** 
+	 * Removing a membership from a Customer using Contact number
+	 * @param contact
+	 */
 	//Removing a membership from a Customer using Contact number
 	public static void removeMembership(int contact)
 	{

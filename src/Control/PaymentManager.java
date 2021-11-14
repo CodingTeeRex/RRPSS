@@ -17,9 +17,15 @@ public class PaymentManager {
 
     public static List<Order> Orders = OrderDatabase.OrderDB;
 
-
+/**
+This is the Payment Manager
+@author Reeves Chiu
+@version 1.0
+@since 2021-11-13
+ */
     
     /** 
+     * get invoice
      * @param orderID
      */
     public void getInovice(int orderID) {
@@ -36,6 +42,7 @@ public class PaymentManager {
 
     
     /** 
+     * Get the Bill once the customer makes payment
      * @param orderID
      * @param member
      * @param discount
@@ -54,6 +61,7 @@ public class PaymentManager {
 
     
     /** 
+     * To deallocate the tables and remove the exisiting order
      * @param orderID
      */
     public void checkout(int orderID){
@@ -68,6 +76,9 @@ public class PaymentManager {
 
     }
 
+    /**
+     * Get all Orders and display it
+     */
     public void getAllOrders(){
         System.out.println("============================ All Orders ====================================");
         for(Order o : Orders){
@@ -77,6 +88,7 @@ public class PaymentManager {
 
     
     /** 
+     * Store the Order items once the payment is made so that we are able to use it in the report
      * @param orderID
      */
     public void storeOrders(int orderID){
@@ -94,6 +106,7 @@ public class PaymentManager {
 
     
     /** 
+     * get membership discount ammount
      * @param contact
      * @return float
      */

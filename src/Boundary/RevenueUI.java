@@ -4,6 +4,14 @@ import java.util.Arrays;
 
 import src.Database.*;
 
+/**
+ * UI for the Revenue interface.
+ * 
+ * @author Fabian Wong
+ * @version 1.0
+ * @since 13/11/2021
+ */
+
 public class RevenueUI extends UI {
     public void run() {
         int choice = -1;
@@ -34,6 +42,11 @@ public class RevenueUI extends UI {
             }
         } while (choice < 2);
     }
+
+    
+	/**
+	 *  Displaying the UI menu for Reports
+	 */ 
 
     public void displayMenu() {
         System.out.println("################# REVENUE MENU #################");

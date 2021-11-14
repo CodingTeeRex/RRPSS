@@ -5,6 +5,14 @@ import src.Entity.Customer;
 import src.Entity.Membership;
 import src.Entity.Person;
 
+/**
+ * UI for the Customer interface.
+ * 
+ * @author Fabian Wong
+ * @version 1.0
+ * @since 13/11/2021
+ */
+
 public class CustomerUI extends UI {
 
     public void run() {
@@ -65,7 +73,9 @@ public class CustomerUI extends UI {
         } while (choice < 4 && choice > 0);
     }
 
-    // Displaying the UI menu for Altering Customers
+    /**
+     * Displaying the UI menu for Altering Customers
+     */ 
     public void displayMenu() {
         System.out.println("\n################# CUSTOMER MENU #################");
         System.out.println("1. New Membership.");
@@ -74,7 +84,9 @@ public class CustomerUI extends UI {
         System.out.println("4. Back.");
     }
 
-    // Displaying every customer information stored by the restaurant
+    /**
+     * Displaying every customer information stored by the restaurant
+    */
     public void displayCustomerDB() {
         System.out.println(
                 "============================CUSTOMER INFORMATION AVAILABLE====================================");
