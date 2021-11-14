@@ -33,7 +33,7 @@ public class MenuItem implements Serializable {
 	String name = "";
 	
 	/**
-	 * The types for menuitem
+	 * The type for menuitem
 	 */
 	
 	public FoodCategory type;
