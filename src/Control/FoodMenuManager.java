@@ -1,13 +1,14 @@
 package src.Control;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import src.Entity.MenuItem;
 import src.Entity.Promotion;
+import src.Database.Database;
 
 public class FoodMenuManager{
-    public static ArrayList<MenuItem> menuItems=new ArrayList<MenuItem>();
+    public static List<MenuItem> menuItems= Database.menuItemsDB;
     public static ArrayList<Promotion> promoSet= new ArrayList<Promotion>();
-    public static  ArrayList<MenuItem> promoMenuItems = new ArrayList<MenuItem>();
 
     public static void addFoodItem(String name, String description, double price, String type) {
         MenuItem newMenu = new MenuItem(name, description, type, price);
@@ -15,11 +16,11 @@ public class FoodMenuManager{
         System.out.println(" New Food Item Successfully Added!");
         newMenu.print();
     }
-    public static void addFoodItemPromo(String name, String description, double price, String type) {
+    public static MenuItem addFoodItemPromo(String name, String description, double price, String type) {
         MenuItem newMenu = new MenuItem(name, description, type, price);
-        promoMenuItems.add(newMenu);
         System.out.println("Food Item Successfully Added!");
         newMenu.print();
+        return newMenu;
     }
 
     public static void removeFoodItem(String name) {
@@ -49,8 +50,9 @@ public class FoodMenuManager{
                 m.print();
                 return;
             }
-            System.out.println(name + " cannot be found");
+            
         }
+        System.out.println(name + " cannot be found");
 
     }
 
@@ -88,160 +90,9 @@ public class FoodMenuManager{
                 p.print();
                 return;
             }
-            System.out.println(name + " cannot be found!");
+            
         }
+        System.out.println(name + " cannot be found!");
     }
-    public static void run() {
-        int choice,c;
-        String n,d,t,n1,d1,t1,n2;
-        double p,p1;
 
-        Scanner sc = new Scanner(System.in);
-        do {
-            System.out.println("-----------------------------------FOOD MENU MANAGER-------------------------------");
-            System.out.println("(1). Add a food item to the menu");
-            System.out.println("(2). Delete a food item from the menu");
-            System.out.println("(3). Update a food item in the menu");
-            System.out.println("(4). Add a promotional package to the menu");
-            System.out.println("(5). Delete a promotional package from the menu");
-            System.out.println("(6). Update a promotional package in the menu");
-            System.out.println("(7). Display the menu");
-            System.out.println("(8). Exit");
-            System.out.println("Enter your choice:");
-            choice = sc.nextInt();
-            System.out.println("");
-            switch (choice) {
-                case 1 :
-                    System.out.println(" Please enter the name:");
-                    sc.nextLine();
-                    n = sc.nextLine();
-                    System.out.println(" Please enter the description:");
-                    d = sc.nextLine();
-                    System.out.print(" Please enter the price:");
-                    p = sc.nextDouble();
-                    sc.nextLine();
-                    System.out.println(" Please enter the type:");
-                    t = sc.nextLine();
-                    addFoodItem(n, d, p, t);
-                    break;
-                case 2 :
-                    System.out.println(" Please enter the name of the food item to be removed:");
-                    sc.nextLine();
-                    n = sc.nextLine();
-                    removeFoodItem(n);
-                    break;
-                case 3 :
-                    System.out.println(" Please enter the name of the food item to be updated:");
-                    sc.nextLine();
-                    n = sc.nextLine();
-                    System.out.println(" Please enter the new name:");
-                    n2 = sc.nextLine();
-                    System.out.println(" Please enter the new description:");
-                    d = sc.nextLine();
-                    System.out.println(" Please enter the new price:");
-                    p = sc.nextDouble();
-                    System.out.println(" Please enter the new type:");
-                    sc.nextLine();
-                    t = sc.nextLine();
-                    editFoodItem(n, d, p, t,n2);
-                    break;
-                case 4 :
-                    System.out.println(" Please enter the name:");
-                    sc.nextLine();
-                    n = sc.nextLine();
-                    System.out.println(" Please enter the description:");
-                    d = sc.nextLine();
-                    System.out.print(" Please enter the price:");
-                    p = sc.nextDouble();
-                    sc.nextLine();
-                    System.out.println(" Please enter the no.of.items in the promotion:");
-                    c = sc.nextInt();
-                    for (int i = 0; i < c; i++) {
-                        System.out.println(" Please enter the name:");
-                        sc.nextLine();
-                        n1 = sc.nextLine();
-                        System.out.println(" Please enter the description:");
-                        d1 = sc.nextLine();
-                        System.out.println(" Please enter the price:");
-                        p1 = sc.nextDouble();
-                        sc.nextLine();
-                        System.out.println(" Please enter the type:");
-                        t1 = sc.nextLine();
-                        addFoodItemPromo(n1, d1, p1, t1);
-                    }
-                    addPromotion(n, p, promoMenuItems, d);
-                    break;
-                case 5 :
-                    System.out.print(" Please enter the name:");
-                    sc.nextLine();
-                    n = sc.nextLine();
-                    removePromotion(n);
-                    break;
-                case 6 :
-                    System.out.println(" Please enter the name of the promotional package to be updated:");
-                    sc.nextLine();
-                    n = sc.nextLine();
-                    System.out.println(" Please enter the new name:");
-                    n2 = sc.nextLine();
-                    System.out.println(" Please enter the new description:");
-                    d = sc.nextLine();
-                    System.out.println(" Please enter the new price:");
-                    p = sc.nextDouble();
-                    System.out.println(" Please enter the new no.of food items:");
-                    c = sc.nextInt();
-                    for (int i = 0; i < c; i++) {
-                        System.out.println(" Please enter the name:");
-                        sc.nextLine();
-                        n1 = sc.nextLine();
-                        System.out.println(" Please enter the description:");
-                        d1 = sc.nextLine();
-                        System.out.println(" Please enter the price:");
-                        p1 = sc.nextDouble();
-                        sc.nextLine();
-                        System.out.println(" Please enter the type:");
-                        t1 = sc.nextLine();
-                        addFoodItemPromo(n1, d1, p1, t1);
-                    }
-                    editPromotion(n, p, promoMenuItems, d,n2);
-                    break;
-                case 7 :
-                    System.out.println("-----------------------------FOOD MENU----------------------------------------------------------");
-                    System.out.println("--------------------------------------- ALA CARTE-----------------------------------------------");
-                    for(MenuItem m:menuItems)
-                    { System.out.println("Name: " + m.getName() );
-                    System.out.println(" Type: " + m.getType());
-                    System.out.println("Description: " + m.getDescription());
-                    System.out.println("Price:" + m.getPrice());
-                    System.out.println("----------------------------------------------------------------------------------------------------");}
-                    System.out.println("-------------------------------------PROMOTIONAL PACKAGES-------------------------------------------");
-                    for(Promotion i:promoSet)
-                    {
-                        System.out.println("Name: " + i.getName() );
-                        System.out.println("Description: " + i.getDescription());
-                        System.out.println("Price:" + i.getPrice());
-                        System.out.println("Set: ");
-                        int j=1;
-                        for(MenuItem m: promoMenuItems)
-
-                        {
-                            System.out.println(j++);
-
-                            System.out.print(" Name: " + m.getName() );
-                            System.out.print(" Type: " + m.getType());
-                            System.out.print(" Description: " + m.getDescription());
-                            System.out.print(" Price:" + m.getPrice());
-
-                            System.out.println("   ");
-                        }
-                         System.out.println("*******************************************************************************");
-
-                    }
-                    break;
-                case 8 :
-                    break;
-            }
-
-        } while (choice != 8);
-sc.close();
-    }
 }

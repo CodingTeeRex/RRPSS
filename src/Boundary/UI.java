@@ -1,7 +1,9 @@
 package src.Boundary;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import src.Entity.Employee;
@@ -9,7 +11,7 @@ import src.Entity.Person;
 import src.Control.EmployeeManager;
 import src.Database.Database;
 
-public abstract class UI {
+public class UI {
 	private Scanner sc = new Scanner(System.in);
 
 	// Variations of the word with the meaning of Yes/No:
@@ -44,6 +46,32 @@ public abstract class UI {
 		return userInput;
 	}
 
+	// Obtain input as only double
+	public double getDouble() {
+
+		// Initialise a variable to store the input
+		double userInput = -1;
+		// Condition for obtaining a valid input
+		boolean handled = false;
+		// Continue to prompt the user if input entered is not an Integer
+		do {
+			// Test if input entered is integer
+			try {
+				userInput = sc.nextDouble();
+				sc.nextLine();
+				// Input entered is integer
+				handled = true;
+			} catch (InputMismatchException e) {
+				// Input entered is not integer
+				System.out.println("Error! Option must be an double! Please try again.");
+				sc.next();
+			}
+		} while (!handled);
+
+		// Return the valid input from user
+		return userInput;
+	}
+
 	// Obtain input as string will only letters
 	public String getInputString() {
 
@@ -57,7 +85,7 @@ public abstract class UI {
 			try {
 				userInput = sc.nextLine();
 				// Input entered is a string and contains only letters
-				if (userInput.length() == userInput.replaceAll("[^a-zA-Z]", "").length())
+				if (userInput.length() == userInput.replaceAll("[^a-zA-Z ]", "").length())
 					handled = true;
 				// Input entered is a string but does not contain only letters
 				else
@@ -80,14 +108,19 @@ public abstract class UI {
 		String userInput = "";
 		// Condition for obtaining a valid input
 		boolean handled = false;
+
+		List <String> checker = new ArrayList<String>();
+		for(String s : stringToCheck){
+			checker.add(s.toUpperCase());
+		}
 		// Continue to prompt the user if input entered is not a String and the String
 		// entered does not exist in the string array
 		do {
 			try {
 				userInput = sc.nextLine();
-				System.out.println("Input: " + userInput);
+				//System.out.println("Input: " + userInput);
 				// Input entered is a string and exist in the string array provided
-				if (Arrays.asList(stringToCheck).contains(userInput)) {
+				if (checker.contains(userInput.toUpperCase())) {
 					handled = true;
 				}
 				// Input entered is a string but does not exist in the string array provided

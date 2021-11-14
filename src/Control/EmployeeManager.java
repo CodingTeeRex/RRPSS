@@ -34,7 +34,7 @@ public class EmployeeManager {
 	}
 
 	// Updating contact/title of an exisiting employee to the Database
-	public static void EditEmployee(int id, int contact, String title) {
+	public static void editEmployee(int id, int contact, String title) {
 		for (Person p : employees) {
 			// Found the employee to update the information
 			if (((Employee) p).getID() == id) {

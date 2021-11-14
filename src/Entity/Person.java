@@ -12,7 +12,7 @@ public abstract class Person {
 	int contact = 0;
 
 	// Different Variations of input for Male and Female
-	static String[] genders = { "Male", "Female", "M", "F" };
+	static String[] genders = { "MALE", "FEMALE", "M", "F" };
 
 	// Abstract function to be overwritten by the child
 	public abstract String getName();

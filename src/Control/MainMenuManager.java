@@ -1,5 +1,7 @@
 package src.Control;
 
+import javax.sound.sampled.ReverbType;
+
 import src.Boundary.*;
 import src.Entity.Restaurant;
 
@@ -19,6 +21,7 @@ public class MainMenuManager {
 	private CustomerUI customerMenu = new CustomerUI();
 	private PaymentUI paymentMenu = new PaymentUI();
 	private TableUI tableMenu = new TableUI();
+	private RevenueUI revenueMenu = new RevenueUI();
 
 	/**
 	 * Driver method for the entire system
@@ -56,12 +59,14 @@ public class MainMenuManager {
 				case 7:
 					tableMenu.run();
 					break;
+				case 8:
+					revenueMenu.run();
 				default:
-					System.out.println("Sytem Shutting Down...");
+					System.out.println("System Shutting Down...");
 					break;
 			}
 
-			if (choice >= 8) break;
+			if (choice >= 9) break;
 		}
 	}
 }

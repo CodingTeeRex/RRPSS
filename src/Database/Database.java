@@ -7,9 +7,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.crypto.Data;
+
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.BufferedWriter;
+import java.time.*;
+
 import src.Entity.Customer;
 import src.Entity.Employee;
 import src.Entity.MenuItem;
+import src.Entity.OrderItem;
 import src.Entity.Person;
 
 public class Database {
@@ -30,10 +38,25 @@ public class Database {
 	// csv
 	static enum DesiredAttribute {
 		// Person Attributes
-		FIRSTNAME("FirstName", 0), LASTNAME("LastName", 0), GENDER("Gender", 0), CONTACT("Contact", 0),
-		TITLE("Title", 0), ID("Id", 0), MEMEBERTYPE("Member", 0),
+		FIRSTNAME("FirstName", 0), 
+		LASTNAME("LastName", 0), 
+		GENDER("Gender", 0), 
+		CONTACT("Contact", 0),
+		TITLE("Title", 0), 
+		ID("Id", 0), 
+		MEMEBERTYPE("Member", 0),
 		// MenuItem Attributes
-		ITEMNAME("ItemName", 0), ITEMDESCRIPTION("ItemDesc", 0), ITEMTYPE("ItemType", 0), ITEMPRICE("ItemPrice", 0);
+		ITEMNAME("ItemName", 0), 
+		ITEMDESCRIPTION("ItemDesc", 0), 
+		ITEMTYPE("ItemType", 0), 
+		ITEMPRICE("ItemPrice", 0),
+		//Orders Attributes
+		ORDERID ("OrderID" , 0),
+		ORDERITEMNAME ("OrderItemName" , 0),
+		ORDERDAY ("OrderDay" , 0),
+		ORDERMONTH ("OrderMonth" , 0),
+		ORDERQUANTITY ("OrderQuantity" , 0),
+		ORDERPRICE ("OrderPrice" , 0);
 
 		// Obtaining all the attributes initialised in DesiredAttribute
 		static DesiredAttribute[] desired = DesiredAttribute.values();
@@ -81,10 +104,91 @@ public class Database {
 	}
 
 	// CAN BE REMOVED
-	// public static void main(String[] args) {
-	// 	parseCSV("src");
-	// 	// printDatabase();
-	// }
+	/*public static void main(String[] args) throws InterruptedException {
+
+		//Database.parseCSV("src/Database/csv");
+		//generatePastOrders("src/Database/csv/Orders.csv", 30, 5, 5, 4);
+		//Database.computeRevenue("src/Database/csv/Orders.csv", 12, 11);
+		//Database.updateRevenue("src/Database/csv/OrdersTest.csv", 1, "Chicken Pie", 3.2f, 5, 12, 11);
+		
+	 }*/
+	 //TO BE REMOVED
+	public static void generatePastOrders(String filepath, int numOfDays, int maxOrder, int maxItem, int maxQuantity)
+	{
+		FileWriter writeFile = null;
+		BufferedWriter bufferWrite = null;
+		PrintWriter printer = null;
+		try
+		{
+			writeFile = new FileWriter(filepath, true);
+			bufferWrite = new BufferedWriter(writeFile);
+			printer = new PrintWriter(bufferWrite);
+			
+			printer.println("OrderID,OrderItemName,OrderPrice,OrderQuantity,OrderDay,OrderMonth");
+			
+			java.util.Random rand = new java.util.Random();
+			LocalDateTime today = LocalDateTime.now();
+			LocalDateTime edited = today;
+
+			
+			
+			//Days
+			for (int i = 0 ; i < numOfDays; i++)
+			{
+				int randomOrders = rand.nextInt(maxOrder)+ 1;
+				//Order in day
+				for (int j = 0 ; j < randomOrders; j++)
+				{
+					
+					int randomOrderItems = rand.nextInt(maxItem) + 1;
+					List<MenuItem> inMenu = new ArrayList<MenuItem>();
+					for (int k = 0 ; k < randomOrderItems; k++)
+					{
+						
+						int orderId = j;						
+						MenuItem m = menuItemsDB.get(rand.nextInt(menuItemsDB.size()));				
+						int quantity = rand.nextInt(maxQuantity) + 1;
+						boolean exist = false;
+						
+						for (MenuItem mi : inMenu)
+						{
+							if (mi.compareDuplicate(m))
+								exist = true;
+						}
+						if (!exist)
+						{						
+							//System.out.println(orderId + "," + m.getName()+ "," + m.getPrice() + "," + quantity +"," + edited.getDayOfMonth() + "," + edited.getMonthValue());
+							printer.println(orderId + "," + m.getName()+ "," +  String.format("%.2f",m.getPrice()) + "," + quantity +"," + edited.getDayOfMonth() + "," + edited.getMonthValue());
+							inMenu.add(m);
+						}										
+						else
+							k--;
+					}
+					
+				}
+				edited = edited.minusDays(1);
+			}
+			
+			
+		}
+		catch (Exception E)
+		{
+			System.out.println("Didnt Save");
+		}
+		finally
+		{
+			try {
+				printer.flush();
+				printer.close();
+				bufferWrite.close();
+				writeFile.close();
+			} catch (IOException e) {
+				//Display Error is unable to close Reader
+				e.printStackTrace();
+			}
+		}
+		
+	}
 
 	// Obtaining all the csv files in the folder path provided
 	public static void parseCSV(String folderPath) {
@@ -107,6 +211,11 @@ public class Database {
 
 	// Converting the data from the csv files into useable classes in Java via path
 	public static void parseData(String path, String type) {
+
+		if (type.contains("Order"))
+		{
+			return;
+		}
 		// File path
 		String file = path;
 
@@ -196,7 +305,141 @@ public class Database {
 		}
 
 	}
+	public static void updateRevenue(String path, int orderID, String orderItemName, double orderPrice, int quantity,  int day, int month)
+	{
+		FileWriter writeFile = null;
+		BufferedWriter bufferWriter = null;
+		PrintWriter printer = null;
+		try
+		{
+			writeFile = new FileWriter(path, true);
+			bufferWriter = new BufferedWriter(writeFile);
+			printer = new PrintWriter(bufferWriter);
+			
+			printer.println(orderID + "," + orderItemName + "," + String.format("%.2f",orderPrice) + "," + quantity + "," + day + "," + month);
+			
+		}
+		catch (Exception E)
+		{
+			System.out.println("Didnt Save");
+		}
+		finally
+		{
+			try {
+				printer.flush();
+				printer.close();
+				bufferWriter.close();
+				writeFile.close();
+			} catch (IOException e) {
+				//Display Error is unable to close Reader
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static double computeRevenue(String path, int day, int month)
+	{
+		//File path
+		String file = path;	
+		
+		//Used for reading file
+		BufferedReader reader = null;
+		
+		//Current Line traversed
+		String line = "";
+		
+		double revenue = 0.0f;
+		//Try to read the file
+		try 
+		{
+			//Reader used for reading the csv
+			reader = new BufferedReader(new FileReader(file));
 
+			//Reading the first line to obtain attribute from csv
+			line = reader.readLine();
+			String[] attributes = line.split(",");
+			
+			//Setting the DesiredAttributes with the valid index for obtaining the attributes from the line later
+			for (int i = 0; i < attributes.length; i++ )
+			{
+				DesiredAttribute.setIndex(attributes[i], i);
+			}
+			//Read the entire .csv file
+			
+			List<OrderItem> orders = new ArrayList<OrderItem>();
+
+			while ((line = reader.readLine()) != null)
+			{
+				//Splitting the lines into respective attributes for constructing classes
+				String[] orderRow = line.split(",");
+				if ((Integer.parseInt(orderRow[DesiredAttribute.ORDERMONTH.getIndex()])) == month)
+				{
+					if (day != 0 && (Integer.parseInt(orderRow[DesiredAttribute.ORDERDAY.getIndex()])) == day || day == 0)
+					{
+						OrderItem ordItem = null;
+						//Find the same order item in different order
+						for (OrderItem oi : orders)
+						{
+							if (oi.getName().equals(orderRow[DesiredAttribute.ORDERITEMNAME.getIndex()]))
+							{
+								ordItem = oi;
+							}
+						}
+
+						int quantity = (Integer.parseInt(orderRow[DesiredAttribute.ORDERQUANTITY.getIndex()]));
+						String name = orderRow[DesiredAttribute.ORDERITEMNAME.getIndex()];
+						Double price = (Double.parseDouble(orderRow[DesiredAttribute.ORDERPRICE.getIndex()]) * Double.parseDouble(orderRow[DesiredAttribute.ORDERQUANTITY.getIndex()]));
+						revenue += (Double.parseDouble(orderRow[DesiredAttribute.ORDERPRICE.getIndex()]) * Double.parseDouble(orderRow[DesiredAttribute.ORDERQUANTITY.getIndex()]));
+						
+						if (ordItem == null)
+						{						
+							ordItem = new OrderItem(quantity, name , null , price);	
+							orders.add(ordItem);				
+						}
+						else
+						{
+							ordItem.setPax(ordItem.getPax() + quantity);
+							ordItem.setPrice(ordItem.getPrice() + price);
+						}
+							
+					}
+				}
+			}
+
+			System.out.println("============================================================================");
+			System.out.println("TOTAL SALES REVENUE ON: " + ((day != 0) ? (day + "/") : "" ) + month + "/2021");
+			System.out.println("============================================================================");
+			
+			for (OrderItem oi : orders)
+			{
+				System.out.println("Item Name: " + oi.getName());
+				System.out.println("Quantity: " + oi.getPax());
+				System.out.println("Total Sales: $" + String.format("%.2f",oi.getPrice()));		
+			}
+			System.out.println("============================================================================");
+			System.out.println("TOTAL SALES REVENUE : $" +  String.format("%.2f",revenue));
+			System.out.println("============================================================================");
+					
+		}
+		//Display Error
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		//Close the reader after finished
+		finally
+		{
+			try {
+				reader.close();
+			} catch (IOException e) {
+				//Display Error is unable to close Reader
+				e.printStackTrace();
+			}
+		}
+		
+		return revenue;
+			
+	}
 	// Constructing the Customer for adding into the database
 	public static Customer InitialiseCustomer(String[] row) {
 		// Obtaining the respective attributes using the DesiredAttribute for accuracy

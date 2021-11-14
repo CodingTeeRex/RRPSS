@@ -1,9 +1,11 @@
 package src.Entity;
 
+
 public class Membership {
 	
 	//Type of membership
 	String type = "";
+	float discountPercent = 0.0f;
 
 	static String[] availableMembership = {"Restaurant", "Other Entities"};
 	
@@ -11,6 +13,7 @@ public class Membership {
 	public Membership(String type)
 	{
 		this.type = type;
+		this.discountPercent = setDiscountPercent(type);
 	}
 	//Obtaining the type of Membership
 	public String getType()
@@ -21,6 +24,7 @@ public class Membership {
 	public void setType(String type)
 	{
 		this.type = type;
+		this.discountPercent = setDiscountPercent(type);
 	}
 	public static String[] getAvailableMembership()
 	{
@@ -36,5 +40,21 @@ public class Membership {
 			System.out.println(s);
 		}
 		System.out.println("================================================================================");
+	}
+	//Set the discount percent according to the membership type
+	public float setDiscountPercent(String type)
+	{
+		if (type.equals("Restaurant"))
+		{
+			return 0.3f;
+		}
+		else if (type.equals("Other Entities"))
+		{
+			return 0.2f;
+		}
+		else
+		{
+			return 0.0f;
+		}
 	}
 }
