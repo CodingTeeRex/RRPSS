@@ -1,6 +1,5 @@
 package src.Entity;
 
-import src.Entity.FoodCategory;
 import java.util.ArrayList;
 
 public class OrderItem {

@@ -71,7 +71,7 @@ public class ReservationUI extends UI {
                     handled = false;
 
                     System.out.println("Enter Customer Name: ");
-                    custName = getString();
+                    custName = getInputString();
 
                     System.out.println("Enter contact number: ");
                     contactNum = getInput();
