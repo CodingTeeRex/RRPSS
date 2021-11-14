@@ -5,7 +5,20 @@ import src.Control.FoodMenuManager;
 import src.Entity.MenuItem;
 import src.Entity.Promotion;
 
+/**
+ * Represents the food menu manager
+ * @author Shreejaa Saravanan
+ * @version 1.0
+ * @since 13-11-2021
+ */
+
 public class FoodMenuUI extends UI {
+	
+	/**
+	* This function enables the user to add,delete and edit MenuItems in the food menu 
+	* This function enables the user to add,delete and edit Promotions in the food menu
+	* This function displays the updated food menu
+	*/
     
     public void run() {
 
@@ -152,6 +165,10 @@ public class FoodMenuUI extends UI {
         } while (choice != 8);
     }
 
+	/**
+	* Prints the menu manager options that are available
+	*/
+	
     public void displayMenu() {
         System.out.println("\n################# MENU MANAGER #################");
         System.out.println("1. Add Food Item.");
