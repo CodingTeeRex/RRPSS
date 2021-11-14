@@ -1,6 +1,14 @@
 package src.Entity;
 import java.io.Serializable;
 import java.util.ArrayList;
+
+/**
+ * Reperesents the promotional packages in the restaurant
+ * @author Shreejaa Saravanan
+ * @version 1.0
+ * @since 13-11-2021
+ */
+
 public class Promotion implements Serializable {
     private String name;
     private String description;
