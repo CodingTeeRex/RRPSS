@@ -19,7 +19,7 @@ public class TableManager {
      */
     public TableManager() {
         new TableDatabase();
-        this.initTables(10);
+        this.initTables(5);
     }
 
     /**

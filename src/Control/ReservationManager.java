@@ -36,8 +36,7 @@ public class ReservationManager {
 	private String proxyTime;
 
 	/**
-	 * ReservationManager constructor
-	 * Instantiates ReservationDatabase
+	 * ReservationManager constructor Instantiates ReservationDatabase
 	 */
 	public ReservationManager() {
 		new ReservationDatabase();
@@ -64,6 +63,7 @@ public class ReservationManager {
 
 	/**
 	 * Initialises the inner TreeMap to insert into reservationList
+	 * 
 	 * @return Returns the initialised inner TreeMap
 	 */
 	private TreeMap<String, ArrayList<Reservation>> initInnerHashMap() {
@@ -103,6 +103,7 @@ public class ReservationManager {
 
 	/**
 	 * Shows all reservations for a particular contact number
+	 * 
 	 * @param contactNum The customer's contact number
 	 */
 	public void showAllReservations(int contactNum) {
@@ -127,6 +128,7 @@ public class ReservationManager {
 
 	/**
 	 * Shows all existing reservation by date
+	 * 
 	 * @deprecated not in use
 	 */
 	public void showReservationByDate() {
@@ -153,6 +155,7 @@ public class ReservationManager {
 
 	/**
 	 * Gets the date choice from user
+	 * 
 	 * @param dateChoice The choice of date from the user
 	 */
 	public void getDateChoice(int dateChoice) {
@@ -171,26 +174,31 @@ public class ReservationManager {
 
 	/**
 	 * Gets the time choice from user
+	 * 
 	 * @param timeChoice The choice of reservation time from the user
 	 */
 	public void getTimeChoice(int timeChoice) {
 		this.timeChoice = timeChoice;
 		System.out.printf("\n%s selected.\n", times[timeChoice - 1]);
 	}
-	
+
 	/**
 	 * Get table choice from user
+	 * 
 	 * @param tableChoice The table selected to be reserved by the user
 	 */
 	public void getTableChoice(int tableChoice) {
-		if (!this.availableTables.containsKey(tableChoice))
+		if (!this.availableTables.containsKey(tableChoice) || this.availableTables.get(tableChoice).isTaken())
 			throw new NullPointerException("Table number not available");
+
 		this.tableChoice = tableChoice;
 	}
 
 	/**
 	 * Check current availability of tables and display them
-	 * @return A boolean value representing if the selected date & time is available for reservation
+	 * 
+	 * @return A boolean value representing if the selected date & time is available
+	 *         for reservation
 	 */
 	public Boolean checkAvailability() {
 		String date = this.availableDates.get(this.dateChoice - 1);
@@ -236,9 +244,10 @@ public class ReservationManager {
 
 	/**
 	 * Inserts a reservation into reservationList
-	 * @param custName The customer's name
+	 * 
+	 * @param custName   The customer's name
 	 * @param contactNum The customer's contact number
-	 * @param numPax Party size
+	 * @param numPax     Party size
 	 */
 	public void makeReservation(String custName, int contactNum, int numPax) {
 		Table t = this.availableTables.get(this.tableChoice);
@@ -257,6 +266,7 @@ public class ReservationManager {
 
 	/**
 	 * Removes a reservation of a specified customer by contact number
+	 * 
 	 * @param contactNum The customer's contact number
 	 */
 	public void removeReservation(int contactNum) {
@@ -275,7 +285,9 @@ public class ReservationManager {
 	}
 
 	/**
-	 * Sets a proxy date to simulate the auto removal of reservation upon reservation date
+	 * Sets a proxy date to simulate the auto removal of reservation upon
+	 * reservation date
+	 * 
 	 * @param date The date to be simulated
 	 * @param time The time to be simulated
 	 */
@@ -285,8 +297,11 @@ public class ReservationManager {
 	}
 
 	/**
-	 * Simulates the removal of reservation upon reservation date & time after XX amount of time
-	 * @throws ParseException Exception occurs when the date & time input by user cannot be parsed
+	 * Simulates the removal of reservation upon reservation date & time after XX
+	 * amount of time
+	 * 
+	 * @throws ParseException Exception occurs when the date & time input by user
+	 *                        cannot be parsed
 	 */
 	public void simulateAutoRemove() throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
@@ -305,6 +320,7 @@ public class ReservationManager {
 					System.out.println("===============<SYSTEM MESSAGE>===============\n");
 					System.out.println("Reservations cleared for " + sd + " " + time);
 					System.out.println("\n===============<SYSTEM MESSAGE>===============");
+					return;
 				}
 			};
 			Timer t = new Timer();
