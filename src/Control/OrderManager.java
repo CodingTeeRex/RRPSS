@@ -15,10 +15,10 @@ import java.util.Scanner;
 
 
 /**
-This is the Order Manager
-@author Reeves Chiu
-@version 1.0
-@since 2021-11-13
+ * This is the Order Manager
+ * @author Reeves Chiu
+ * @version 1.0
+ * @since 13/11/2021
  */
 
 public class OrderManager {

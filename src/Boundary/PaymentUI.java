@@ -5,11 +5,12 @@ import src.Control.OrderManager;
 import src.Entity.Order;
 
 /**
-This is the Payment UI
-@author Reeves Chiu
-@version 1.0
-@since 2021-11-13
+ * This is the Payment UI
+ * @author Reeves Chiu
+ * @version 1.0
+ * @since 13/11/2021
  */
+
 
 
 public class PaymentUI extends UI {

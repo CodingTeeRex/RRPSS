@@ -13,6 +13,13 @@ import src.Entity.OrderItem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * This is the Order Manager
+ * @author Reeves Chiu
+ * @version 1.0
+ * @since 13/11/2021
+ */
+
 public class PaymentManager {
 
     public static List<Order> Orders = OrderDatabase.OrderDB;
