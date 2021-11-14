@@ -13,6 +13,9 @@ import src.Database.*;
  */
 
 public class RevenueUI extends UI {
+    /**
+     * Driver method
+     */
     public void run() {
         int choice = -1;
         int orderID = 0;
@@ -43,11 +46,9 @@ public class RevenueUI extends UI {
         } while (choice < 2);
     }
 
-    
-	/**
-	 *  Displaying the UI menu for Reports
-	 */ 
-
+    /**
+     * Displays the menu
+     */
     public void displayMenu() {
         System.out.println("################# REVENUE MENU #################");
         System.out.println("Please select an option below.");

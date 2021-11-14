@@ -3,6 +3,9 @@ package src.Boundary;
 
 public class MainMenuUI extends UI {
 
+    /**
+     * Displays the Main Menu
+     */
     public void displayMenu(String restaurantName) {
         System.out.println("\nWelcome to " + restaurantName + " RRPSS!");
         System.out.println("################# MAIN MENU #################");
