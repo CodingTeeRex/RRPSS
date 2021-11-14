@@ -15,6 +15,9 @@ import java.util.TreeMap;
 public class ReservationDatabase {
     public static SortedMap<String, TreeMap<String, ArrayList<Reservation>>> reservationList;
 
+    /**
+     * Constructor to create ReservationDatabase
+     */
     public ReservationDatabase() {
         reservationList = new TreeMap<String, TreeMap<String, ArrayList<Reservation>>>();
     }

@@ -13,6 +13,9 @@ import src.Entity.Table;
 public class TableDatabase {
     public static HashMap<Integer, Table> tableList;
 
+    /**
+     * Constructor to create TableDatabase
+     */
     public TableDatabase() { 
         tableList = new HashMap<Integer, Table>(); // Map unique table number to Table object
     }

@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "."
+    ],
+    "discord.enabled": true,
+    "editor.wordWrapColumn": 200,
+    "editor.accessibilitySupport": "on",
+    "diffEditor.wordWrap": "off"
+}

@@ -5,18 +5,20 @@ package src.Entity;
 
 import src.Control.MainMenuManager;
 
+/**
+ * Stores related information about restaurant instance
+ * 
+ * @author Ivan Pua
+ * @version 1.0
+ * @since 13/11/2021
+ */
 public class Restaurant {
 
 	private String name;
-	private int totalEmployees;
-	private int totalTables;
-	// private HashMap<Integer, Employee> employeeList;
-	// private ArrayList<Table> tableList;
 
 	/**
-	 * 
-	 * @param totalEmployees
-	 * @param totalTables
+	 * Constructor for restaurant
+	 * @param name The name of the restaurant
 	 */
 	public Restaurant(String name) {
 		this.name = name;
@@ -24,41 +26,25 @@ public class Restaurant {
 		// tableList = new ArrayList<Table>();
 	}
 
+	/**
+	 * Driver program
+	 */
 	public void run() {
 		MainMenuManager mainMenu = new MainMenuManager();
 		mainMenu.run(this);
 	}
 
+	/**
+	 * @return The restaurant name
+	 */
 	public String getName() {
 		return this.name;
 	}
 
+	/**
+	 * Set restaurant name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public int getTotalTables() {
-		return this.totalTables;
-	}
-
-	/** c
-	 * 
-	 * @param totalTables
-	 */
-	public void setTotalTables(int totalTables) {
-		this.totalTables = totalTables;
-	}
-
-	public int getTotalEmployees() {
-		return this.totalEmployees;
-	}
-
-	/**
-	 * 
-	 * @param totalEmployees
-	 */
-	public void setTotalEmployees(int totalEmployees) {
-		this.totalEmployees = totalEmployees;
-	}
-
 }
