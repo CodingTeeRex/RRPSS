@@ -12,7 +12,20 @@ public class Membership {
 	//Constructor for membership
 	public Membership(String type)
 	{
-		this.type = type;
+		String[] name = type.split(" ");
+		for (int i = 0; i < name.length; i++)
+		{
+			name[i] = name[i].substring(0, 1).toUpperCase() + name[i].substring(1);
+
+			if (i == 0)
+			{
+				this.type += name[i];
+			}
+			else
+			{
+				this.type += (" " + name[i]);
+			}
+		}	
 		this.discountPercent = setDiscountPercent(type);
 	}
 	//Obtaining the type of Membership
@@ -44,11 +57,12 @@ public class Membership {
 	//Set the discount percent according to the membership type
 	public float setDiscountPercent(String type)
 	{
-		if (type.equals("Restaurant"))
+		String convert = type.toLowerCase();
+		if (convert.equals("restaurant"))
 		{
 			return 0.3f;
 		}
-		else if (type.equals("Other Entities"))
+		else if (convert.equals("other entities"))
 		{
 			return 0.2f;
 		}

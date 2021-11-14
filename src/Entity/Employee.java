@@ -42,7 +42,20 @@ public class Employee extends Person {
 		this.gender = gender;
 		this.contact = contact;
 		this.id = id;
-		this.title = title;		
+		String[] name = title.split(" ");
+		for (int i = 0; i < name.length; i++)
+		{
+			name[i] = name[i].substring(0, 1).toUpperCase() + name[i].substring(1);
+
+			if (i == 0)
+			{
+				this.title += name[i];
+			}
+			else
+			{
+				this.title += (" " + name[i]);
+			}
+		}	
 	}
 	
 	/** Obtaining the name of the Employee

@@ -2,7 +2,7 @@ package src.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
-import src.Database.Database;
+import src.Entity.Restaurant;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -204,7 +204,7 @@ public class Order {
 
         //HEADER
         System.out.printf("----------------------------------------------------------------------------------------------------------------\n\n");
-        System.out.printf("                                           %s\n", Database.restaurantName);
+        System.out.printf("                                           %s\n", Restaurant.getName());
         System.out.printf("                                           %s\n", "10 Ang Mo Kio Street 12, Singapore 567740");
         System.out.printf("                                           %s%d\n", "TEL: " , 98765432);
         System.out.printf("                                           %s%d\n\n", "Check #: ", orderID );

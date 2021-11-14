@@ -12,14 +12,14 @@ import src.Control.MainMenuManager;
  */
 public class Restaurant {
 
-	private String name;
+	private static String name;
 
 	/**
 	 * Constructor for restaurant
 	 * @param name The name of the restaurant
 	 */
 	public Restaurant(String name) {
-		this.name = name;
+		Restaurant.name = name;
 		// employeeList = new HashMap<Integer, Employee>(); // Map employee ID to corresponding Employee object
 		// tableList = new ArrayList<Table>();
 	}
@@ -35,14 +35,14 @@ public class Restaurant {
 	/**
 	 * @return The restaurant name
 	 */
-	public String getName() {
-		return this.name;
+	public static String getName() {
+		return name;
 	}
 
 	/**
 	 * Set restaurant name
 	 */
 	public void setName(String name) {
-		this.name = name;
+		Restaurant.name = name;
 	}
 }
