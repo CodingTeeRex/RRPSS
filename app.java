@@ -9,7 +9,7 @@ import src.Database.Database;
  * @author Ivan Pua
  * @author Reeves Chiu
  * @author Fabian
- * @author Shreeja
+ * @author Shreejaa
  * @version 1.0
  * @since 24/10/2021
  */
