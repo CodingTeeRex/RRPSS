@@ -7,6 +7,9 @@ import src.Entity.Person;
 
 public class CustomerUI extends UI {
 
+    /**
+     * Driver method
+     */
     public void run() {
         int choice = -1;
         // Continue to run as long as the input entered is within 1-3
@@ -66,6 +69,9 @@ public class CustomerUI extends UI {
     }
 
     // Displaying the UI menu for Altering Customers
+    /**
+     * Displays the menu
+     */
     public void displayMenu() {
         System.out.println("\n################# CUSTOMER MENU #################");
         System.out.println("1. New Membership.");
@@ -75,6 +81,9 @@ public class CustomerUI extends UI {
     }
 
     // Displaying every customer information stored by the restaurant
+    /**
+     * Displays the customers in the Database
+     */
     public void displayCustomerDB() {
         System.out.println(
                 "============================CUSTOMER INFORMATION AVAILABLE====================================");

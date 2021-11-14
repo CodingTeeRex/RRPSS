@@ -8,6 +8,9 @@ import src.Entity.Person;
 
 public class EmployeeUI extends UI {
 
+	/**
+	 * Driver method
+	 */
 	public void run() {
 		int choice = -1;
 		// Continue to run as long as the input entered is within 1-3
@@ -104,6 +107,9 @@ public class EmployeeUI extends UI {
 	}
 
 	// Displaying the UI menu for Altering Employees
+	/**
+	 * Displays the menu
+	 */
 	public void displayMenu() {
 		System.out.println("\n################# EMPLOYEE MENU #################");
 		System.out.println("1. Add Employee.");

@@ -17,47 +17,50 @@ public class PaymentManager {
 
     public static List<Order> Orders = OrderDatabase.OrderDB;
 
-
-    
-    /** 
-     * @param orderID
+    /**
+     * Gets the invoice of an order
+     * 
+     * @param orderID The order ID to be printed.
      */
     public void getInovice(int orderID) {
         System.out.println("============================ INVOICE ====================================");
-        for(Order o : Orders){
+        for (Order o : Orders) {
             if (o.getOrderID() == orderID) {
                 o.printAll();
                 return;
             }
-            
+
         }
         System.out.println("ERROR Order ID " + orderID + ": Cant be found!");
-	}
+    }
 
-    
-    /** 
-     * @param orderID
-     * @param member
-     * @param discount
+    /**
+     * Gets the recipt for an order
+     * 
+     * @param orderID  The ID of an order
+     * @param member   Member flag
+     * @param discount Discount allowed (if applicable)
      */
-    public void getReceipt(int orderID, boolean member, Float discount ) {
-        // System.out.println("============================ Receipt ====================================");
-        for(Order o : Orders){
+    public void getReceipt(int orderID, boolean member, Float discount) {
+        // System.out.println("============================ Receipt
+        // ====================================");
+        for (Order o : Orders) {
             if (o.getOrderID() == orderID) {
-                o.printBill(o.getOrderID(),o.getStaffID(),o.getTableID(),member,o.getStaffName(),discount);
+                o.printBill(o.getOrderID(), o.getStaffID(), o.getTableID(), member, o.getStaffName(), discount);
                 return;
             }
-            
+
         }
         System.out.println("ERROR Order ID " + orderID + ": Cant be found!");
-	}
+    }
 
-    
-    /** 
-     * @param orderID
+    /**
+     * Checkout an order
+     * 
+     * @param orderID The order ID of the order to be checkout.
      */
-    public void checkout(int orderID){
-        for(Order o : Orders){
+    public void checkout(int orderID) {
+        for (Order o : Orders) {
             if (o.getOrderID() == orderID) {
                 Table table = TableDatabase.tableList.get(o.getTableID());
                 table.setTakenStatus();
@@ -68,45 +71,52 @@ public class PaymentManager {
 
     }
 
-    public void getAllOrders(){
+    /**
+     * Shows all orders
+     */
+    public void getAllOrders() {
         System.out.println("============================ All Orders ====================================");
-        for(Order o : Orders){
-            System.out.printf("Order ID: %d, Staff ID: %d, Table Num: %d\n", o.getOrderID(),o.getStaffID(),o.getTableID());
+        for (Order o : Orders) {
+            System.out.printf("Order ID: %d, Staff ID: %d, Table Num: %d\n", o.getOrderID(), o.getStaffID(),
+                    o.getTableID());
         }
     }
 
-    
-    /** 
-     * @param orderID
+    /**
+     * Saves the orders back into the CSV file
+     * 
+     * @param orderID The orderID of the order.
      */
-    public void storeOrders(int orderID){
+    public void storeOrders(int orderID) {
 
         SimpleDateFormat formatter1 = new SimpleDateFormat("dd");
         SimpleDateFormat formatter2 = new SimpleDateFormat("MM");
         Date date = new Date();
-        for(Order o : Orders){
-            for(OrderItem oi : o.itemList){
-                Database.updateRevenue("src/Database/csv/Orders.csv", orderID, oi.getName(), oi.getPrice(), oi.getPax(), Integer.parseInt(formatter1.format(date)) , Integer.parseInt(formatter2.format(date)));
+        for (Order o : Orders) {
+            for (OrderItem oi : o.itemList) {
+                Database.updateRevenue("src/Database/csv/Orders.csv", orderID, oi.getName(), oi.getPrice(), oi.getPax(),
+                        Integer.parseInt(formatter1.format(date)), Integer.parseInt(formatter2.format(date)));
             }
         }
-        
+
     }
 
-    
-    /** 
-     * @param contact
-     * @return float
+    /**
+     * Get the discount information for a member.
+     * 
+     * @param contact The contact number of the customer.
+     * @return float The discount allowed
      */
-    public float getDiscount(int contact){
+    public float getDiscount(int contact) {
         float dis = 0.0f;
 
-        for(Person c : CustomerManager.customers){
-            if(((Customer)c).getContact() == contact){
-				// System.out.println(((Customer)c).getMembership().getType()); 
-                // System.out.println(((Customer)c).getMembership().getDiscountPercent());  
-                dis = ((Customer)c).getMembership().getDiscountPercent(); 
-                return dis; 
-			}
+        for (Person c : CustomerManager.customers) {
+            if (((Customer) c).getContact() == contact) {
+                // System.out.println(((Customer)c).getMembership().getType());
+                // System.out.println(((Customer)c).getMembership().getDiscountPercent());
+                dis = ((Customer) c).getMembership().getDiscountPercent();
+                return dis;
+            }
         }
         return dis;
     }

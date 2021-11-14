@@ -18,6 +18,12 @@ import src.Entity.MenuItem;
 import src.Entity.OrderItem;
 import src.Entity.Person;
 
+/**
+ * Converts the CSV items into the Database
+ * @author Fabian Wong
+ * @version 1.0
+ * @since 13/11/2021
+ */
 public class Database {
 
 	// List to store all the existing employee of the restaurant from a given .csv
@@ -32,8 +38,9 @@ public class Database {
 
 	public static String restaurantName;
 
-	// Enum for easy access to the valid index for respective attributes from the
-	// csv
+	/**
+	 * Enum for easy access to the valid index for respective attributes from the csv
+	 */
 	static enum DesiredAttribute {
 		// Person Attributes
 		FIRSTNAME("FirstName", 0), 
@@ -63,22 +70,30 @@ public class Database {
 		// Index of the DesiredAttribute
 		private int index;
 
-		// Obtaining the name of the DesireAttribute
+		/**
+		 * Obtaining the name of the DesiredAttribute
+		 */
 		public String getName() {
 			return this.name;
 		}
 
-		// Obtaining the index of the DesireAttribute
+		/**
+		 * Obtaining the index of the DesiredAttribute
+		 */
 		public int getIndex() {
 			return this.index;
 		}
 
-		// Setting the index of the DesireAttribute
+		/**
+		 * Setting the index of the DesiredAttribute
+		 */
 		public void setIndex(int index) {
 			this.index = index;
 		}
 
-		// Setting the index of the DesireAttribute based of the name provided
+		/**
+		 * Setting the index of the DesireAttribute based of the name provided
+		 */
 		public static void setIndex(String name, int index) {
 			for (DesiredAttribute d : desired) {
 				if (name.contains(d.getName())) {
@@ -87,7 +102,9 @@ public class Database {
 			}
 		}
 
-		// Printing the desiredAttributes available
+		/**
+		 * Printing the desiredAttributes available
+		 */
 		public static void print() {
 
 			for (DesiredAttribute d : desired) {
@@ -95,7 +112,11 @@ public class Database {
 			}
 		}
 
-		// Constructor for the DesiredAttribute
+		/**
+		 * Constructor for the DesiredAttribute
+		 * @param name Name of the desired attribute.
+		 * @param index index of the DesiredAttribute
+		 */
 		DesiredAttribute(String name, int index) {
 			this.name = name;
 		}
@@ -111,6 +132,13 @@ public class Database {
 		
 	 }*/
 	 //TO BE REMOVED
+
+	//  /**
+	//   * Generates past orders from CSV file
+	//   * @param filepath The path to the CSV file
+	//   *	@param numOfDays Number of days to be accessed
+	//   *	@param maxOrder
+	//   */
 	public static void generatePastOrders(String filepath, int numOfDays, int maxOrder, int maxItem, int maxQuantity)
 	{
 		FileWriter writeFile = null;
@@ -188,7 +216,10 @@ public class Database {
 		
 	}
 
-	// Obtaining all the csv files in the folder path provided
+	/**
+	 * Obtains all the CSV files in the folder path provided.
+	 * @param folderPath The path to the folder containing the CSV files.
+	 */
 	public static void parseCSV(String folderPath) {
 		// Obtaining the folder using the path provided
 		File folder = new File(folderPath);
@@ -207,7 +238,11 @@ public class Database {
 		}
 	}
 
-	// Converting the data from the csv files into useable classes in Java via path
+	/**
+	 * Converting the data from the csv files into useable classes in Java via path
+	 * @param path The path of the csv file.
+	 * @param type The type of the csv file.
+	 */
 	public static void parseData(String path, String type) {
 
 		if (type.contains("Order"))
@@ -303,6 +338,17 @@ public class Database {
 		}
 
 	}
+
+	/**
+	 * Updates the revenue of the restaurant of particular day & month to the CSV
+	 * @param path The path of the csv file to be updated
+	 * @param orderID The orderID of the order.
+	 * @param orderItemName The name of the order item.
+	 * @param orderPrice The price of the order.
+	 * @param quantity The quantity of the order item.
+	 * @param day The day of the revenue update.
+	 * @param month The month of the revenue update.
+	 */
 	public static void updateRevenue(String path, int orderID, String orderItemName, double orderPrice, int quantity,  int day, int month)
 	{
 		FileWriter writeFile = null;
@@ -335,6 +381,12 @@ public class Database {
 		}
 	}
 	
+	/**
+	 * Computes the Revenue of particular date & month
+	 * @param path Path to the CSV file.
+	 * @param day The day to be computed.
+	 * @param month The month to be computed.
+	 */
 	public static double computeRevenue(String path, int day, int month)
 	{
 		//File path
@@ -438,7 +490,8 @@ public class Database {
 		return revenue;
 			
 	}
-	// Constructing the Customer for adding into the database
+	
+
 	public static Customer InitialiseCustomer(String[] row) {
 		// Obtaining the respective attributes using the DesiredAttribute for accuracy
 		String firstName = row[DesiredAttribute.FIRSTNAME.getIndex()];
