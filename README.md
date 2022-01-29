@@ -29,5 +29,7 @@ The following are information about the application:
 ---
 
 ## Sample Image
-The image below shows a screenshot of the running program for illustration purposes. <br/>
+The image below shows a screenshot of the running program for illustration purposes. 
+<br/>
+<br/>
 ![Sample Img](sample.JPG)
