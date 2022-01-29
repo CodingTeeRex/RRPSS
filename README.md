@@ -30,4 +30,5 @@ The following are information about the application:
 
 ## Sample Image
 The image below shows a screenshot of the running program for illustration purposes.
-<img src="sample.jpg" style="margin: 10px auto 20px; display: block;"/>
+![Sample Img](sample.JPG)
+<!-- <img src="sample.jpg" style="margin: 10px auto 20px; display: block;"/> -->
